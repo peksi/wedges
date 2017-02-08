@@ -6,8 +6,7 @@ export const REDUCE_REMOVE = 'REDUCE_REMOVE'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function reduce (value = 1) {
-  console.log('value')
+export function reduce (value) {
   return {
     type    : REDUCE_REMOVE,
     payload : value
@@ -22,13 +21,16 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [REDUCE_REMOVE]    : (state, action) => state + action.payload
+  [REDUCE_REMOVE]    : (state, action) => {
+    state.push(action.payload)
+    return state
+  }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = []
 export default function reduceReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
