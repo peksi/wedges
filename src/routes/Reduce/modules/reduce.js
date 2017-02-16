@@ -1,36 +1,45 @@
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const REDUCE_REMOVE = 'REDUCE_REMOVE'
+export const REMOVE_VALUE = 'REMOVE_VALUE'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function reduce (value) {
+export function removeValue (value) {
   return {
-    type    : REDUCE_REMOVE,
+    type    : REMOVE_VALUE,
     payload : value
   }
 }
 
 export const actions = {
-  reduce
+  removeValue
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
+
+// state.reduceCount
 const ACTION_HANDLERS = {
-  [REDUCE_REMOVE]    : (state, action) => {
-    state.push(action.payload)
-    return state
+  [REMOVE_VALUE]    : (state, action) => {
+    // state.reducedValues.push(action.payload)
+    // state.reduceCount = state.reduceCount + 1
+    return {
+      ...state,
+      reduceCount: state.reduceCount + 1,
+      reducedValues: [
+        ...state.reducedValues, action.payload
+      ]
+    }
   }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = []
+const initialState = { reduceCount: 0, reducedValues: [] }
 export default function reduceReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

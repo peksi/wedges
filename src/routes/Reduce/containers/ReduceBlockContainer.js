@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
-import { reduce } from '../modules/reduce'
+import { removeValue } from '../modules/reduce'
 
-import WedgeBlock from '../../../components/WedgeBlock'
+import ReduceBlock from '../components/ReduceBlock'
 
 const mapDispatchToProps = {
-  reduce
+  removeValue
 }
 
 const mapStateToProps = (state) => ({
   reduce : state.reduce
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(WedgeBlock)
+export default connect(mapStateToProps, mapDispatchToProps)(ReduceBlock)
