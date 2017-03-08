@@ -10,7 +10,8 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  reduce : state.reduce
+  reduce : state.reduce,
+  highlightedWedge: state.reduce.highlightedWedge
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReduceBlock)

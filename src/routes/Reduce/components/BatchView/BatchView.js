@@ -11,7 +11,6 @@ export default class BatchView extends React.Component {
     if (this.props.direction === 'return') {
       return (
         <div>
-          Count {this.props.reduce.reduceCount}
           <div className='row'>
             {this.props.reduce.reducedValues.map((item) => {
               return (
@@ -25,15 +24,22 @@ export default class BatchView extends React.Component {
       return (
         <div>
           <div className='row'>
+            <p>You need to remove { 8 - this.props.reduce.reduceCount } more.</p>
+
             {
               // Remove values that already appear on the removed list
               _.filter(
                 wedgesconfig.choices,
-                (value) => !_.includes(this.props.reduce.reducedValues, value)
+                (value) => !_.includes(this.props.reduce.reducedValues, value.name)
               // and map them
               ).map((item) => {
                 return (
-                  <ReduceBlockContainer key={item} name={item} direction={this.props.direction} />
+                  <ReduceBlockContainer
+                    key={item.name}
+                    name={item.name}
+                    description={item.description}
+                    direction={this.props.direction}
+                  />
                 )
               })}
           </div>
