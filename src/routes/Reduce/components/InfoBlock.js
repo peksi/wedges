@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
+import './InfoBlock.scss'
 
 export const InfoBlock = (props) => (
   <div
-    className='col-xs-12'
+    className='col-xs-12 infoblock'
   >
-    <p>{props.highlightedWedge}</p>
+    {props.description}
     <Button
       hidden={props.highlightedWedgeDirection === 'reduce' ? false : true}
+      bsStyle="danger"
       onClick={() => {
         props.removeValue(props.highlightedWedge)
         props.clearHighlight()
