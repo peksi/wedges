@@ -8,40 +8,47 @@ import ReduceBlockContainer from '../../containers/ReduceBlockContainer'
 
 export default class BatchView extends React.Component {
   render () {
-    if (this.props.direction === 'return') {
+    if (this.props.direction === 'reduce') {
+      // left column
+      console.log(this.props.direction)
       return (
         <div>
           <div className='row'>
-            {this.props.reduce.reducedValues.map((item) => {
+
+            {
+              // Remove values that already appear on the removed list
+              _.filter(
+                wedgesconfig.choices,
+                (value) => !_.includes(this.props.reduce.reducedValues, value.id)
+              // and map them
+            ).map((item, index) => {
               return (
-                <ReduceBlockContainer key={item} name={item} direction={this.props.direction} />
+                <ReduceBlockContainer
+                  id={item.id}
+                  key={item.id}
+                  description={item.description}
+                  direction={this.props.direction}
+                />
               )
             })}
           </div>
         </div>
       )
     } else {
+      // right column
       return (
         <div>
           <div className='row'>
-            <p>You need to remove { 8 - this.props.reduce.reduceCount } more.</p>
-
-            {
-              // Remove values that already appear on the removed list
-              _.filter(
-                wedgesconfig.choices,
-                (value) => !_.includes(this.props.reduce.reducedValues, value.name)
-              // and map them
-              ).map((item) => {
-                return (
-                  <ReduceBlockContainer
-                    key={item.name}
-                    name={item.name}
-                    description={item.description}
-                    direction={this.props.direction}
-                  />
-                )
-              })}
+            {this.props.reduce.reducedValues.map((item) => {
+              console.log(item)
+              return (
+                <ReduceBlockContainer
+                  id={item}
+                  key={item}
+                  direction={this.props.direction}
+                />
+              )
+            })}
           </div>
         </div>
       )

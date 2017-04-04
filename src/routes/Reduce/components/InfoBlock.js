@@ -5,41 +5,33 @@ import './InfoBlock.scss'
 
 export const InfoBlock = (props) => (
   <div
-    className='col-xs-12 infoblock'
+    className='infoblock'
   >
-    {props.description}
     <Button
-      hidden={props.highlightedWedgeDirection === 'reduce' ? false : true}
+      hidden={props.direction === 'reduce' ? false : true}
       bsStyle="danger"
       onClick={() => {
-        props.removeValue(props.highlightedWedge)
+        console.log(props.currentwedge)
+        props.removeValue(props.currentwedge)
         props.clearHighlight()
       }}
     >
-      Remove from the list
+      Add
     </Button>
     <Button
-      hidden={props.highlightedWedgeDirection === 'return' ? false : true}
+      hidden={props.direction === 'return' ? false : true}
       onClick={() => {
-        props.restoreValue(props.highlightedWedge)
+        props.restoreValue(props.currentwedge)
         props.clearHighlight()
       }}
     >
-      Add back to list
-    </Button>
-    <Button
-      hidden={props.highlightedWedgeDirection.length === 0}
-      onClick={() => {
-        props.clearHighlight()
-      }}
-    >
-      Close
+      Remove
     </Button>
   </div>
 )
 
 InfoBlock.propTypes = {
-  highlightedWedge: React.PropTypes.string,
+  highlightedWedge: React.PropTypes.number,
   removeValue: React.PropTypes.func,
   restoreValue: React.PropTypes.func,
   clearHighlight: React.PropTypes.func,

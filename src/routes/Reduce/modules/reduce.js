@@ -36,7 +36,7 @@ export function clearHighlight () {
   console.log('clearHighlight');
   return {
     type: CLEAR_HIGHLIGHT,
-    wedge: '',
+    wedge: -1,
     direction: ''
   }
 }
@@ -91,7 +91,7 @@ const ACTION_HANDLERS = {
 const initialState = {
   reduceCount: 0,
   reducedValues: [],
-  highlightedWedge: '',
+  highlightedWedge: -1,
   highlightedWedgeDirection: ''
 }
 export default function reduceReducer (state = initialState, action) {
