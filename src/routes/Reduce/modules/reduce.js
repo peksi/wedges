@@ -32,8 +32,6 @@ export function highlightWedge (value, direction) {
 }
 
 export function clearHighlight () {
-
-  console.log('clearHighlight');
   return {
     type: CLEAR_HIGHLIGHT,
     wedge: -1,
@@ -75,8 +73,6 @@ const ACTION_HANDLERS = {
     }
   },
   [CLEAR_HIGHLIGHT] : (state, action) => {
-    console.log(action.wedge)
-    console.log(action.direction)
     return {
       ...state,
       highlightedWedge: action.wedge,

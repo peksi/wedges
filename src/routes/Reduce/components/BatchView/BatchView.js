@@ -38,7 +38,6 @@ export default class BatchView extends React.Component {
         <div>
           <div className='row'>
             {this.props.reduce.reducedValues.map((item) => {
-              console.log(item)
               return (
                 <ReduceBlockContainer
                   id={item}

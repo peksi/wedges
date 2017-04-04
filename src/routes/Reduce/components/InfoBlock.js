@@ -11,7 +11,6 @@ export const InfoBlock = (props) => (
       hidden={props.direction === 'reduce' ? false : true}
       bsStyle="danger"
       onClick={() => {
-        console.log(props.currentwedge)
         props.removeValue(props.currentwedge)
         props.clearHighlight()
       }}
