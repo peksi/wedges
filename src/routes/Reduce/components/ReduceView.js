@@ -2,6 +2,7 @@ import React from 'react'
 import BatchViewContainer from './BatchView'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router'
+import wedgesconfig from '../../../../config/wedges.config.js'
 
 export const ReduceView = (props) => (
   <div className='row'>
@@ -17,7 +18,7 @@ export const ReduceView = (props) => (
       </div> : ''}
   {(props.reduceCount < 8) ? <div className='description text-center' style={{fontSize: 22 + 'px'}}>Please add {8 - props.reduceCount} strategies to your basket.</div> : ''}
     <div className='col-sm-6'>
-      <h3>{props.reduceCount} Strategies available</h3>
+      <h3>{wedgesconfig.choices.length - props.reduceCount} Strategies available</h3>
       <BatchViewContainer direction={'reduce'} />
     </div>
     <div className='col-sm-6'>

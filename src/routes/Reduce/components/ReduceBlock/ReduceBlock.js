@@ -9,7 +9,6 @@ export const ReduceBlock = (props) => (
   <div
     className='wedgeblock col-xs-12'
     onClick={() => {
-      console.log('randomhighlight')
       // if (props.name !== props.highlightedWedge) {
       //   props.highlightWedge(props.index, props.direction)
       // }
