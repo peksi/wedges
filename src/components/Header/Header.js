@@ -16,6 +16,11 @@ export const Header = () => (
     <Link to='/reduce' activeClassName='route--active'>
       Reduce
     </Link>
+    {' · '}
+    <Link to='/middlepage' activeClassName='route--active'>
+      MiddlePage
+    </Link>
+
   </div>
 )
 

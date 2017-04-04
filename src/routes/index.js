@@ -4,6 +4,7 @@ import Home from './Home'
 import Form from './Form'
 import CounterRoute from './Counter'
 import Reduce from './Reduce'
+import MiddlePage from './MiddlePage'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -14,6 +15,7 @@ export const createRoutes = (store) => ({
   indexRoute  : Home,
   childRoutes : [
     Form,
+    MiddlePage,
     CounterRoute(store),
     Reduce(store)
   ]
