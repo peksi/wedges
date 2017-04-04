@@ -20,6 +20,10 @@ export const Header = () => (
     <Link to='/middlepage' activeClassName='route--active'>
       MiddlePage
     </Link>
+    {' · '}
+    <Link to='/add' activeClassName='route--active'>
+      Add
+    </Link>
 
   </div>
 )
