@@ -10,11 +10,9 @@ export default class BatchView extends React.Component {
   render () {
     if (this.props.direction === 'reduce') {
       // left column
-      console.log(this.props.direction)
       return (
         <div>
           <div className='row'>
-
             {
               // Remove values that already appear on the removed list
               _.filter(
