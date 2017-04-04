@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { Button } from 'react-bootstrap'
+
 // import './HomeView.scss'
 
 export const FormView = () => (
@@ -7,7 +9,7 @@ export const FormView = () => (
     <h4>Welcome!</h4>
     <p>This is the form.</p>
     <Link to='/reduce' activeClassName='route--active'>
-      <button>Continue</button>
+      <Button>Continue</Button>
     </Link>
   </div>
 )
