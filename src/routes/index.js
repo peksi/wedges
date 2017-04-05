@@ -2,8 +2,8 @@
 import CoreLayout from '../layouts/CoreLayout'
 import Home from './Home'
 import Form from './Form'
-import CounterRoute from './Counter'
 import Reduce from './Reduce'
+import Add from './Add'
 import MiddlePage from './MiddlePage'
 
 /*  Note: Instead of using JSX, we recommend using react-router
@@ -16,8 +16,8 @@ export const createRoutes = (store) => ({
   childRoutes : [
     Form,
     MiddlePage,
-    CounterRoute(store),
-    Reduce(store)
+    Reduce(store),
+    Add(store)
   ]
 })
 
