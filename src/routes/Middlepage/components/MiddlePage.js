@@ -6,7 +6,7 @@ export const MiddlePage = () => (
   <div className='formview'>
     <h4>Welcome!</h4>
     <p>This is the middlepage.</p>
-    <Link to='/reduce' activeClassName='route--active'>
+    <Link to='/add' activeClassName='route--active'>
       <Button> Continue </Button>
     </Link>
   </div>
