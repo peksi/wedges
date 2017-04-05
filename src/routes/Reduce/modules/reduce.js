@@ -1,10 +1,10 @@
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const REMOVE_WEDGE = 'REMOVE_WEDGE'
-export const RESTORE_WEDGE = 'RESTORE_WEDGE'
-export const HIGHLIGHT_WEDGE = 'HIGHLIGHT_WEDGE'
-export const CLEAR_HIGHLIGHT = 'CLEAR_HIGHLIGHT'
+export const REMOVE_WEDGE = 'wedges/reduce/REMOVE_WEDGE'
+export const RESTORE_WEDGE = 'wedges/reduce/RESTORE_WEDGE'
+export const HIGHLIGHT_WEDGE = 'wedges/reduce/HIGHLIGHT_WEDGE'
+export const CLEAR_HIGHLIGHT = 'wedges/reduce/CLEAR_HIGHLIGHT'
 
 // ------------------------------------
 // Actions
