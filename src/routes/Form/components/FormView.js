@@ -5,7 +5,11 @@ import { Field, reduxForm } from 'redux-form'
 const FormView = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={{
+      'width': 30 + '%',
+      'display': 'block',
+      'margin': 'auto'
+    }} onSubmit={handleSubmit}>
       <div>
         <label>Nationality</label>
         <div>
@@ -77,7 +81,6 @@ const FormView = (props) => {
       </div>
       <div>
         <button className='btn' type='submit' disabled={pristine || submitting}>Submit</button>
-        <button className='btn' type='button' disabled={pristine || submitting} onClick={reset}>Clear Values</button>
       </div>
     </form>
   )
