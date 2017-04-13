@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 export const MiddlePage = () => (
   <div className='formview'>
     <h4>Welcome!</h4>
-    <p>This is the middlepage.</p>
+    <p>We are still concidering the same task with different procedure.</p>
     <Link to='/add' activeClassName='route--active'>
       <Button> Continue </Button>
     </Link>

@@ -10,8 +10,9 @@ export const ReduceView = (props) => (
   {(props.reduceCount > 8) ? <div className='description text-center' style={{fontSize: 22 + 'px'}}>Please remove {props.reduceCount - 8} strategies from your basket.</div> : ''}
   {(props.reduceCount == 8)
     ? <div className='description text-center' style={{fontSize: 22 + 'px'}}>
-        You now have the required number of strategies in your basket. Please revise your solutions.
-        <br /> Press confirm when you are finished.
+        You now have the required number of strategies in your basket.
+        Please do an overall evaluation of your basket.
+        You can still make changes. <br /> When you are happy with your basket, press confirm.
         <Link to='/middlepage'>
           <Button> Confirm </Button>
         </Link>
