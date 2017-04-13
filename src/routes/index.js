@@ -5,6 +5,7 @@ import Form from './Form'
 import Reduce from './Reduce'
 import Add from './Add'
 import MiddlePage from './MiddlePage'
+import ThankYou from './ThankYou'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -17,7 +18,8 @@ export const createRoutes = (store) => ({
     Form,
     MiddlePage,
     Reduce(store),
-    Add(store)
+    Add(store),
+    ThankYou
   ]
 })
 

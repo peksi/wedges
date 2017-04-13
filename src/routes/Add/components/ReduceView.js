@@ -12,7 +12,7 @@ export const ReduceView = (props) => (
     ? <div className='description text-center' style={{fontSize: 22 + 'px'}}>
         You now have the required number of strategies in your basket. Please revise your solutions.
         <br /> Press confirm when you are finished.
-        <Link to='/middlepage'>
+        <Link to='/thankyou'>
           <Button> Confirm </Button>
         </Link>
       </div> : ''}
