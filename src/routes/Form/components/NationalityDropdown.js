@@ -1,8 +1,9 @@
 import React from 'react'
+import { Field } from 'redux-form'
 
 export const MiddlePage = () => (
   <div className='nationality-dropdown'>
-    <select name='nationality'>
+    <Field name='nationality' component='select' className='form-control'>
       <option value=''>-- select one --</option>
       <option value='afghan'>Afghan</option>
       <option value='albanian'>Albanian</option>
@@ -196,7 +197,7 @@ export const MiddlePage = () => (
       <option value='yemenite'>Yemenite</option>
       <option value='zambian'>Zambian</option>
       <option value='zimbabwean'>Zimbabwean</option>
-    </select>
+    </Field>
   </div>
 )
 
