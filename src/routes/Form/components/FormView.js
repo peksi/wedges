@@ -1,15 +1,25 @@
 import React from 'react'
 import NationalityDropdown from './NationalityDropdown.js'
 import { Field, reduxForm } from 'redux-form'
+import { IndexLink, Link } from 'react-router'
+import { browserHistory } from 'react-router'
 
 const FormView = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form style={{
-      'width': 30 + '%',
-      'display': 'block',
-      'margin': 'auto'
-    }} onSubmit={handleSubmit}>
+    <form
+      style={{
+        'width': 30 + '%',
+        'display': 'block',
+        'margin': 'auto'
+      }}
+      onSubmit={handleSubmit((values) => {
+        console.log(values)
+        // TODO alter which site the user goes
+        browserHistory.push('/reduce')
+      })}
+    >
+
       <div>
         <label>Nationality</label>
         <div>
@@ -80,7 +90,8 @@ const FormView = (props) => {
         </div>
       </div>
       <div>
-        <button className='btn' type='submit' disabled={pristine || submitting}>Submit</button>
+      <button className='btn' style={{'float':'right'}} type='submit' disabled={pristine || submitting}>Submit</button>
+
       </div>
     </form>
   )
