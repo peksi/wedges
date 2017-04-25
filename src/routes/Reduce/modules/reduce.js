@@ -85,8 +85,9 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = {
-  reduceCount: 0,
-  reducedValues: [],
+  reduceCount: 15,
+  // these are here for start
+  reducedValues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
   highlightedWedge: -1,
   highlightedWedgeDirection: ''
 }
