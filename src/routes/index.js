@@ -19,7 +19,7 @@ export const createRoutes = (store) => ({
     MiddlePage,
     Reduce(store),
     Add(store),
-    ThankYou
+    ThankYou(store)
   ]
 })
 
