@@ -1,11 +1,29 @@
 import React from 'react'
 import NationalityDropdown from './NationalityDropdown.js'
 import { Field, reduxForm } from 'redux-form'
-import { IndexLink, Link } from 'react-router'
-import { browserHistory } from 'react-router'
+import { IndexLink, Link, browserHistory } from 'react-router'
+
+let readyToSubmit = false
+
+const validate = values => {
+  const errors = {}
+  if (!values.nationality) {
+    errors.nationality = 'Required'
+  }
+  if (!values.age) {
+    errors.age = 'Required'
+  }
+  if (!values.sex) {
+    errors.sex = 'Required'
+  }
+  if (!values.occupation) {
+    errors.occupation = 'Required'
+  }
+  return errors
+}
 
 const FormView = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props
+  const { handleSubmit, pristine, reset, submitting, valid } = props
   return (
     <form
       style={{
@@ -90,13 +108,13 @@ const FormView = (props) => {
         </div>
       </div>
       <div>
-      <button className='btn' style={{'float':'right'}} type='submit' disabled={pristine || submitting}>Submit</button>
-
+      <button className='btn' style={{'float':'right'}} type='submit' disabled={!valid}> Submit</button>
       </div>
     </form>
   )
 }
 
 export default reduxForm({
-  form: 'prerequisite'  // a unique identifier for this form
+  form: 'prerequisite',
+  validate
 })(FormView)
