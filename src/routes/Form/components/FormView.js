@@ -27,7 +27,7 @@ const FormView = (props) => {
   return (
     <form
       style={{
-        'width': 30 + '%',
+        'width': 50 + '%',
         'display': 'block',
         'margin': 'auto'
       }}
@@ -37,7 +37,6 @@ const FormView = (props) => {
         browserHistory.push('/reduce')
       })}
     >
-
       <div>
         <label>Nationality</label>
         <div>
@@ -107,9 +106,22 @@ const FormView = (props) => {
           <label><Field name='occupation' component='input' type='radio' value='other' />Other</label>
         </div>
       </div>
-      <div>
-      <button className='btn' style={{'float':'right'}} type='submit' disabled={!valid}> Submit</button>
+
+      <div >
+        <label>Group id</label>
+        <Field
+          className='form-control'
+          name='groupId'
+          component='input'
+          type='text'
+        />
+        <p>Please enter group id if you are provided with one</p>
       </div>
+
+      <div>
+        <button className='btn' style={{ 'float':'right' }} type='submit' disabled={!valid}> Submit</button>
+      </div>
+
     </form>
   )
 }

@@ -5,6 +5,7 @@ export const REMOVE_WEDGE = 'wedges/reduce/REMOVE_WEDGE'
 export const RESTORE_WEDGE = 'wedges/reduce/RESTORE_WEDGE'
 export const HIGHLIGHT_WEDGE = 'wedges/reduce/HIGHLIGHT_WEDGE'
 export const CLEAR_HIGHLIGHT = 'wedges/reduce/CLEAR_HIGHLIGHT'
+export const SHOW_BASKET = 'wedges/reduce/SHOW_BASKET'
 
 // ------------------------------------
 // Actions
@@ -39,8 +40,18 @@ export function clearHighlight () {
   }
 }
 
+export function showBasket () {
+  return {
+    type: SHOW_BASKET
+  }
+}
+
 export const actions = {
-  removeValue, restoreValue, highlightWedge, clearHighlight
+  removeValue,
+  restoreValue,
+  highlightWedge,
+  clearHighlight,
+  showBasket
 }
 
 // ------------------------------------
@@ -78,6 +89,12 @@ const ACTION_HANDLERS = {
       highlightedWedge: action.wedge,
       highlightedWedgeDirection: action.direction
     }
+  },
+  [SHOW_BASKET] : (state, action) => {
+    return {
+      ...state,
+      basketHidden: false
+    }
   }
 }
 
@@ -85,6 +102,7 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = {
+  basketHidden: true,
   reduceCount: 15,
   // these are here for start
   reducedValues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
