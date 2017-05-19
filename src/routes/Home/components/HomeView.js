@@ -6,19 +6,22 @@ import ppt1 from '../assets/ppt1.png'
 import ppt2 from '../assets/ppt2.png'
 import ppt3 from '../assets/ppt3.png'
 
-
-export const HomeView = () => (
+export const HomeView = (props) => (
   <div className='homeview'>
     <div className='page1'>
       <h4>Welcome to CarbCut</h4>
-      <p style={{'text-align':'center'}}>We are interested in how you would tackle the Climate Problem with existing stabilization technologies</p>
-      <p style={{'text-align':'center'}}>This decision process will take about 20 minutes</p>
-      <img src={ppt1} style={{'margin': 'auto', 'display':'block'}} />
+      <p>
+        We are interested in how you would tackle the Climate Problem with existing stabilization technologies
+      </p>
+      <p>
+        This decision process will take about 20 minutes
+      </p>
+      <img src={ppt1} style={{ 'margin': 'auto', 'display':'block' }} />
       <p className='reference'>This website is based on the “Stabilization Wedges” concept first presented in <br />
         "Stabilization Wedges: Solving the Climate Problem for the next 50 Years with Current Technologies," <br />
         S. Pacala and R. Socolow, Science, August 13, 2004. <br />
         We acknowledge the Carbon Mitigation Initiative, Princeton University</p>
-      <Button className='next-button'>Next</Button>
+      <Button className='next-button' onClick={() => { props.goForward() }}>Next</Button>
     </div>
     <div className='page2'>
       <img src={ppt2} />
@@ -45,4 +48,18 @@ export const HomeView = () => (
   </div>
 )
 
-export default HomeView
+import { connect } from 'react-redux'
+import { goForward } from '../modules/home'
+
+const mapDispatchToProps = {
+  goForward
+}
+
+const mapStateToProps = (state) => ({
+})
+
+HomeView.propTypes = {
+  goForward: React.PropTypes.func.isRequired
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView)
