@@ -6,7 +6,7 @@ import wedgesconfig from '../../../../config/wedges.config.js'
 
 export const AddView = (props) => (
   <div className='row'>
-    <div className='description text-center' >Decision task: Create a basket of 8 strategies based on your preferences. <br />
+    <div className='description text-center needs-padding' >Decision task: Create a basket of 8 strategies based on your preferences. <br />
     The starting point is that you have no strategies in the basket.
   </div>
 
