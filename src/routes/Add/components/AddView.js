@@ -26,7 +26,7 @@ export const AddView = (props) => (
       There are {8 - props.addCount} strategies missing from your basket.</div> : ''}
     <div className='col-sm-6'>
       <h3>Strategies available</h3>
-      <p>Use the add button to return a strategy into the basket</p>
+      <p>Use the add button to select a strategy into the basket</p>
       <BatchViewContainer direction={'reduce'} />
     </div>
     <div className='col-sm-6'>
