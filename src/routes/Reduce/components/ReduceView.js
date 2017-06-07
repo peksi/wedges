@@ -59,10 +59,10 @@ const mapStateToProps = (state) => ({
   reduceCount : state.reduce.reduceCount
 })
 
+export default connect(mapStateToProps, mapDispatchToProps)(ReduceView)
+
 ReduceView.propTypes = {
   basketHidden: React.PropTypes.bool.isRequired,
   reduceCount: React.PropTypes.number.isRequired,
   showBasket: React.PropTypes.func.isRequired
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(ReduceView)

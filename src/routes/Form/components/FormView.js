@@ -34,7 +34,7 @@ const FormView = (props) => {
       onSubmit={handleSubmit((values) => {
         console.log(values)
         // TODO alter which site the user goes
-        browserHistory.push('/reduce')
+        browserHistory.push('/')
       })}
     >
       <div>
