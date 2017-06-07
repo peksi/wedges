@@ -15,7 +15,7 @@ export const ReduceView = (props) => (
     {props.basketHidden
       ? <Button onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
        : ''}
-    {(!props.basketHidden &&props.reduceCount > 8)
+    {(!props.basketHidden && props.reduceCount > 8)
       ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
           There are {props.reduceCount - 8} extra strategies in your basket.
       </div> : ''}

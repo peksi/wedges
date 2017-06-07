@@ -9,13 +9,13 @@ export const ADD_BETTER = 'wedges/thankyou/ADD_BETTER'
 // ------------------------------------
 export function addBetter () {
   return {
-    type    : ADD_BETTER,
+    type    : ADD_BETTER
   }
 }
 
 export function reduceBetter () {
   return {
-    type    : REDUCE_BETTER,
+    type    : REDUCE_BETTER
   }
 }
 

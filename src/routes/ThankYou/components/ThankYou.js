@@ -7,15 +7,13 @@ const ThankYou = (props) => (
     <p>You created these two baskets.</p>
     <p>Use buttons to indicate your preference</p>
     <div className='row'>
-    <div className='col-sm-4 text-center'>
-    </div>
-    <div className='col-sm-4 text-center'>
-      <Button>
+      <div className='col-sm-4 text-center' />
+      <div className='col-sm-4 text-center'>
+        <Button>
         Both are equally good
       </Button>
-    </div>
-    <div className='col-sm-4 text-center'>
-    </div>
+      </div>
+      <div className='col-sm-4 text-center' />
     </div>
     <div className='row'>
       <div className='col-sm-6 text-center'>

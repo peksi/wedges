@@ -46,38 +46,38 @@ const FormView = (props) => {
 
       <div>
         <label>Age</label>
-        <div className="radio">
-          <label><Field name='age' component='input' type='radio' value='under18'/> under 18</label>
+        <div className='radio'>
+          <label><Field name='age' component='input' type='radio' value='under18' /> under 18</label>
         </div>
-        <div className="radio">
-          <label><Field name='age' component='input' type='radio' value='18-24'/> 18 - 24</label>
+        <div className='radio'>
+          <label><Field name='age' component='input' type='radio' value='18-24' /> 18 - 24</label>
         </div>
-        <div className="radio">
-          <label><Field name='age' component='input' type='radio' value='25-34'/> 25 - 34</label>
+        <div className='radio'>
+          <label><Field name='age' component='input' type='radio' value='25-34' /> 25 - 34</label>
         </div>
-        <div className="radio">
-          <label><Field name='age' component='input' type='radio' value='35-44'/> 35 - 44</label>
+        <div className='radio'>
+          <label><Field name='age' component='input' type='radio' value='35-44' /> 35 - 44</label>
         </div>
-        <div className="radio">
-          <label><Field name='age' component='input' type='radio' value='45-54'/> 45 - 54</label>
+        <div className='radio'>
+          <label><Field name='age' component='input' type='radio' value='45-54' /> 45 - 54</label>
         </div>
-        <div className="radio">
-          <label><Field name='age' component='input' type='radio' value='55-64'/> 55 - 64</label>
+        <div className='radio'>
+          <label><Field name='age' component='input' type='radio' value='55-64' /> 55 - 64</label>
         </div>
-        <div className="radio">
-          <label><Field name='age' component='input' type='radio' value='over64'/> over 64</label>
+        <div className='radio'>
+          <label><Field name='age' component='input' type='radio' value='over64' /> over 64</label>
         </div>
       </div>
       <div>
         <label>Sex</label>
         <div className='radio'>
-          <label><Field name='sex' component='input' type='radio' value='male'/> Male</label>
+          <label><Field name='sex' component='input' type='radio' value='male' /> Male</label>
         </div>
         <div className='radio'>
-          <label><Field name='sex' component='input' type='radio' value='female'/> Female</label>
+          <label><Field name='sex' component='input' type='radio' value='female' /> Female</label>
         </div>
         <div className='radio'>
-          <label><Field name='sex' component='input' type='radio' value='other'/> Other</label>
+          <label><Field name='sex' component='input' type='radio' value='other' /> Other</label>
         </div>
       </div>
       <div>

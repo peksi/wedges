@@ -21,19 +21,19 @@ export const AddView = (props) => (
           <Link to='/thankyou'>
             <Button> Confirm </Button>
           </Link>
-        </div> : ''}
+      </div> : ''}
     {(props.addCount < 8) ? <div className='description text-center' >
       There are {8 - props.addCount} strategies missing from your basket.</div> : ''}
-      <div className='col-sm-6'>
-        <h3>Strategies available</h3>
-        <p>Use the add button to return a strategy into the basket</p>
-        <BatchViewContainer direction={'reduce'} />
-      </div>
-      <div className='col-sm-6'>
-        <h3>Basket</h3>
-        <p>Use the remove button to remove a strategy from the basket</p>
-        <BatchViewContainer direction={'return'} />
-      </div>
+    <div className='col-sm-6'>
+      <h3>Strategies available</h3>
+      <p>Use the add button to return a strategy into the basket</p>
+      <BatchViewContainer direction={'reduce'} />
+    </div>
+    <div className='col-sm-6'>
+      <h3>Basket</h3>
+      <p>Use the remove button to remove a strategy from the basket</p>
+      <BatchViewContainer direction={'return'} />
+    </div>
   </div>
 )
 

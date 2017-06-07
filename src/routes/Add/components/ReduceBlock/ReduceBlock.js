@@ -13,17 +13,17 @@ export const ReduceBlock = (props) => (
       //   props.highlightWedge(props.index, props.direction)
       // }
     }}>
+    <div>
       <div>
-        <div>
-          <InfoBlock
-            style={{ float: 'left'}}
-            description={props.description}
-            direction={props.direction}
-            currentwedge={props.id}
+        <InfoBlock
+          style={{ float: 'left' }}
+          description={props.description}
+          direction={props.direction}
+          currentwedge={props.id}
           />
-          {<img src={require('./img/action' + (props.id) + '.png')} />}
-        </div>
+        {<img src={require('./img/action' + (props.id) + '.png')} />}
       </div>
+    </div>
   </div>
 )
 
