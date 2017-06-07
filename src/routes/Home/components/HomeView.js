@@ -10,19 +10,21 @@ export const HomeView = (props) => (
   <div className='homeview'>
     {props.page === 0
       ? <div className='page1' style={{ 'display': (props.page === 0) ? 'hidden' : 'visible' }}>
-        <h1>Welcome to CarbCut</h1>
+        <h1>CarbCut</h1>
         <p>
-          We are interested in how you would tackle the Climate Problem with existing stabilization technologies
+          Welkome to make decisions on carbon mitigation strategies.
         </p>
         <p>
           This decision process will take about 20 minutes
         </p>
         <img src={ppt1} style={{ 'margin': 'auto', 'display':'block' }} />
-        <p className='reference'>This website is based on the “Stabilization Wedges” concept first presented in <br />
-          "Stabilization Wedges: Solving the Climate Problem for the next 50 Years with Current Technologies," <br />
-          S. Pacala and R. Socolow, Science, August 13, 2004. <br />
-          We acknowledge the <a href='https://cmi.princeton.edu/'>Carbon Mitigation Initiative</a>,
-          Princeton University
+        <p className='reference'>
+          Background material used with the permission of the
+          <a href='https://cmi.princeton.edu/'>Carbon Mitigation Initiative</a> Princeton University
+        </p>
+        <p className='reference'>
+          This is a research project in the Systems Analysis Laboratory,
+          Aalto University. Principal Investigator Raimo P. Hämäläinen
         </p>
         <Button className='next-button' onClick={() => { props.goForward() }}>Next</Button>
       </div>
