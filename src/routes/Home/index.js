@@ -8,7 +8,7 @@ export default (store) => ({
       const HomeView = require('./components/HomeView').default
       const reducer = require('./modules/home').default
 
-      injectReducer(store, { key: 'reduce', reducer })
+      injectReducer(store, { key: 'home', reducer })
 
       cb(null, HomeView)
     }, 'reduce')

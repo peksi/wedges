@@ -72,7 +72,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  page: state.reduce.page
+  page: state.home.page
 })
 
 HomeView.propTypes = {
