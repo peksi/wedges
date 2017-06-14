@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
+import './ThankYou.scss'
 
 const ThankYou = (props) => (
   <div className='formview text-center'>
@@ -21,7 +22,13 @@ const ThankYou = (props) => (
           I prefer this basket
         </Button>
         <h3 className='text-center'>Basket 1</h3>
-        {props.reduce}
+        {props.reduce.map((x) => {
+          return (
+            <div>
+              <img src={require('./img/action' + (x) + '.png')} />
+            </div>
+          )
+        })}
       </div>
       <div className='col-sm-6 text-center'>
         <Button>
@@ -29,7 +36,14 @@ const ThankYou = (props) => (
         </Button>
 
         <h3 className='text-center'>Basket 2</h3>
-        {props.add}
+        {props.add.map((x) => {
+          return (
+            <div>
+              <img src={require('./img/action' + (x) + '.png')} />
+            </div>
+          )
+        })}
+
       </div>
 
     </div>
@@ -37,8 +51,8 @@ const ThankYou = (props) => (
 )
 
 ThankYou.propTypes = {
-  add: React.PropTypes.string,
-  reduce: React.PropTypes.string
+  add: React.PropTypes.array,
+  reduce: React.PropTypes.array
 }
 
 // const mapDispatchToProps = {
