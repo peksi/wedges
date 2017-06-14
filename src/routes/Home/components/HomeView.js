@@ -5,11 +5,25 @@ import { Button } from 'react-bootstrap'
 import ppt1 from '../assets/ppt1.png'
 import ppt2 from '../assets/ppt2.png'
 import ppt3 from '../assets/ppt3.png'
+import dia1 from '../assets/carbcut/Dia01.jpg'
+import dia2 from '../assets/carbcut/Dia02.jpg'
+import dia3 from '../assets/carbcut/Dia03.jpg'
+import dia4 from '../assets/carbcut/Dia04.jpg'
+import dia5 from '../assets/carbcut/Dia05.jpg'
+import dia6 from '../assets/carbcut/Dia06.jpg'
+import dia7 from '../assets/carbcut/Dia07.jpg'
+import dia8 from '../assets/carbcut/Dia08.jpg'
+import dia9 from '../assets/carbcut/Dia09.jpg'
 
-export const HomeView = (props) => (
+export class HomeView extends React.Component {
+  render () {
+    const dia = [dia1, dia2, dia3, dia4, dia5, dia6, dia7, dia8, dia9]
+    const currentDia = dia[this.props.page - 1]
+
+    return (
   <div className='homeview'>
-    {props.page === 0
-      ? <div className='page1' style={{ 'display': (props.page === 0) ? 'hidden' : 'visible' }}>
+    {this.props.page === 0
+      ? <div className='page1' style={{ 'display': (this.props.page === 0) ? 'hidden' : 'visible' }}>
         <h1>CarbCut</h1>
         <p>
           Welkome to make decisions on carbon mitigation strategies.
@@ -26,36 +40,21 @@ export const HomeView = (props) => (
           This is a research project in the Systems Analysis Laboratory,
           Aalto University. Principal Investigator Raimo P. Hämäläinen
         </p>
-        <Button className='next-button' onClick={() => { props.goForward() }}>Next</Button>
+        <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
       </div>
       : ''}
-    {props.page === 1
-      ? <div className='page2'>
-        <img src={ppt2} />
-        <Button className='prev-button' onClick={() => { props.goBack() }}>Previous</Button>
-        <Button className='next-button' onClick={() => { props.goForward() }}>Next</Button>
-      </div>
-      : ''}
-    {props.page === 2
-      ? <div className='page3'>
-        <img src={ppt3} />
-        <Button className='prev-button' onClick={() => { props.goBack() }}>Previous</Button>
-        <Button className='next-button' onClick={() => { props.goForward() }}>Next</Button>
+    {this.props.page > 0 && this.props.page < 9 // image slides
+      ? <div className='diapage'>
+        <img src={currentDia} />
+        <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
+        <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
       </div>
       : ''
     }
-    {props.page === 3
+    {this.props.page === 9 // lastpage
       ? <div className='page4'>
-        <h3>When creating your basket</h3>
-        <p>You will see descriptions of the possible strategies with cost estimates and challenges</p>
-        <p>Consider different perspectives when deciding</p>
-        <ul>
-          <li>Environmental</li>
-          <li>Economic</li>
-          <li>Social</li>
-          <li>Political</li>
-        </ul>
-        <Button className='prev-button' onClick={() => { props.goBack() }}>Previous</Button>
+        <img src={currentDia} />
+        <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
         <Link to='/reduce' className='next-button'>
           <Button>Next</Button>
         </Link>
@@ -63,7 +62,10 @@ export const HomeView = (props) => (
       : ''
     }
   </div>
-)
+
+    )
+  }
+}
 
 import { connect } from 'react-redux'
 import { goForward, goBack } from '../modules/home'
