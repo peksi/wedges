@@ -23,6 +23,7 @@ export const ReduceBlock = (props) => (
 ReduceBlock.propTypes = {
   id: React.PropTypes.number.isRequired,
   direction: React.PropTypes.string.isRequired,
+  description: React.PropTypes.string
 }
 
 export default ReduceBlock

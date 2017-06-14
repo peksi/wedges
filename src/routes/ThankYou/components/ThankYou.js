@@ -36,6 +36,11 @@ const ThankYou = (props) => (
   </div>
 )
 
+ThankYou.propTypes = {
+  add: React.PropTypes.string,
+  reduce: React.PropTypes.string
+}
+
 // const mapDispatchToProps = {
 //   // TODO: preferred value
 // }

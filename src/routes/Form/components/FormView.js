@@ -1,9 +1,7 @@
 import React from 'react'
 import NationalityDropdown from './NationalityDropdown.js'
 import { Field, reduxForm } from 'redux-form'
-import { IndexLink, Link, browserHistory } from 'react-router'
-
-let readyToSubmit = false
+import { browserHistory } from 'react-router'
 
 const validate = values => {
   const errors = {}
@@ -125,6 +123,8 @@ const FormView = (props) => {
     </form>
   )
 }
+
+
 
 export default reduxForm({
   form: 'prerequisite',

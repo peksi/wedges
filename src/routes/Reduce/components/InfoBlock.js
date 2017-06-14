@@ -30,11 +30,11 @@ export const InfoBlock = (props) => (
 )
 
 InfoBlock.propTypes = {
-  highlightedWedge: React.PropTypes.number,
   removeValue: React.PropTypes.func,
   restoreValue: React.PropTypes.func,
   clearHighlight: React.PropTypes.func,
-  highlightedWedgeDirection: React.PropTypes.string
+  currentwedge: React.PropTypes.string,
+  direction: React.PropTypes.string
 }
 
 // Container

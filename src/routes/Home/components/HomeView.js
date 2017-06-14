@@ -3,8 +3,8 @@ import { Link } from 'react-router'
 import './HomeView.scss'
 import { Button } from 'react-bootstrap'
 import ppt1 from '../assets/ppt1.png'
-import ppt2 from '../assets/ppt2.png'
-import ppt3 from '../assets/ppt3.png'
+// import ppt2 from '../assets/ppt2.png'
+// import ppt3 from '../assets/ppt3.png'
 import dia1 from '../assets/carbcut/Dia01.jpg'
 import dia2 from '../assets/carbcut/Dia02.jpg'
 import dia3 from '../assets/carbcut/Dia03.jpg'
@@ -21,8 +21,8 @@ export class HomeView extends React.Component {
     const currentDia = dia[this.props.page - 1]
 
     return (
-  <div className='homeview'>
-    {this.props.page === 0
+      <div className='homeview'>
+        {this.props.page === 0
       ? <div className='page1' style={{ 'display': (this.props.page === 0) ? 'hidden' : 'visible' }}>
         <h1>CarbCut</h1>
         <p>
@@ -43,7 +43,7 @@ export class HomeView extends React.Component {
         <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
       </div>
       : ''}
-    {this.props.page > 0 && this.props.page < 9 // image slides
+        {this.props.page > 0 && this.props.page < 9 // image slides
       ? <div className='diapage'>
         <img src={currentDia} />
         <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
@@ -51,7 +51,7 @@ export class HomeView extends React.Component {
       </div>
       : ''
     }
-    {this.props.page === 9 // lastpage
+        {this.props.page === 9 // lastpage
       ? <div className='page4'>
         <img src={currentDia} />
         <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
@@ -61,7 +61,7 @@ export class HomeView extends React.Component {
       </div>
       : ''
     }
-  </div>
+      </div>
 
     )
   }

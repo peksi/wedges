@@ -30,10 +30,7 @@ export const ReduceBlock = (props) => (
 ReduceBlock.propTypes = {
   id: React.PropTypes.number.isRequired,
   direction: React.PropTypes.string.isRequired,
-  highlightedWedge: React.PropTypes.number.isRequired,
-  removeValue: React.PropTypes.func,
-  restoreValue: React.PropTypes.func,
-  highlightWedge: React.PropTypes.func
+  description: React.PropTypes.string
 }
 
 export default ReduceBlock

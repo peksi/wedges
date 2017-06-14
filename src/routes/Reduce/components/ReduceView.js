@@ -19,7 +19,7 @@ export const ReduceView = (props) => (
       ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
           There are {props.reduceCount - 8} extra strategies in your basket.
       </div> : ''}
-    {(props.reduceCount == 8)
+    {(props.reduceCount === 8)
       ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
           You now have the required number of strategies in your basket.
           You can still make changes. <br /> If you are happy with your basket, press confirm.

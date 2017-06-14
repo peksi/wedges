@@ -23,7 +23,8 @@ module.exports = {
     {
       id: 5,
       name: 'CSS Electricity',
-      description: '90% of CO2 from fossil fuel power plants captured, then stored underground (800 large coal plants or 1600 natural gas plants)'
+      description: '90% of CO2 from fossil fuel power plants captured, ' +
+      'then stored underground (800 large coal plants or 1600 natural gas plants)'
     },
     {
       id: 6,
