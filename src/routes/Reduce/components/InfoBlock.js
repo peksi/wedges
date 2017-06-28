@@ -9,7 +9,7 @@ export const InfoBlock = (props) => (
   >
     <Button
       hidden={props.direction !== 'reduce'}
-      bsStyle='danger'
+      bsStyle='primary'
       onClick={() => {
         props.removeValue(props.currentwedge)
         props.clearHighlight()
@@ -19,6 +19,7 @@ export const InfoBlock = (props) => (
     </Button>
     <Button
       hidden={props.direction !== 'return'}
+      bsStyle='primary'
       onClick={() => {
         props.restoreValue(props.currentwedge)
         props.clearHighlight()
