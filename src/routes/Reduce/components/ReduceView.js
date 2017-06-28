@@ -32,14 +32,14 @@ export const ReduceView = (props) => (
       </div> : ''}
     <div className='col-sm-6'>
       <h3>Removed strategies</h3>
-      <p>Use the add button to return a strategy into the basket</p>
+      <p>Press the add button to return a strategy into the basket</p>
       {props.basketHidden ? ''
       : <BatchViewContainer direction={'reduce'} />
       }
     </div>
     <div className='col-sm-6'>
       <h3>Basket</h3>
-      <p>Use the remove button to remove a strategy from the basket</p>
+      <p>Press the remove button to remove a strategy from the basket</p>
       {props.basketHidden ? ''
       : <BatchViewContainer direction={'return'} />
       }
