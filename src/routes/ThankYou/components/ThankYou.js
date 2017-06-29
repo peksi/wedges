@@ -24,7 +24,7 @@ const ThankYou = (props) => (
         <h3 className='text-center'>Basket 1</h3>
         {props.reduce.map((x) => {
           return (
-            <div>
+            <div key={x}>
               <img src={require('./img/action' + (x) + '.png')} />
             </div>
           )
@@ -38,7 +38,7 @@ const ThankYou = (props) => (
         <h3 className='text-center'>Basket 2</h3>
         {props.add.map((x) => {
           return (
-            <div>
+            <div key={x}>
               <img src={require('./img/action' + (x) + '.png')} />
             </div>
           )

@@ -10,18 +10,19 @@ export const ReduceView = (props) => (
   <div className='row'>
     {props.basketHidden
       ? <div className='helpbox'>
-        <p>Your decision task:
-          <ul>
-            <li>
-              Create a basket of 8 strategies based on your preferences.
-            </li>
-            <li>
-              Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
-            </li>
-          </ul>
+        <p>Your decision task:</p>
+        <ul>
+          <li>
+            Create a basket of 8 strategies based on your preferences.
+          </li>
+          <li>
+            Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
+          </li>
+        </ul>
+        <p>
           In this task the <b>starting point</b> is that you have <b>too many strategies</b> in your basket.
         </p>
-        <Button className='confirmHelp' onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
+        <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Next </Button>
       </div>
        : ''}
     {(!props.basketHidden && props.reduceCount > 8)
@@ -33,7 +34,7 @@ export const ReduceView = (props) => (
           You now have the required number of strategies in your basket.
           You can still make changes. <br /> If you are happy with your basket, press confirm.
           <Link to='/middlepage'>
-            <Button style={{float: 'right'}} bsStyle='default'> Confirm </Button>
+            <Button style={{ float: 'right' }} bsStyle='default'> Confirm </Button>
           </Link>
       </div> : ''}
     {(props.reduceCount < 8) ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>

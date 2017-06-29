@@ -11,7 +11,6 @@ export const SHOW_BASKET = 'wedges/add/SHOW_BASKET'
 // Actions
 // ------------------------------------
 export function removeValue (value) {
-  console.log('yes')
   return {
     type    : REMOVE_WEDGE,
     payload : value
@@ -19,7 +18,6 @@ export function removeValue (value) {
 }
 
 export function addValue (value) {
-  console.log('wat')
   return {
     type    : ADD_WEDGE,
     payload : value
