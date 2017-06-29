@@ -5,12 +5,6 @@ import { Link } from 'react-router'
 
 export const AddView = (props) => (
   <div className='row'>
-    <div className='description text-center needs-padding' >
-      Decision task: Create a basket of 8 strategies based on your preferences.
-      <br />
-    The starting point is that you have no strategies in the basket.
-  </div>
-
     {(props.addCount > 8)
       ? <div className='description text-center'>
           There are {props.addCount - 8} extra strategies in your basket.
@@ -24,7 +18,7 @@ export const AddView = (props) => (
           </Link>
       </div> : ''}
     {(props.addCount < 8) ? <div className='description text-center' >
-      There are {8 - props.addCount} strategies missing from your basket.</div> : ''}
+      You have {props.addCount} strategies in your basket. Please add {8 - props.addCount}.</div> : ''}
     <div className='col-sm-6'>
       <h3>Strategies available</h3>
       <p>Press the add button to select a strategy into the basket</p>

@@ -8,16 +8,12 @@ import './ReduceView.scss'
 
 export const ReduceView = (props) => (
   <div className='row'>
-    <div className='description text-center needs-padding' style={{ fontSize: 22 + 'px' }}>
-      Decision task: Create a basket of 8 strategies based on your preferences. <br />
-      The starting point is that you have too many strategies in the basket. <br />
-    </div>
     {props.basketHidden
       ? <Button onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
        : ''}
     {(!props.basketHidden && props.reduceCount > 8)
       ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
-          There are {props.reduceCount - 8} extra strategies in your basket.
+          You have {props.reduceCount} strategies in your basket. Please remove {props.reduceCount - 8}.
       </div> : ''}
     {(props.reduceCount === 8)
       ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
