@@ -24,17 +24,16 @@ export class HomeView extends React.Component {
       <div className='homeview'>
         {this.props.page === 0
       ? <div className='page1' style={{ 'display': (this.props.page === 0) ? 'hidden' : 'visible' }}>
-        <h1>CarbCut</h1>
-        <p>
-          Welkome to make decisions on carbon mitigation strategies.
-        </p>
-        <p>
+        <h1 className='text-center'>CarbCut</h1>
+        <p className='text-center'>
+          Welkome to make decisions on carbon mitigation strategies. <br />
           This decision process will take about 20 minutes
         </p>
         <img src={ppt1} style={{ 'margin': 'auto', 'display':'block' }} />
+        <br />
         <p className='reference'>
-          Background material used with the permission of the
-          <a href='https://cmi.princeton.edu/'>Carbon Mitigation Initiative</a> Princeton University
+          Background material used with the permission of
+          the <a href='https://cmi.princeton.edu/'>Carbon Mitigation Initiative</a> Princeton University
         </p>
         <p className='reference'>
           This is a research project in the Systems Analysis Laboratory,
