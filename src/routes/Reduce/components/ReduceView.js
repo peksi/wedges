@@ -21,7 +21,7 @@ export const ReduceView = (props) => (
           </ul>
           In this task the <b>starting point</b> is that you have <b>too many strategies</b> in your basket.
         </p>
-        <Button onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
+        <Button className='confirmHelp' onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
       </div>
        : ''}
     {(!props.basketHidden && props.reduceCount > 8)

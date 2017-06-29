@@ -2,9 +2,27 @@ import React from 'react'
 import BatchViewContainer from './BatchView'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router'
+import './AddView.scss'
 
 export const AddView = (props) => (
   <div className='row'>
+    {props.basketHidden
+      ? <div className='helpbox'>
+        <p>Your decision task:
+          <ul>
+            <li>
+              Create a basket of 8 strategies based on your preferences.
+            </li>
+            <li>
+              Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
+            </li>
+          </ul>
+          In this task the <b>starting point</b> is that you have <b>no strategies</b> in your basket.
+        </p>
+        <Button className='confirmHelp' onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
+      </div>
+      : ''
+    }
     {(props.addCount > 8)
       ? <div className='description text-center'>
           There are {props.addCount - 8} extra strategies in your basket.
@@ -33,13 +51,21 @@ export const AddView = (props) => (
 )
 
 AddView.propTypes = {
-  addCount: React.PropTypes.number
+  addCount: React.PropTypes.number,
+  basketHidden: React.PropTypes.bool,
+  showBasket: React.PropTypes.func.isRequired
 }
 
 import { connect } from 'react-redux'
+import { showBasket } from '../modules/add'
+
+const mapDispatchToProps = {
+  showBasket
+}
 
 const mapStateToProps = (state) => ({
-  addCount : state.add.addCount
+  addCount : state.add.addCount,
+  basketHidden: state.add.basketHidden
 })
 
-export default connect(mapStateToProps)(AddView)
+export default connect(mapStateToProps, mapDispatchToProps)(AddView)
