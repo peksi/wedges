@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
 import './ThankYou.scss'
+import { browserHistory } from 'react-router'
 
 const ThankYou = (props) => (
   <div className='formview text-center'>
@@ -10,7 +11,10 @@ const ThankYou = (props) => (
     <div className='row'>
       <div className='col-sm-4 text-center' />
       <div className='col-sm-4 text-center'>
-        <Button onClick={() => props.equal()}>
+        <Button onClick={() => {
+          props.equal()
+          browserHistory.push('/form')
+        }}>
         Both are equally good
       </Button>
       </div>
@@ -18,7 +22,10 @@ const ThankYou = (props) => (
     </div>
     <div className='row'>
       <div className='col-sm-6 text-center'>
-        <Button onClick={() => props.reduceBetter()}>
+        <Button onClick={() => {
+          props.reduceBetter()
+          browserHistory.push('/form')
+        }}>
           I prefer this basket
         </Button>
         <h3 className='text-center'>Basket 1</h3>
@@ -31,7 +38,12 @@ const ThankYou = (props) => (
         })}
       </div>
       <div className='col-sm-6 text-center'>
-        <Button onClick={() => props.addBetter()}>
+        <Button onClick={
+          () => {
+            props.addBetter()
+            browserHistory.push('/form')
+          }
+        }>
           I prefer this basket
         </Button>
 
