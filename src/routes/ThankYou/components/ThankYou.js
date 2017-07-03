@@ -10,7 +10,7 @@ const ThankYou = (props) => (
     <div className='row'>
       <div className='col-sm-4 text-center' />
       <div className='col-sm-4 text-center'>
-        <Button>
+        <Button onClick={() => props.equal()}>
         Both are equally good
       </Button>
       </div>
@@ -18,7 +18,7 @@ const ThankYou = (props) => (
     </div>
     <div className='row'>
       <div className='col-sm-6 text-center'>
-        <Button>
+        <Button onClick={() => props.reduceBetter()}>
           I prefer this basket
         </Button>
         <h3 className='text-center'>Basket 1</h3>
@@ -31,7 +31,7 @@ const ThankYou = (props) => (
         })}
       </div>
       <div className='col-sm-6 text-center'>
-        <Button>
+        <Button onClick={() => props.addBetter()}>
           I prefer this basket
         </Button>
 
@@ -50,18 +50,23 @@ const ThankYou = (props) => (
   </div>
 )
 
+import { addBetter, reduceBetter, equal } from '../modules/thankyou'
+
 ThankYou.propTypes = {
   add: React.PropTypes.array,
-  reduce: React.PropTypes.array
+  reduce: React.PropTypes.array,
+  addBetter: React.PropTypes.func,
+  reduceBetter: React.PropTypes.func,
+  equal: React.PropTypes.func
 }
 
-// const mapDispatchToProps = {
-//   // TODO: preferred value
-// }
+const mapDispatchToProps = {
+  addBetter, reduceBetter, equal
+}
 
 const mapStateToProps = (state) => ({
   reduce : state.reduce.reducedValues,
   add: state.add.addedValues
 })
 
-export default connect(mapStateToProps)(ThankYou)
+export default connect(mapStateToProps, mapDispatchToProps)(ThankYou)

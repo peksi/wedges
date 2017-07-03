@@ -3,6 +3,7 @@
 // ------------------------------------
 export const REDUCE_BETTER = 'wedges/thankyou/REDUCE_BETTER'
 export const ADD_BETTER = 'wedges/thankyou/ADD_BETTER'
+export const EQUAL = 'wedges/thankyou/EQUAL'
 
 // ------------------------------------
 // Actions
@@ -19,8 +20,14 @@ export function reduceBetter () {
   }
 }
 
+export function equal () {
+  return {
+    type    : EQUAL
+  }
+}
+
 export const actions = {
-  addBetter, reduceBetter
+  addBetter, reduceBetter, equal
 }
 
 // ------------------------------------
@@ -40,7 +47,14 @@ const ACTION_HANDLERS = {
       ...state,
       better: 'reduce'
     }
+  },
+  [EQUAL]   : (state, action) => {
+    return {
+      ...state,
+      better: 'equal'
+    }
   }
+
 }
 
 // ------------------------------------
