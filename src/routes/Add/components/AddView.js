@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 import './AddView.scss'
 
 export const AddView = (props) => {
-  const componentClasses = ['helpbox']
+  const componentClasses = ['helpbox', 'infobox']
   if (!props.basketHidden) { componentClasses.push('hide-helpbox') }
 
   return (

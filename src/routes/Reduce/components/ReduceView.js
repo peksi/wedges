@@ -7,7 +7,7 @@ import './ReduceView.scss'
 // import wedgesconfig from '../../../../config/wedges.config.js'
 
 export const ReduceView = (props) => {
-  const componentClasses = ['helpbox']
+  const componentClasses = ['helpbox', 'infobox']
   // adding classes is used for animation
   if (!props.basketHidden) { componentClasses.push('hide-helpbox') }
 

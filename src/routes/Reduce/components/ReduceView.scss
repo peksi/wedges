@@ -1,6 +1,5 @@
 .helpbox {
   width:50%;
-  height: 300px;
   padding: 1em;
   background-color: #eeb;
   margin: auto;
@@ -9,6 +8,10 @@
   box-sizing: border-box;
   transition: height 500ms 0ms, opacity 500ms 500ms;
 
+}
+
+.infobox {
+  height: 300px;
 }
 
 .basket {
