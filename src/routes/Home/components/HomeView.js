@@ -29,15 +29,16 @@ export class HomeView extends React.Component {
           Welcome to make decisions on carbon mitigation strategies. <br />
           This decision process will take about 20 minutes.
         </p>
-        <img src={ppt1} style={{ 'margin': 'auto', 'display':'block' }} />
+        <img src={ppt1} style={{ 'margin': 'auto', 'display':'block', 'width':'50%' }} />
         <br />
         <p className='reference'>
           Background material used with the permission of
-          the <a href='https://cmi.princeton.edu/'>Carbon Mitigation Initiative</a> Princeton University
+          the <a href='https://cmi.princeton.edu/'>Carbon Mitigation Initiative</a> Princeton University.
         </p>
         <p className='reference'>
           This is a research project in the Systems Analysis Laboratory,
-          Aalto University. Principal Investigator Raimo P. Hämäläinen
+          Aalto University. Principal Investigator
+          <a href='http://sal.aalto.fi/en/personnel/raimo.hamalainen/'> Raimo P. Hämäläinen</a>
         </p>
         <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
       </div>
