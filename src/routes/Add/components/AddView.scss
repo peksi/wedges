@@ -16,7 +16,12 @@
 .helpbox.hide-helpbox{
   opacity: 0.0;
   height: 0px;
-  transition: height 1000ms 500ms, opacity 500ms 0ms;
+  padding: 0;
+  transition: height 500ms 0ms, padding 500ms 0ms, opacity 500ms 0ms;
+
+  p, li, button { // tweak for clickable buttons in next helpbox
+    display: none;
+  }
 }
 
 .basket {
