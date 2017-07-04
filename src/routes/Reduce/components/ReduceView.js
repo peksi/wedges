@@ -8,6 +8,7 @@ import './ReduceView.scss'
 
 export const ReduceView = (props) => {
   const componentClasses = ['helpbox']
+  // adding classes is used for animation
   if (!props.basketHidden) { componentClasses.push('hide-helpbox') }
 
   return (
