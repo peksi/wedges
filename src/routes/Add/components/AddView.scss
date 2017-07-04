@@ -1,8 +1,19 @@
 .helpbox {
   width:50%;
+  height: 300px;
   padding: 1em;
   background-color: #eeb;
   margin: auto;
+  opacity: 1;
+  visibility: visible;
+  box-sizing: border-box;
+  transition: height 500ms 0ms, opacity 500ms 500ms;
+}
+
+.helpbox.hide-helpbox{
+  opacity: 0.0;
+  height: 0px;
+  transition: height 1000ms 500ms, opacity 500ms 0ms;
 }
 
 .basket {

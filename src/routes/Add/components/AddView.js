@@ -4,10 +4,13 @@ import { Button } from 'react-bootstrap'
 import { Link } from 'react-router'
 import './AddView.scss'
 
-export const AddView = (props) => (
-  <div className='row'>
-    {props.basketHidden
-      ? <div className='helpbox'>
+export const AddView = (props) => {
+  const componentClasses = ['helpbox']
+  if (!props.basketHidden) { componentClasses.push('hide-helpbox') }
+
+  return (
+    <div className='row'>
+      <div className={ componentClasses.join(' ') }>
         <p>Your decision task:</p>
         <ul>
           <li>
@@ -22,34 +25,37 @@ export const AddView = (props) => (
         </p>
         <Button className='confirmHelp' onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
       </div>
-      : ''
-    }
-    {(props.addCount > 8)
-      ? <div className='description text-center'>
-          There are {props.addCount - 8} extra strategies in your basket.
+      {(props.addCount > 8)
+        ? <div className='description text-center'>
+            There are {props.addCount - 8} extra strategies in your basket.
+          </div> : ''}
+      {(props.addCount === 8)
+        ? <div className='description text-center helpbox'>
+        You now have the required number of strategies in your basket.
+        You can still make changes. <br /> If you are happy with your basket, press confirm.
+            <Link to='/thankyou'>
+              <Button> Confirm </Button>
+            </Link>
         </div> : ''}
-    {(props.addCount === 8)
-      ? <div className='description text-center helpbox'>
-      You now have the required number of strategies in your basket.
-      You can still make changes. <br /> If you are happy with your basket, press confirm.
-          <Link to='/thankyou'>
-            <Button> Confirm </Button>
-          </Link>
-      </div> : ''}
-    {(props.addCount < 8) ? <div className='description text-center' >
-      You have {props.addCount} strategies in your basket. Please add {8 - props.addCount}.</div> : ''}
-    <div className='col-sm-6'>
-      <h3>Strategies available</h3>
-      <p>Press the add button to select a strategy into the basket</p>
-      <BatchViewContainer direction={'reduce'} />
+      {(props.addCount < 8) ? <div className='description text-center' >
+        You have {props.addCount} strategies in your basket. Please add {8 - props.addCount}.</div> : ''}
+      <div className='col-sm-6'>
+        <h3>Strategies available</h3>
+        <p>Press the add button to select a strategy into the basket</p>
+        {props.basketHidden ? ''
+        : <BatchViewContainer direction={'reduce'} />
+        }
+      </div>
+      <div className='col-sm-6'>
+        <h3>Basket</h3>
+        <p>Press the remove button to remove a strategy from the basket</p>
+        {props.basketHidden ? ''
+        : <BatchViewContainer direction={'return'} />
+        }
+      </div>
     </div>
-    <div className='col-sm-6'>
-      <h3>Basket</h3>
-      <p>Press the remove button to remove a strategy from the basket</p>
-      <BatchViewContainer direction={'return'} />
-    </div>
-  </div>
-)
+  )
+}
 
 AddView.propTypes = {
   addCount: React.PropTypes.number,
