@@ -21,7 +21,7 @@ const validate = values => {
 }
 
 const FormView = (props) => {
-  const { handleSubmit, pristine, reset, submitting, valid } = props
+  const { handleSubmit, valid } = props
   return (
     <form
       style={{
@@ -82,23 +82,57 @@ const FormView = (props) => {
         <label>Profession / study area / occupation</label>
 
         <div className='radio'>
-          <label><Field name='occupation' component='input' type='radio' value='agricultural' /> Agricultural & Forestry</label>
+          <label>
+            <Field
+              name='occupation'
+              component='input'
+              type='radio'
+              value='agricultural' />
+                Agricultural & Forestry
+            </label>
         </div>
 
         <div className='radio'>
-          <label><Field name='occupation' component='input' type='radio' value='business&commerce' /> Business & Commerce</label>
+          <label>
+            <Field
+              name='occupation'
+              component='input'
+              type='radio'
+              value='business&commerce' />
+                Business & Commerce
+          </label>
         </div>
         <div className='radio'>
           <label><Field name='occupation' component='input' type='radio' value='cultural&arts' />Cultural & Arts</label>
         </div>
         <div className='radio'>
-          <label><Field name='occupation' component='input' type='radio' value='engineering' />Engineering & Science</label>
+          <label>
+            <Field
+              name='occupation'
+              component='input'
+              type='radio'
+              value='engineering' />
+                Engineering & Science
+            </label>
         </div>
         <div className='radio'>
-          <label><Field name='occupation' component='input' type='radio' value='environmental' />Environmental</label>
+          <label>
+            <Field
+              name='occupation'
+              component='input'
+              type='radio'
+              value='environmental' />
+                Environmental
+            </label>
         </div>
         <div className='radio'>
-          <label><Field name='occupation' component='input' type='radio' value='social' />Social</label>
+          <label><Field
+            name='occupation'
+            component='input'
+            type='radio'
+            value='social' />
+              Social
+          </label>
         </div>
         <div className='radio'>
           <label><Field name='occupation' component='input' type='radio' value='other' />Other</label>
@@ -124,7 +158,10 @@ const FormView = (props) => {
   )
 }
 
-
+FormView.propTypes = {
+  handleSubmit: React.PropTypes.func,
+  valid: React.PropTypes.func
+}
 
 export default reduxForm({
   form: 'prerequisite',
