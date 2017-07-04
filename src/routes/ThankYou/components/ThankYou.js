@@ -11,10 +11,12 @@ const ThankYou = (props) => (
     <div className='row'>
       <div className='col-sm-4 text-center' />
       <div className='col-sm-4 text-center'>
-        <Button onClick={() => {
-          props.equal()
-          browserHistory.push('/form')
-        }}>
+        <Button
+          className='btn-lg btn-primary'
+          onClick={() => {
+            props.equal()
+            browserHistory.push('/form')
+          }}>
         Both are equally good
       </Button>
       </div>
@@ -22,10 +24,12 @@ const ThankYou = (props) => (
     </div>
     <div className='row'>
       <div className='col-sm-6 text-center'>
-        <Button onClick={() => {
-          props.reduceBetter()
-          browserHistory.push('/form')
-        }}>
+        <Button
+          className='btn-lg btn-primary'
+          onClick={() => {
+            props.reduceBetter()
+            browserHistory.push('/form')
+          }}>
           I prefer this basket
         </Button>
         <h3 className='text-center'>Basket 1</h3>
@@ -38,7 +42,9 @@ const ThankYou = (props) => (
         })}
       </div>
       <div className='col-sm-6 text-center'>
-        <Button onClick={
+        <Button
+          className='btn-lg btn-primary'
+          onClick={
           () => {
             props.addBetter()
             browserHistory.push('/form')
