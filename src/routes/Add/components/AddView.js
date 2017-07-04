@@ -10,7 +10,7 @@ export const AddView = (props) => {
 
   return (
     <div className='row'>
-      <div className={ componentClasses.join(' ') }>
+      <div className={componentClasses.join(' ')}>
         <p>Your decision task:</p>
         <ul>
           <li>
