@@ -2,6 +2,7 @@ import React from 'react'
 import NationalityDropdown from './NationalityDropdown.js'
 import { Field, reduxForm } from 'redux-form'
 import { browserHistory } from 'react-router'
+import './FormView.scss'
 
 const validate = values => {
   const errors = {}
@@ -24,6 +25,7 @@ const FormView = (props) => {
   const { handleSubmit, valid } = props
   return (
     <form
+      className='surveyForm'
       style={{
         'width': 50 + '%',
         'display': 'block',
@@ -35,13 +37,43 @@ const FormView = (props) => {
         browserHistory.push('/')
       })}
     >
+
       <div>
-        <label>Nationality</label>
-        <div>
-          <NationalityDropdown />
+        <label>Highest degree obtained</label>
+        <div className='radio'>
+          <label>
+            <Field name='degree' component='input' type='radio' value='high_school' />
+              High School
+            </label>
+        </div>
+        <div className='radio'>
+          <label><Field name='degree' component='input' type='radio' value='university' />
+            University Student (not graduated)
+          </label>
+        </div>
+        <div className='radio'>
+          <label><Field name='degree' component='input' type='radio' value='occupational' />
+            Occupational degree
+          </label>
+        </div>
+        <div className='radio'>
+          <label><Field name='degree' component='input' type='radio' value='bachelor' /> Bachelor </label>
+        </div>
+        <div className='radio'>
+          <label><Field name='degree' component='input' type='radio' value='master' /> Master </label>
+        </div>
+        <div className='radio'>
+          <label><Field name='degree' component='input' type='radio' value='doctoral' /> Doctoral degree </label>
+        </div>
+        <div className='radio'>
+          <label><Field name='degree' component='input' type='radio' value='no degree' /> No degree </label>
+        </div>
+        <div className='radio'>
+          <label><Field name='degree' component='input' type='radio' value='no answer' /> Other / No answer </label>
         </div>
       </div>
-
+{
+  /*
       <div>
         <label>Age</label>
         <div className='radio'>
@@ -66,21 +98,11 @@ const FormView = (props) => {
           <label><Field name='age' component='input' type='radio' value='over64' /> over 64</label>
         </div>
       </div>
-      <div>
-        <label>Sex</label>
-        <div className='radio'>
-          <label><Field name='sex' component='input' type='radio' value='male' /> Male</label>
-        </div>
-        <div className='radio'>
-          <label><Field name='sex' component='input' type='radio' value='female' /> Female</label>
-        </div>
-        <div className='radio'>
-          <label><Field name='sex' component='input' type='radio' value='other' /> Other</label>
-        </div>
-      </div>
-      <div>
-        <label>Profession / study area / occupation</label>
+*/
+}
 
+      <div>
+        <label>Field of studies / profession</label>
         <div className='radio'>
           <label>
             <Field
@@ -88,7 +110,7 @@ const FormView = (props) => {
               component='input'
               type='radio'
               value='agricultural' />
-                Agricultural & Forestry
+                Agricultural, Forestry
             </label>
         </div>
 
@@ -98,12 +120,23 @@ const FormView = (props) => {
               name='occupation'
               component='input'
               type='radio'
-              value='business&commerce' />
-                Business & Commerce
+              value='business&economics' />
+                Business, Economics
           </label>
         </div>
         <div className='radio'>
-          <label><Field name='occupation' component='input' type='radio' value='cultural&arts' />Cultural & Arts</label>
+          <label><Field name='occupation' component='input' type='radio' value='culture&arts' />
+            Culture, Arts
+          </label>
+        </div>
+        <div className='radio'>
+          <label><Field
+            name='occupation'
+            component='input'
+            type='radio'
+            value='education' />
+              Education, Health, Medical
+          </label>
         </div>
         <div className='radio'>
           <label>
@@ -112,7 +145,7 @@ const FormView = (props) => {
               component='input'
               type='radio'
               value='engineering' />
-                Engineering & Science
+                Engineering, Science
             </label>
         </div>
         <div className='radio'>
@@ -131,11 +164,34 @@ const FormView = (props) => {
             component='input'
             type='radio'
             value='social' />
-              Social
+              Public Administration, Social
           </label>
         </div>
         <div className='radio'>
           <label><Field name='occupation' component='input' type='radio' value='other' />Other</label>
+        </div>
+        <div className='radio'>
+          <label><Field name='occupation' component='input' type='radio' value='no_answer' />No answer</label>
+        </div>
+      </div>
+
+      <div>
+        <label>Your country</label>
+        <div>
+          <NationalityDropdown />
+        </div>
+      </div>
+
+      <div>
+        <label>Sex</label>
+        <div className='radio'>
+          <label><Field name='sex' component='input' type='radio' value='male' /> Male</label>
+        </div>
+        <div className='radio'>
+          <label><Field name='sex' component='input' type='radio' value='female' /> Female</label>
+        </div>
+        <div className='radio'>
+          <label><Field name='sex' component='input' type='radio' value='other' /> Other / No answer</label>
         </div>
       </div>
 
