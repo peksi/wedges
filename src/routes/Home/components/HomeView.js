@@ -24,10 +24,12 @@ export class HomeView extends React.Component {
       <div className='homeview'>
         {this.props.page === 0
       ? <div className='page1' style={{ 'display': (this.props.page === 0) ? 'hidden' : 'visible' }}>
-        <h1 className='text-center'>CarbCut</h1>
+        <h1 className='text-center'>Welcome to CarbCut</h1>
         <p className='text-center'>
-          Welcome to make decisions on carbon mitigation strategies. <br />
-          This decision process will take about 20 minutes.
+          You are participating in our research in people’s decion making styles.
+          In this task you will learn and make decision about carbon mitigation strategies.
+          Your data will remain anonymous and will be used in our academic research only.
+          Duration: about 20 minutes.
         </p>
         <img src={ppt1} style={{ 'margin': 'auto', 'display':'block', 'width':'50%' }} />
         <br />
@@ -38,16 +40,21 @@ export class HomeView extends React.Component {
         <p className='reference'>
           This is a research project in the Systems Analysis Laboratory,
           Aalto University. Principal Investigator
-          <a href='http://sal.aalto.fi/en/personnel/raimo.hamalainen/'> Raimo P. Hämäläinen</a>
+          <a href='http://sal.aalto.fi/en/personnel/raimo.hamalainen/'> Professor Raimo P. Hämäläinen</a>
         </p>
-        <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
+        <Button className='next-button btn-primary btn-lg' onClick={() => { this.props.goForward() }}>Next</Button>
       </div>
       : ''}
         {this.props.page > 0 && this.props.page < 9 // image slides
       ? <div className='diapage'>
-        <img src={currentDia} />
         <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
         <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
+        {this.props.page === 4
+          ? <p> Please have a look at the descriptions.
+              You do not need to remember the details.
+              They will also be seen later when you will make your choices.
+          </p> : ''}
+        <img src={currentDia} />
       </div>
       : ''
     }
