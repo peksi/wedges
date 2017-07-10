@@ -61,6 +61,8 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = {
+  // first determines which basket is coming first on the preferred basket survey
+  first: (Math.floor(Math.random() * 2) === 0) ? 'add' : 'reduce',
   better: ''
 }
 export default function reduceReducer (state = initialState, action) {
