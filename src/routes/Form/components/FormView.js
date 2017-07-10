@@ -25,7 +25,7 @@ const FormView = (props) => {
   const { handleSubmit, valid } = props
   return (
     <div>
-      <p className='helpbox' style={{ 'margin-bottom':'2em' }}>
+      <p className='helpbox' style={{ 'marginBottom':'2em' }}>
         Thank you for your participation. As a part of the survey, we´d like to ask you some background information.
       </p>
       <form
@@ -221,7 +221,7 @@ const FormView = (props) => {
 
 FormView.propTypes = {
   handleSubmit: React.PropTypes.func,
-  valid: React.PropTypes.func
+  valid: React.PropTypes.bool
 }
 
 export default reduxForm({

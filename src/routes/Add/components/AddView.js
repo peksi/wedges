@@ -55,7 +55,7 @@ export const AddView = (props) => {
           {props.basketHidden ? ''
           : <div><BatchViewContainer direction={'return'} />
             {props.addCount === 0
-              ? <p style={{ padding: '4em', 'text-align': 'center' }}>
+              ? <p style={{ padding: '4em', 'textAlign': 'center' }}>
                 Your basket is empty
               </p> : ''}
           </div>

@@ -34,7 +34,7 @@ InfoBlock.propTypes = {
   removeValue: React.PropTypes.func,
   restoreValue: React.PropTypes.func,
   clearHighlight: React.PropTypes.func,
-  currentwedge: React.PropTypes.string,
+  currentwedge: React.PropTypes.number,
   direction: React.PropTypes.string
 }
 
