@@ -5,15 +5,15 @@ import { Button } from 'react-bootstrap'
 import ppt1 from '../assets/ppt1.png'
 // import ppt2 from '../assets/ppt2.png'
 // import ppt3 from '../assets/ppt3.png'
-import dia1 from '../assets/carbcut/Dia01.jpg'
-import dia2 from '../assets/carbcut/Dia02.jpg'
-import dia3 from '../assets/carbcut/Dia03.jpg'
-import dia4 from '../assets/carbcut/Dia04.jpg'
-import dia5 from '../assets/carbcut/Dia05.jpg'
-import dia6 from '../assets/carbcut/Dia06.jpg'
-import dia7 from '../assets/carbcut/Dia07.jpg'
-import dia8 from '../assets/carbcut/Dia08.jpg'
-import dia9 from '../assets/carbcut/Dia09.jpg'
+import dia1 from '../assets/carbcut/Dia1.jpg'
+import dia2 from '../assets/carbcut/Dia2.jpg'
+import dia3 from '../assets/carbcut/Dia3.jpg'
+import dia4 from '../assets/carbcut/Dia4.jpg'
+import dia5 from '../assets/carbcut/Dia5.jpg'
+import dia6 from '../assets/carbcut/Dia6.jpg'
+import dia7 from '../assets/carbcut/Dia7.jpg'
+import dia8 from '../assets/carbcut/Dia8.jpg'
+import dia9 from '../assets/carbcut/Dia9.jpg'
 
 export class HomeView extends React.Component {
   render () {
@@ -31,6 +31,13 @@ export class HomeView extends React.Component {
           Your data will remain anonymous and will be used in our academic research only.
           Duration: about 20 minutes.
         </p>
+        <Button
+          className='btn-primary btn-lg'
+          style={{ display: 'block', 'margin':'3em auto' }}
+          onClick={() => { this.props.goForward() }}
+        >
+            Next
+        </Button>
         <img src={ppt1} style={{ 'margin': 'auto', 'display':'block', 'width':'50%' }} />
         <br />
         <p className='reference'>
@@ -42,7 +49,6 @@ export class HomeView extends React.Component {
           Aalto University. Principal Investigator
           <a href='http://sal.aalto.fi/en/personnel/raimo.hamalainen/'> Professor Raimo P. Hämäläinen</a>
         </p>
-        <Button className='next-button btn-primary btn-lg' onClick={() => { this.props.goForward() }}>Next</Button>
       </div>
       : ''}
         {this.props.page > 0 && this.props.page < 9 // image slides
