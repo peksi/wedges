@@ -53,10 +53,12 @@ export class HomeView extends React.Component {
       : ''}
         {this.props.page > 0 && this.props.page < 9 // image slides
       ? <div className='diapage'>
-        <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
-        <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
+        <div className='row'>
+          <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
+          <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
+        </div>
         {this.props.page === 4
-          ? <p> Please have a look at the descriptions.
+          ? <p className='helpbox'> Please have a look at the descriptions.
               You do not need to remember the details.
               They will also be seen later when you will make your choices.
           </p> : ''}
@@ -66,11 +68,11 @@ export class HomeView extends React.Component {
     }
         {this.props.page === 9 // lastpage
       ? <div className='page4'>
-        <img src={currentDia} />
         <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
         <Link to='/reduce' className='next-button'>
           <Button>Next</Button>
         </Link>
+        <img src={currentDia} />
       </div>
       : ''
     }

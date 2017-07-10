@@ -19,7 +19,7 @@ export const InfoBlock = (props) => (
     </Button>
     <Button
       hidden={props.direction !== 'return'}
-      bsStyle='primary'
+      bsStyle='default'
       onClick={() => {
         props.restoreValue(props.currentwedge)
         props.clearHighlight()

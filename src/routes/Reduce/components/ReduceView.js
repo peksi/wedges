@@ -31,16 +31,16 @@ export const ReduceView = (props) => {
       </div>
       {(!props.basketHidden && props.reduceCount > 8)
         ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
-            You have {props.reduceCount} strategies in your basket. Please remove {props.reduceCount - 8}. <br />
+            You have {props.reduceCount} strategies in your basket. <b>Please remove {props.reduceCount - 8}. </b><br />
             Scroll down to see all the strategies.
         </div> : ''}
       {(props.reduceCount === 8)
         ? <div className='description text-center helpbox' style={{ fontSize: 22 + 'px' }}>
             You now have the required number of strategies in your basket.
-            You can still make changes. <br /> If you are happy with your basket, press confirm.
-            <Link to='/middlepage'>
-              <Button style={{ float: 'right' }} bsStyle='default'> Confirm </Button>
-            </Link>
+            You can still make changes. <br /><b> If you are happy with your basket, press confirm.</b>
+          <Link to='/middlepage'>
+            <Button style={{ float: 'right' }} bsStyle='default'> Confirm </Button>
+          </Link>
         </div> : ''}
       {(props.reduceCount < 8) ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
           There are {8 - props.reduceCount} strategies missing from your basket.

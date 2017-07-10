@@ -32,13 +32,13 @@ export const AddView = (props) => {
       {(props.addCount === 8)
         ? <div className='description text-center helpbox'>
         You now have the required number of strategies in your basket.
-        You can still make changes. <br /> If you are happy with your basket, press confirm.
-            <Link to='/thankyou'>
-              <Button> Confirm </Button>
-            </Link>
+        You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
+          <Link to='/thankyou'>
+            <Button> Confirm </Button>
+          </Link>
         </div> : ''}
       {(props.addCount < 8) ? <div className='description text-center' >
-        You have {props.addCount} strategies in your basket. Please add {8 - props.addCount}.</div> : ''}
+        You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b></div> : ''}
       <div className='col-sm-6'>
         <h3>Strategies available</h3>
         <p>Press the add button to select a strategy into the basket</p>

@@ -5,6 +5,17 @@
   display: block;
 }
 
+.helpbox {
+  width:50%;
+  padding: 1em;
+  background-color: #eeb;
+  margin: auto;
+  opacity: 1;
+  visibility: visible;
+  box-sizing: border-box;
+  transition: height 500ms 0ms, opacity 500ms 500ms;
+}
+
 .page1 p {
   max-width: 30rem;
   margin: auto;
