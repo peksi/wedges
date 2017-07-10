@@ -14,7 +14,7 @@ export const ReduceView = (props) => {
   return (
     <div className='row'>
       <div className={componentClasses.join(' ')}>
-        <p>Your decision task:</p>
+        <p><b>Your decision task starts here:</b></p>
         <ul>
           <li>
             Create a basket of 8 strategies based on your preferences.
@@ -24,13 +24,15 @@ export const ReduceView = (props) => {
           </li>
         </ul>
         <p>
-          In this task the <b>starting point</b> is that you have <b>too many strategies</b> in your basket.
+          In this task the <b>starting point</b> is that you initially have <b>all the strategies</b> in your basket.
+          You will need to remove 7.
         </p>
         <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Next </Button>
       </div>
       {(!props.basketHidden && props.reduceCount > 8)
         ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
-            You have {props.reduceCount} strategies in your basket. Please remove {props.reduceCount - 8}.
+            You have {props.reduceCount} strategies in your basket. Please remove {props.reduceCount - 8}. <br />
+            Scroll down to see all the strategies.
         </div> : ''}
       {(props.reduceCount === 8)
         ? <div className='description text-center helpbox' style={{ fontSize: 22 + 'px' }}>
@@ -43,19 +45,23 @@ export const ReduceView = (props) => {
       {(props.reduceCount < 8) ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
           There are {8 - props.reduceCount} strategies missing from your basket.
         </div> : ''}
-      <div className='col-sm-6 basket'>
-        <h3>Removed strategies</h3>
-        <p>Press the add button to return a strategy into the basket</p>
-        {props.basketHidden ? ''
-        : <BatchViewContainer direction={'reduce'} />
-        }
+      <div className='col-sm-6'>
+        <div className='basket removal-basket'>
+          <h3>Removed strategies</h3>
+          <p>Press the add button to return a strategy into the basket</p>
+          {props.basketHidden ? ''
+          : <BatchViewContainer direction={'reduce'} />
+          }
+        </div>
       </div>
-      <div className='col-sm-6 basket'>
-        <h3>Basket</h3>
-        <p>Press the remove button to remove a strategy from the basket</p>
-        {props.basketHidden ? ''
-        : <BatchViewContainer direction={'return'} />
-        }
+      <div className='col-sm-6'>
+        <div className='basket real-basket'>
+          <h3>Basket</h3>
+          <p>Press the remove button to remove a strategy from the basket</p>
+          {props.basketHidden ? ''
+          : <BatchViewContainer direction={'return'} />
+          }
+        </div>
       </div>
     </div>
   )
