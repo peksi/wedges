@@ -40,18 +40,27 @@ export const AddView = (props) => {
       {(props.addCount < 8) ? <div className='description text-center' >
         You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b></div> : ''}
       <div className='col-sm-6'>
-        <h3>Strategies available</h3>
-        <p>Press the add button to select a strategy into the basket</p>
-        {props.basketHidden ? ''
-        : <BatchViewContainer direction={'reduce'} />
-        }
+        <div className='basket removal-basket'>
+          <h3>Strategies available</h3>
+          <p>Press the add button to select a strategy into the basket</p>
+          {props.basketHidden ? ''
+          : <BatchViewContainer direction={'reduce'} />
+          }
+        </div>
       </div>
       <div className='col-sm-6'>
-        <h3>Basket</h3>
-        <p>Press the remove button to remove a strategy from the basket</p>
-        {props.basketHidden ? ''
-        : <BatchViewContainer direction={'return'} />
-        }
+        <div className='basket real-basket'>
+          <h3>Basket</h3>
+          <p>Press the remove button to remove a strategy from the basket</p>
+          {props.basketHidden ? ''
+          : <div><BatchViewContainer direction={'return'} />
+            {props.addCount === 0
+              ? <p style={{ padding: '4em', 'text-align': 'center' }}>
+                Your basket is empty
+              </p> : ''}
+          </div>
+          }
+        </div>
       </div>
     </div>
   )
