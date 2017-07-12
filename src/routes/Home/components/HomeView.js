@@ -26,8 +26,8 @@ export class HomeView extends React.Component {
       ? <div className='page1' style={{ 'display': (this.props.page === 0) ? 'hidden' : 'visible' }}>
         <h1 className='text-center'>Welcome to CarbCut</h1>
         <p className='text-center'>
-          You are participating in our research in people’s decion making styles.
-          In this task you will learn and make decision about carbon mitigation strategies.
+          You are participating in our research in people’s decision making styles.
+          In this task you will learn and make decisions about carbon mitigation strategies.
           Your data will remain anonymous and will be used in our academic research only.
           Duration: about 20 minutes.
         </p>
@@ -54,8 +54,8 @@ export class HomeView extends React.Component {
         {this.props.page > 0 && this.props.page < 9 // image slides
       ? <div className='diapage'>
         <div className='row'>
-          <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
-          <Button className='next-button' onClick={() => { this.props.goForward() }}>Next</Button>
+          <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
+          <Button className='next-button btn-primary btn-lg' onClick={() => { this.props.goForward() }}>Next</Button>
         </div>
         {this.props.page === 4
           ? <p className='helpbox'> Please have a look at the descriptions.
