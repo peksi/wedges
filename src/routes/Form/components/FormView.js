@@ -41,6 +41,28 @@ const FormView = (props) => {
           browserHistory.push('/')
         })}
       >
+        <div>
+          <label>Which strategy did you prefer</label>
+          <div className='radio'>
+            <label>
+              <Field name='strategy' component='input' type='radio' value='add' />
+              Adding values to the basket
+            </label>
+          </div>
+          <div className='radio'>
+            <label>
+              <Field name='strategy' component='input' type='radio' value='reduce' />
+              Reducing values from the basket
+            </label>
+          </div>
+          <div className='radio'>
+            <label>
+              <Field name='strategy' component='input' type='radio' value='no_preference' />
+              No preference
+            </label>
+          </div>
+        </div>
+        <hr />
 
         <div>
           <label>Highest degree obtained</label>
@@ -76,7 +98,7 @@ const FormView = (props) => {
             <label><Field name='degree' component='input' type='radio' value='no answer' /> Other / No answer </label>
           </div>
         </div>
-  {
+        {
     /*
         <div>
           <label>Age</label>
