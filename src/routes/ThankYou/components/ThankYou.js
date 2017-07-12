@@ -36,25 +36,26 @@ const ThankYou = (props) => {
         <div className='row'>
           <div className={removeClasses}>
             <Button
-              className='btn-lg btn-primary'
+              className='btn-lg btn-primary basketbutton'
               onClick={() => {
                 props.reduceBetter()
                 browserHistory.push('/form')
               }}>
               I prefer this basket
             </Button>
-            <h3 className='text-center'>Removebasket</h3>
-            {props.reduce.map((x) => {
-              return (
-                <div key={x}>
-                  <img src={require('./img/action' + (x) + '.png')} />
-                </div>
-              )
-            })}
+            <div className='thankyou-batch'>
+              {props.reduce.map((x) => {
+                return (
+                  <div key={x}>
+                    <img src={require('./img/action' + (x) + '.png')} />
+                  </div>
+                )
+              })}
+            </div>
           </div>
           <div className={addClasses}>
             <Button
-              className='btn-lg btn-primary'
+              className='btn-lg btn-primary basketbutton'
               onClick={
               () => {
                 props.addBetter()
@@ -63,15 +64,15 @@ const ThankYou = (props) => {
             }>
               I prefer this basket
             </Button>
-
-            <h3 className='text-center'>Addbasket</h3>
-            {props.add.map((x) => {
-              return (
-                <div key={x}>
-                  <img src={require('./img/action' + (x) + '.png')} />
-                </div>
-              )
-            })}
+            <div className='thankyou-batch'>
+              {props.add.map((x) => {
+                return (
+                  <div key={x}>
+                    <img src={require('./img/action' + (x) + '.png')} />
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </span>
