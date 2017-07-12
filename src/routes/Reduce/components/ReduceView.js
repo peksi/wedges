@@ -45,24 +45,24 @@ export const ReduceView = (props) => {
       {(props.reduceCount < 8) ? <div className='description text-center' style={{ fontSize: 22 + 'px' }}>
           There are {8 - props.reduceCount} strategies missing from your basket.
         </div> : ''}
-      <div className='col-sm-6'>
-        <div className='basket removal-basket'>
-          <h3>Removed strategies</h3>
-          <p>Press the add button to return a strategy into the basket</p>
-          {props.basketHidden ? ''
-          : <BatchViewContainer direction={'reduce'} />
-          }
+      {props.basketHidden ? ''
+      : <span>
+        <div className='col-sm-6'>
+          <div className='basket removal-basket'>
+            <h3>Removed strategies</h3>
+            <p>Press the add button to return a strategy into the basket</p>
+            <BatchViewContainer direction={'reduce'} />
+          </div>
         </div>
-      </div>
-      <div className='col-sm-6'>
-        <div className='basket real-basket'>
-          <h3>Basket</h3>
-          <p>Press the remove button to remove a strategy from the basket</p>
-          {props.basketHidden ? ''
-          : <BatchViewContainer direction={'return'} />
-          }
+        <div className='col-sm-6'>
+          <div className='basket real-basket'>
+            <h3>Basket</h3>
+            <p>Press the remove button to remove a strategy from the basket</p>
+            <BatchViewContainer direction={'return'} />
+          </div>
         </div>
-      </div>
+      </span>
+}
     </div>
   )
 }
