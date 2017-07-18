@@ -44,13 +44,16 @@ const ThankYou = (props) => {
               I prefer this basket
             </Button>
             <div className='thankyou-batch'>
-              {props.reduce.map((x) => {
-                return (
-                  <div key={x}>
-                    <img src={require('./img/action' + (x) + '.png')} />
-                  </div>
-                )
-              })}
+              {props.reduce
+                .sort((a, b) => a - b)
+                .map((x) => {
+                  return (
+                    <div key={x}>
+                      <img src={require('./img/action' + (x) + '.png')} />
+                    </div>
+                  )
+                })
+              }
             </div>
           </div>
           <div className={addClasses}>
@@ -65,13 +68,16 @@ const ThankYou = (props) => {
               I prefer this basket
             </Button>
             <div className='thankyou-batch'>
-              {props.add.map((x) => {
-                return (
-                  <div key={x}>
-                    <img src={require('./img/action' + (x) + '.png')} />
-                  </div>
-                )
-              })}
+              {props.add
+                .sort((a, b) => a - b)
+                .map((x) => {
+                  return (
+                    <div key={x}>
+                      <img src={require('./img/action' + (x) + '.png')} />
+                    </div>
+                  )
+                })
+              }
             </div>
           </div>
         </div>
