@@ -8,13 +8,20 @@ export const ReduceBlock = (props) => (
     >
     <div>
       <div>
+        <img
+          onClick={() =>
+            props.highlightedWedge === props.id
+            ? props.clearHighlight()
+            : props.highlightWedge(props.id)
+          }
+
+          src={require('./img/action' + (props.id) + '.png')}
+        />
         <InfoBlock
-          style={{ float: 'left' }}
           description={props.description}
           direction={props.direction}
           currentwedge={props.id}
-          />
-        {<img src={require('./img/action' + (props.id) + '.png')} />}
+        />
       </div>
     </div>
   </div>
@@ -23,7 +30,10 @@ export const ReduceBlock = (props) => (
 ReduceBlock.propTypes = {
   id: React.PropTypes.number.isRequired,
   direction: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string
+  description: React.PropTypes.string,
+  highlightedWedge: React.PropTypes.number,
+  highlightWedge: React.PropTypes.func,
+  clearHighlight: React.PropTypes.func
 }
 
 export default ReduceBlock
