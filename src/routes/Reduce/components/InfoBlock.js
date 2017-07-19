@@ -22,20 +22,22 @@ export const InfoBlock = (props) => {
         bsStyle='primary'
         onClick={() => {
           props.removeValue(props.currentwedge)
+          props.logTransfer(new Date().getTime(), 'add', props.currentwedge)
           props.clearHighlight()
         }}
       >
-        Add
+        Add to basket
       </Button>
       <Button
         hidden={props.direction !== 'return'}
         bsStyle='danger'
         onClick={() => {
           props.restoreValue(props.currentwedge)
+          props.logTransfer(new Date().getTime(), 'remove', props.currentwedge)
           props.clearHighlight()
         }}
       >
-        Remove
+        Remove from basket
       </Button>
       <Button
         onClick={() => { props.clearHighlight() }}
@@ -47,6 +49,7 @@ export const InfoBlock = (props) => {
 }
 
 InfoBlock.propTypes = {
+  logTransfer: React.PropTypes.func,
   removeValue: React.PropTypes.func,
   restoreValue: React.PropTypes.func,
   clearHighlight: React.PropTypes.func,
@@ -55,9 +58,10 @@ InfoBlock.propTypes = {
 }
 
 // Container
-import { removeValue, restoreValue, highlightWedge, clearHighlight } from '../modules/reduce'
+import { logTransfer, removeValue, restoreValue, highlightWedge, clearHighlight } from '../modules/reduce'
 
 const mapDispatchToProps = {
+  logTransfer,
   removeValue,
   restoreValue,
   highlightWedge,

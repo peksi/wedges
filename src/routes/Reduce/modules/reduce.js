@@ -6,6 +6,7 @@ export const RESTORE_WEDGE = 'wedges/reduce/RESTORE_WEDGE'
 export const HIGHLIGHT_WEDGE = 'wedges/reduce/HIGHLIGHT_WEDGE'
 export const CLEAR_HIGHLIGHT = 'wedges/reduce/CLEAR_HIGHLIGHT'
 export const SHOW_BASKET = 'wedges/reduce/SHOW_BASKET'
+export const ADD_TO_PATH = 'wedges/reduce/ADD_TO_PATH'
 
 // ------------------------------------
 // Actions
@@ -46,7 +47,15 @@ export function showBasket () {
   }
 }
 
+export function logTransfer (time, direction, wedge) {
+  return {
+    type: ADD_TO_PATH,
+    event: [time, direction, wedge]
+  }
+}
+
 export const actions = {
+  logTransfer,
   removeValue,
   restoreValue,
   highlightWedge,
@@ -95,6 +104,12 @@ const ACTION_HANDLERS = {
       ...state,
       basketHidden: false
     }
+  },
+  [ADD_TO_PATH] : (state, action) => {
+    return {
+      ...state,
+      log: [...state.log, action.event]
+    }
   }
 }
 
@@ -107,7 +122,8 @@ const initialState = {
   // these are here for start
   reducedValues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
   highlightedWedge: -1,
-  highlightedWedgeDirection: ''
+  highlightedWedgeDirection: '',
+  log: []
 }
 export default function reduceReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
