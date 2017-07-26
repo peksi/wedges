@@ -3,39 +3,56 @@ import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
 import './InfoBlock.scss'
 
-export const InfoBlock = (props) => (
-  <div
-    className='infoblock'
-  >
-    <Button
-      hidden={props.direction !== 'reduce'}
-      bsStyle='primary'
-      onClick={() => {
-        props.removeValue(props.currentwedge)
-        props.clearHighlight()
-      }}
+export const InfoBlock = (props) => {
+  let infoblockClass = ''
+
+  if (props.currentwedge === props.highlightedWedge) {
+    infoblockClass = 'infoblock'
+  } else {
+    infoblockClass = 'infoblock infoblock-hidden'
+  }
+
+  return (
+    <div
+      className={infoblockClass}
     >
-      Add
-    </Button>
-    <Button
-      bsStyle='primary'
-      hidden={props.direction !== 'return'}
-      onClick={() => {
-        props.addValue(props.currentwedge)
-        props.clearHighlight()
-      }}
-    >
-      Remove
-    </Button>
-  </div>
-)
+      <img src={require('./ReduceBlock/img/action' + (props.currentwedge) + '_description.png')} />
+      <Button
+        hidden={props.direction !== 'reduce'}
+        bsStyle='primary'
+        onClick={() => {
+          props.removeValue(props.currentwedge)
+          props.clearHighlight()
+        }}
+      >
+        Add
+      </Button>
+      <Button
+        bsStyle='primary'
+        hidden={props.direction !== 'return'}
+        onClick={() => {
+          props.addValue(props.currentwedge)
+          props.clearHighlight()
+        }}
+      >
+        Remove
+      </Button>
+      <Button
+        onClick={() => { props.clearHighlight() }}
+      >
+        Close
+      </Button>
+    </div>
+  )
+}
 
 InfoBlock.propTypes = {
   removeValue: React.PropTypes.func,
   addValue: React.PropTypes.func,
   clearHighlight: React.PropTypes.func,
   direction: React.PropTypes.string,
-  currentwedge: React.PropTypes.number
+  currentwedge: React.PropTypes.number,
+  highlightedWedge: React.PropTypes.number
 }
 
 // Container

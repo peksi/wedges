@@ -3,6 +3,13 @@ button {
 }
 
 .infoblock{
-  float:left;
-  width: 15%;
+  height: 8em;
+  transition: height 500ms 0ms, padding 500ms 0ms;
+
+}
+
+.infoblock-hidden{
+  opacity: 0;
+  height: 0;
+  transition: height 500ms 0ms, padding 500ms 0ms;
 }
