@@ -22,20 +22,22 @@ export const InfoBlock = (props) => {
         bsStyle='primary'
         onClick={() => {
           props.removeValue(props.currentwedge)
+          props.logTransfer(new Date().getTime(), 'add', props.currentwedge)
           props.clearHighlight()
         }}
       >
-        Add
+        Add to basket
       </Button>
       <Button
         bsStyle='primary'
         hidden={props.direction !== 'return'}
         onClick={() => {
           props.addValue(props.currentwedge)
+          props.logTransfer(new Date().getTime(), 'reduce', props.currentwedge)
           props.clearHighlight()
         }}
       >
-        Remove
+        Remove from basket
       </Button>
       <Button
         onClick={() => { props.clearHighlight() }}
@@ -47,6 +49,7 @@ export const InfoBlock = (props) => {
 }
 
 InfoBlock.propTypes = {
+  logTransfer: React.PropTypes.func,
   removeValue: React.PropTypes.func,
   addValue: React.PropTypes.func,
   clearHighlight: React.PropTypes.func,
@@ -56,9 +59,10 @@ InfoBlock.propTypes = {
 }
 
 // Container
-import { removeValue, addValue, highlightWedge, clearHighlight } from '../modules/add'
+import { logTransfer, removeValue, addValue, highlightWedge, clearHighlight } from '../modules/add'
 
 const mapDispatchToProps = {
+  logTransfer,
   removeValue,
   addValue,
   highlightWedge,

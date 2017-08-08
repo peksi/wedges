@@ -1,8 +1,7 @@
-import FormView from './components/FormView'
+import SubmitView from './components/SubmitView'
 
 // Sync route definition
 export default {
-  component : FormView,
+  component : SubmitView,
   path: 'form'
-
 }

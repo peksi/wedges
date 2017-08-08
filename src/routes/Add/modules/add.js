@@ -6,10 +6,19 @@ export const ADD_WEDGE = 'wedges/add/ADD_WEDGE'
 export const HIGHLIGHT_WEDGE = 'wedges/add/HIGHLIGHT_WEDGE'
 export const CLEAR_HIGHLIGHT = 'wedges/add/CLEAR_HIGHLIGHT'
 export const SHOW_BASKET = 'wedges/add/SHOW_BASKET'
+export const ADD_TO_PATH = 'wedges/add/ADD_TO_PATH'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
+
+export function logTransfer (time, direction, wedge) {
+  return {
+    type: ADD_TO_PATH,
+    event: [time, direction, wedge]
+  }
+}
+
 export function removeValue (value) {
   return {
     type    : REMOVE_WEDGE,
@@ -47,6 +56,7 @@ export function showBasket () {
 }
 
 export const actions = {
+  logTransfer,
   removeValue,
   addValue,
   highlightWedge,
@@ -95,6 +105,12 @@ const ACTION_HANDLERS = {
       ...state,
       basketHidden: false
     }
+  },
+  [ADD_TO_PATH] : (state, action) => {
+    return {
+      ...state,
+      log: [...state.log, action.event]
+    }
   }
 }
 
@@ -106,7 +122,8 @@ const initialState = {
   addCount: 0,
   addedValues: [],
   highlightedWedge: -1,
-  highlightedWedgeDirection: ''
+  highlightedWedgeDirection: '',
+  log: []
 }
 export default function addReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
