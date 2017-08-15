@@ -231,11 +231,6 @@ const FormView = (props) => {
           />
           <p>Please enter group id if you are provided with one</p>
         </div>
-
-        <div>
-          <button className='btn' style={{ 'float':'right' }} type='submit' disabled={!valid}> Submit</button>
-        </div>
-
       </form>
     </div>
   )
