@@ -19,7 +19,8 @@
     "deploy": "better-npm-run deploy",
     "deploy:dev": "better-npm-run deploy:dev",
     "deploy:prod": "better-npm-run deploy:prod",
-    "codecov": "cat coverage/*/lcov.info | codecov"
+    "codecov": "cat coverage/*/lcov.info | codecov",
+    "reset-db": "better-npm-run reset-db"
   },
   "betterScripts": {
     "compile": {
@@ -52,6 +53,12 @@
       "command": "npm run deploy",
       "env": {
         "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "reset-db": {
+      "command": "node scripts/reset-db",
+      "env": {
         "DEBUG": "app:*"
       }
     },
@@ -88,6 +95,7 @@
     "css-loader": "^0.26.0",
     "cssnano": "^3.7.4",
     "debug": "^2.2.0",
+    "express-sanitize-escape": "^1.1.0",
     "extract-text-webpack-plugin": "^1.0.0",
     "file-loader": "^0.9.0",
     "fs-extra": "^1.0.0",
@@ -98,6 +106,8 @@
     "lodash": "^4.17.4",
     "node-sass": "^4.0.0",
     "normalize.css": "^5.0.0",
+    "pg": "^7.1.0",
+    "pg-hstore": "^2.3.2",
     "postcss-loader": "^1.1.0",
     "react": "^15.0.0",
     "react-bootstrap": "^0.30.7",
