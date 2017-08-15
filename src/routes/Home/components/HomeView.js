@@ -5,19 +5,21 @@ import { Button } from 'react-bootstrap'
 import ppt1 from '../assets/ppt1.png'
 // import ppt2 from '../assets/ppt2.png'
 // import ppt3 from '../assets/ppt3.png'
-import dia1 from '../assets/carbcut/Dia1.jpg'
-import dia2 from '../assets/carbcut/Dia2.jpg'
-import dia3 from '../assets/carbcut/Dia3.jpg'
-import dia4 from '../assets/carbcut/Dia4.jpg'
-import dia5 from '../assets/carbcut/Dia5.jpg'
-import dia6 from '../assets/carbcut/Dia6.jpg'
-import dia7 from '../assets/carbcut/Dia7.jpg'
-import dia8 from '../assets/carbcut/Dia8.jpg'
-import dia9 from '../assets/carbcut/Dia9.jpg'
+import dia1 from '../assets/carbcut/Dia01.jpg'
+import dia2 from '../assets/carbcut/Dia02.jpg'
+import dia3 from '../assets/carbcut/Dia03.jpg'
+import dia4 from '../assets/carbcut/Dia04.jpg'
+import dia5 from '../assets/carbcut/Dia05.jpg'
+import dia6 from '../assets/carbcut/Dia06.jpg'
+import dia7 from '../assets/carbcut/Dia07.jpg'
+import dia8 from '../assets/carbcut/Dia08.jpg'
+import dia9 from '../assets/carbcut/Dia09.jpg'
+import dia10 from '../assets/carbcut/Dia10.jpg'
+import dia11 from '../assets/carbcut/Dia11.jpg'
 
 export class HomeView extends React.Component {
   render () {
-    const dia = [dia1, dia2, dia3, dia4, dia5, dia6, dia7, dia8, dia9]
+    const dia = [dia1, dia2, dia3, dia4, dia5, dia6, dia7, dia8, dia9, dia10, dia11]
     const currentDia = dia[this.props.page - 1]
 
     return (
@@ -51,7 +53,7 @@ export class HomeView extends React.Component {
         </p>
       </div>
       : ''}
-        {this.props.page > 0 && this.props.page < 9 // image slides
+        {this.props.page > 0 && this.props.page < 11 // image slides
       ? <div className='diapage'>
         <div className='row'>
           <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
@@ -66,7 +68,7 @@ export class HomeView extends React.Component {
       </div>
       : ''
     }
-        {this.props.page === 9 // lastpage
+        {this.props.page === 11 // lastpage
       ? <div className='page4'>
         <Button className='prev-button' onClick={() => { this.props.goBack() }}>Previous</Button>
         <Link to='/reduce' className='next-button'>
