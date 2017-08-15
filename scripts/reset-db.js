@@ -10,8 +10,14 @@ var sequelize = new Sequelize(
   }
 )
 
-console.log('magic')
+const SurveyEntry = sequelize.define('entry', {
+  entry: {
+    type: Sequelize.JSON
+  }
+})
 
 sequelize.sync({ force: true })
+  .then(() => SurveyEntry.truncate())
   .then(() => sequelize.close())
   .then(() => console.log('Database reset finished.'))
+  .catch(e => console.log(e))
