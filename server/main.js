@@ -2,9 +2,13 @@ const express = require('express')
 const debug = require('debug')('app:server')
 const path = require('path')
 const webpack = require('webpack')
+const bodyParser = require('body-parser')
+const expressSanitized = require('express-sanitize-escape')
+
 const webpackConfig = require('../config/webpack.config')
 const project = require('../config/project.config')
 const compress = require('compression')
+const router = require('../api/router')
 
 const app = express()
 
@@ -37,6 +41,14 @@ if (project.env === 'development') {
   // when the application is compiled.
   app.use(express.static(project.paths.public()))
 
+  // Let's try to have an express server
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }))
+  app.use(expressSanitized.middleware())
+  app.use('/api', router)
+
   // This rewrites all routes requests to the root /index.html file
   // (ignoring file requests). If you want to implement universal
   // rendering, you'll want to remove this middleware.
@@ -52,17 +64,15 @@ if (project.env === 'development') {
     })
   })
 } else {
-  debug(
-    'Server is being run outside of live development mode, meaning it will ' +
-    'only serve the compiled application bundle in ~/dist. Generally you ' +
-    'do not need an application server for this and can instead use a web ' +
-    'server such as nginx to serve your static files. See the "deployment" ' +
-    'section in the README for more information on deployment strategies.'
-  )
-
   // Serving ~/dist by default. Ideally these files should be served by
   // the web server and not the app server, but this helps to demo the
   // server in production.
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }))
+  app.use(expressSanitized.middleware())
+  app.use('/api', router)
   app.use(express.static(project.paths.dist()))
 }
 

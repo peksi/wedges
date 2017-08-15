@@ -15,11 +15,16 @@ const SubmitView = (props) => {
     },
     form: (props.state.form.prerequisite) ? props.state.form.prerequisite.values : []
   }
+
   function magicSubmit () {
     console.log(submitInfo)
     fetch('api', {
       method: 'POST',
-      body: submitInfo
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(submitInfo)
     })
   }
 
@@ -31,9 +36,6 @@ const SubmitView = (props) => {
       >
         Golden Submit
       </Button>
-      <div>
-        Lol
-      </div>
     </div>
   )
 }
