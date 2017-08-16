@@ -22,11 +22,11 @@ const validate = values => {
 }
 
 const FormView = (props) => {
-  const { handleSubmit, valid } = props
+  const { handleSubmit } = props
   return (
     <div>
       <p className='helpbox' style={{ 'marginBottom':'2em' }}>
-        Thank you for your participation. As a part of the survey, we´d like to ask you some background information.
+        Thank you for your participation. As a part of the survey, we would like to ask you some background information.
       </p>
       <form
         className='surveyForm'
@@ -42,23 +42,23 @@ const FormView = (props) => {
         })}
       >
         <div>
-          <label>Which strategy did you prefer</label>
+          <label>When creating a basket of strategies, which procedure you felt more confident with?</label>
           <div className='radio'>
             <label>
               <Field name='strategy' component='input' type='radio' value='add' />
-              Adding values to the basket
+              Starting with an empty basket and adding strategies into it.
             </label>
           </div>
           <div className='radio'>
             <label>
               <Field name='strategy' component='input' type='radio' value='reduce' />
-              Reducing values from the basket
+              Starting with with too many strategies in the basket and reducing strategies from it.
             </label>
           </div>
           <div className='radio'>
             <label>
               <Field name='strategy' component='input' type='radio' value='no_preference' />
-              No preference
+              I don´t know / No answer
             </label>
           </div>
         </div>
@@ -237,8 +237,7 @@ const FormView = (props) => {
 }
 
 FormView.propTypes = {
-  handleSubmit: React.PropTypes.func,
-  valid: React.PropTypes.bool
+  handleSubmit: React.PropTypes.func
 }
 
 export default reduxForm({

@@ -33,7 +33,7 @@ const SubmitView = (props) => {
       <FormView />
       <Button
         style={{ margin: 'auto', display: 'block' }}
-        className='btn btn-success'
+        className='btn btn-lg btn-success'
         onClick={() => { magicSubmit() }}
       >
         Submit
