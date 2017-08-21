@@ -1,6 +1,6 @@
 import React from 'react'
 import BatchViewContainer from './BatchView'
-import { Button } from 'react-bootstrap'
+import { Alert, Button } from 'react-bootstrap'
 import { Link } from 'react-router'
 import './AddView.scss'
 
@@ -26,20 +26,20 @@ export const AddView = (props) => {
         <Button className='confirmHelp' onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
       </div>
       {(props.addCount > 8)
-        ? <div className='description text-center'>
+        ? <div className='col-sm-12'><Alert className='description text-center'>
             There are {props.addCount - 8} extra strategies in your basket.
-          </div> : ''}
+          </Alert></div> : ''}
       {(props.addCount === 8)
-        ? <div className='description text-center helpbox'>
+        ? <div className='col-sm-12'><Alert className='description text-center'>
         You now have the required number of strategies in your basket.
         You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
           <Link to='/thankyou'>
-            <Button> Confirm </Button>
+            <Button className='confirmbutton'> Confirm </Button>
           </Link>
-        </div> : ''}
+        </Alert></div> : ''}
       {props.basketHidden ? ''
-      : <span> {(props.addCount < 8) ? <div className='description text-center' >
-        You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b></div> : ''}
+      : <span> {(props.addCount < 8) ? <div className='col-sm-12'><Alert className='description text-center' >
+        You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b></Alert></div> : ''}
         <div className='col-sm-6'>
           <div className='basket removal-basket'>
             <h3>Strategies available</h3>

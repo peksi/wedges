@@ -16,7 +16,7 @@
 
 .basket {
   // border: 1px solid black;
-  margin-top: 2em;
+  margin-top: 3em;
   padding: 2em;
   padding-top: 1em;
   box-sizing: border-box;
@@ -34,8 +34,6 @@
 }
 
 
-
-
 .helpbox.hide-helpbox{
   opacity: 0.0;
   height: 0px;
@@ -45,4 +43,12 @@
   p, li, button { // tweak for clickable buttons in next helpbox
     display: none;
   }
+}
+
+.alert {
+  margin-top: -60px;
+  position: fixed;
+  width: 89%;
+  cursor: pointer;
+  z-index: 1000;
 }
