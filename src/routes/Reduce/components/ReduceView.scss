@@ -1,7 +1,7 @@
 .helpbox {
   width:50%;
   padding: 1em;
-  background-color: #eeb;
+  background-color: rgba(255, 231, 206, 0.73);
   margin: auto;
   opacity: 1;
   visibility: visible;
@@ -11,7 +11,7 @@
 }
 
 .infobox {
-  height: 300px;
+  padding-bottom: 3em;
 }
 
 .basket {
@@ -26,11 +26,15 @@
 }
 
 .real-basket {
-  background-color: #eeb;
+  background-color: rgba(255, 231, 206, 0.73);
   min-height: 43em;
 }
 
 .confirmbutton {
+  float: right;
+}
+
+.confirmHelp {
   float: right;
 }
 

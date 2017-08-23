@@ -24,7 +24,7 @@ export const AddView = (props) => {
           <p>
             In this task the <b>starting point</b> is that you have <b>no strategies</b> in your basket.
           </p>
-          <Button className='confirmHelp' onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
+          <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Next </Button>
         </div>
       </div>
       {props.basketHidden ? ''
