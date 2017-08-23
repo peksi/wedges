@@ -17,8 +17,8 @@ const ThankYou = (props) => {
   return (
     <div className='formview text-center'>
       {props.add.length === 8 && props.reduce.length === 8
-      ? <span><p>You created these two baskets.</p>
-        <p>Use buttons to indicate your preference</p>
+      ? <span><p>Please have a look at the two baskets you´ve created.</p>
+        <p>What´s your opinion now?</p>
         <div className='row'>
           <div className='col-sm-4 text-center' />
           <div className='col-sm-4 text-center'>
