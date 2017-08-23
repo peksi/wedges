@@ -9,37 +9,50 @@ export const AddView = (props) => {
   if (!props.basketHidden) { componentClasses.push('hide-helpbox') }
 
   return (
-    <div className='row'>
-      <div className={componentClasses.join(' ')}>
-        <p>Your decision task:</p>
-        <ul>
-          <li>
-            Create a basket of 8 strategies based on your preferences.
-          </li>
-          <li>
-            Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
-          </li>
-        </ul>
-        <p>
-          In this task the <b>starting point</b> is that you have <b>no strategies</b> in your basket.
-        </p>
-        <Button className='confirmHelp' onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
+    <div>
+      <div className='row'>
+        <div className={componentClasses.join(' ')}>
+          <p>Your decision task:</p>
+          <ul>
+            <li>
+              Create a basket of 8 strategies based on your preferences.
+            </li>
+            <li>
+              Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
+            </li>
+          </ul>
+          <p>
+            In this task the <b>starting point</b> is that you have <b>no strategies</b> in your basket.
+          </p>
+          <Button className='confirmHelp' onClick={() => { console.log('show'); props.showBasket() }}> Next </Button>
+        </div>
       </div>
-      {(props.addCount > 8)
-        ? <div className='col-sm-12'><Alert className='description text-center'>
-            There are {props.addCount - 8} extra strategies in your basket.
-          </Alert></div> : ''}
-      {(props.addCount === 8)
-        ? <div className='col-sm-12'><Alert className='description text-center'>
-        You now have the required number of strategies in your basket.
-        You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
-          <Link to='/thankyou'>
-            <Button className='confirmbutton'> Confirm </Button>
-          </Link>
-        </Alert></div> : ''}
       {props.basketHidden ? ''
-      : <span> {(props.addCount < 8) ? <div className='col-sm-12'><Alert className='description text-center' >
-        You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b></Alert></div> : ''}
+        : <div className=''>
+          <div className='col-sm-12 fixed-alert-helper'>
+            <Alert className='description text-center'>
+              {(props.addCount > 8)
+                ? <span>There are {props.addCount - 8} extra strategies in your basket.</span>
+                : ''
+              }
+              {(props.addCount === 8)
+                ? <span>You now have the required number of strategies in your basket.
+                You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
+                <Link to='/thankyou'>
+                  <Button className='confirmbutton'> Confirm </Button>
+                </Link>
+                </span>
+                : ''}
+                {(props.addCount < 8)
+                ? <span>
+                    You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b>
+                  </span>
+                : ''}
+            </Alert>
+          </div>
+        </div>
+      }
+      <div className='row'>
         <div className='col-sm-6'>
           <div className='basket removal-basket'>
             <h3>Strategies available</h3>
@@ -59,8 +72,7 @@ export const AddView = (props) => {
             </div>
           </div>
         </div>
-      </span>
-      }
+      </div>
     </div>
   )
 }

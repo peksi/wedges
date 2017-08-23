@@ -12,53 +12,68 @@ export const ReduceView = (props) => {
   if (!props.basketHidden) { componentClasses.push('hide-helpbox') }
 
   return (
-    <div className='row'>
-      <div className={componentClasses.join(' ')}>
-        <p><b>Your decision task starts here:</b></p>
-        <ul>
-          <li>
-            Create a basket of 8 strategies based on your preferences.
-          </li>
-          <li>
-            Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
-          </li>
-        </ul>
-        <p>
-          In this task the <b>starting point</b> is that you initially have <b>all the strategies</b> in your basket.
-          You will need to remove 7.
-        </p>
-        <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Next </Button>
+    <div>
+      <div className='row'>
+        <div className={componentClasses.join(' ')}>
+          <p><b>Your decision task starts here:</b></p>
+          <ul>
+            <li>
+              Create a basket of 8 strategies based on your preferences.
+            </li>
+            <li>
+              Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
+            </li>
+          </ul>
+          <p>
+            In this task the <b>starting point</b> is that you initially have <b>all the strategies</b> in your basket.
+            You will need to remove 7.
+          </p>
+          <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Next </Button>
+        </div>
       </div>
-      {(!props.basketHidden && props.reduceCount > 8)
-        ? <div className='col-sm-12'><Alert className='description text-center' style={{ fontSize: 22 + 'px' }}>
-            You have {props.reduceCount} strategies in your basket. <b>Please remove {props.reduceCount - 8}. </b><br />
-            Scroll down to see all the strategies.
-        </Alert></div> : ''}
-      {(props.reduceCount === 8)
-        ? <div className='col-sm-12'><Alert className='description text-center' style={{ fontSize: 22 + 'px' }}>
-            You now have the required number of strategies in your basket.
-            You can still make changes. <br /><b> If you are happy with your basket, press confirm.</b>
-          <Link to='/middlepage'>
-            <Button style={{ float: 'right' }} bsStyle='default'> Confirm </Button>
-          </Link>
-        </Alert></div> : ''}
-      {(props.reduceCount < 8) ? <div className='col-sm-12'><Alert className='description text-center' style={{ fontSize: 22 + 'px' }}>
-          There are {8 - props.reduceCount} strategies missing from your basket.
-        </Alert></div> : ''}
       {props.basketHidden ? ''
       : <span>
-        <div className='col-sm-6'>
-          <div className='basket removal-basket'>
-            <h3>Removed strategies</h3>
-            <p>Press the box to inspect a strategy. After inspection you can return it into the basket if you want.</p>
-            <BatchViewContainer direction={'reduce'} />
+        <div className=''>
+          <div className='col-sm-12 fixed-alert-helper'>
+            <Alert className='description text-center'>
+              {(!props.basketHidden && props.reduceCount > 8)
+              ? <span> You have {props.reduceCount} strategies in your basket.
+                  <b>Please remove {props.reduceCount - 8}. </b><br />
+                  Scroll down to see all the strategies.
+              </span>
+              : ''}
+              {(props.reduceCount === 8)
+              ? <span>
+                You now have the required number of strategies in your basket.
+                You can still make changes. <br />
+                <b>If you are happy with your basket, press confirm.</b>
+                <Link to='/middlepage'>
+                  <Button className='confirmbutton' bsStyle='default'> Confirm </Button>
+                </Link>
+              </span>
+              : ''}
+              {(props.reduceCount < 8)
+              ? <span> There are {8 - props.reduceCount} strategies missing from your basket. </span>
+                : ''}
+            </Alert>
           </div>
         </div>
-        <div className='col-sm-6'>
-          <div className='basket real-basket'>
-            <h3>Basket</h3>
-            <p>Press the box to inspect a strategy. After inspection you can remove it if you want.</p>
-            <BatchViewContainer direction={'return'} />
+        <div className='row'>
+          <div className='col-sm-6'>
+            <div className='basket removal-basket'>
+              <h3>Removed strategies</h3>
+              <p> Press the box to inspect a strategy.
+                  After inspection you can return it into the basket if you want.
+              </p>
+              <BatchViewContainer direction={'reduce'} />
+            </div>
+          </div>
+          <div className='col-sm-6'>
+            <div className='basket real-basket'>
+              <h3>Basket</h3>
+              <p>Press the box to inspect a strategy. After inspection you can remove it if you want.</p>
+              <BatchViewContainer direction={'return'} />
+            </div>
           </div>
         </div>
       </span>
