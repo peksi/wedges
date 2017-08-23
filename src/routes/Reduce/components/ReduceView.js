@@ -38,7 +38,7 @@ export const ReduceView = (props) => {
             <Alert className='description text-center'>
               {(!props.basketHidden && props.reduceCount > 8)
               ? <span> You have {props.reduceCount} strategies in your basket.
-                  <b>Please remove {props.reduceCount - 8}. </b><br />
+                  <b> Please remove {props.reduceCount - 8}. </b><br />
                   Scroll down to see all the strategies.
               </span>
               : ''}
