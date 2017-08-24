@@ -14,21 +14,19 @@ export default class BatchView extends React.Component {
         <div>
           <div className='row'>
             {
-              // Remove values that already appear on the removed list
-              _.filter(
-                wedgesconfig.choices,
-                (value) => !_.includes(this.props.add.addedValues, value.id)
-              // and map them
-            ).map((item, index) => {
-              return (
-                <ReduceBlockContainer
-                  id={item.id}
-                  key={item.id}
-                  description={item.description}
-                  direction={this.props.direction}
-                />
-              )
-            })}
+              _.map(this.props.add.initialOrder, (num) => {
+                if (!_.includes(this.props.add.addedValues, num)) {
+                  return (
+                    <ReduceBlockContainer
+                      id={wedgesconfig.choices[num - 1].id}
+                      key={wedgesconfig.choices[num - 1].id}
+                      description={wedgesconfig.choices[num - 1].description}
+                      direction={this.props.direction}
+                    />
+                  )
+                }
+              })
+            }
           </div>
         </div>
       )
@@ -56,7 +54,8 @@ export default class BatchView extends React.Component {
 BatchView.propTypes = {
   add: React.PropTypes.shape({
     addCount: React.PropTypes.number.isRequired,
-    addedValues: React.PropTypes.array.isRequired
+    addedValues: React.PropTypes.array.isRequired,
+    initialOrder: React.PropTypes.array.isRequired
   }),
   direction: React.PropTypes.string
 }

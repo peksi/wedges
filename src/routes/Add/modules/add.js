@@ -117,10 +117,38 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
+
+function shuffle (array) {
+  // Fisher-Yates (aka Knuth) Shuffle
+  // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+
+  let currentIndex = array.length
+  let temporaryValue
+  let randomIndex
+
+  // While there remain elements to shuffle...
+  while (currentIndex !== 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  }
+
+  return array
+}
+
+const startValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+const shuffledStartValues = shuffle(startValues)
+
 const initialState = {
   basketHidden: true,
   addCount: 0,
   addedValues: [],
+  initialOrder: shuffledStartValues,
   highlightedWedge: -1,
   highlightedWedgeDirection: '',
   log: []
