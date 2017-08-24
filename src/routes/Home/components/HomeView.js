@@ -43,7 +43,7 @@ export class HomeView extends React.Component {
           style={{ display: 'block', 'margin':'3em auto' }}
           onClick={() => { this.props.goForward() }}
         >
-            Next
+            Continue
         </Button>
         <img src={ppt1} style={{ 'margin': 'auto', 'display':'block', 'width':'50%' }} />
         <br />
@@ -62,7 +62,7 @@ export class HomeView extends React.Component {
       ? <div className='diapage'>
         <div className='row'>
           <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
-          <Button className='next-button btn-primary btn-lg' onClick={() => { this.props.goForward() }}>Next</Button>
+          <Button className='next-button btn-primary btn-lg' onClick={() => { this.props.goForward() }}>Continue</Button>
         </div>
         {this.props.page === 4
           ? <p className='helpbox'> Please have a look at the descriptions.
@@ -77,7 +77,7 @@ export class HomeView extends React.Component {
       ? <div className='page4'>
         <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
         <Link to='/reduce' className='next-button'>
-          <Button className='btn-primary btn-lg'>Next</Button>
+          <Button className='btn-primary btn-lg'>Continue</Button>
         </Link>
         <img src={currentDia} />
       </div>

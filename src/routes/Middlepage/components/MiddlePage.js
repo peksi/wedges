@@ -8,7 +8,7 @@ export const MiddlePage = () => (
     <p>Thank you for completing the first stage.</p>
     <p>In the second stage we ask you to create the basket using another procedure.</p>
     <Link to='/add' activeClassName='route--active'>
-      <Button> Next </Button>
+      <Button> Continue </Button>
     </Link>
   </div>
 )

@@ -28,7 +28,7 @@ export const ReduceView = (props) => {
             In this task the <b>starting point</b> is that you initially have <b>all the strategies</b> in your basket.
             You will need to remove 7.
             <br />
-            <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Next </Button>
+            <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Continue </Button>
           </p>
         </div>
       </div>
