@@ -28,51 +28,53 @@ export const AddView = (props) => {
         </div>
       </div>
       {props.basketHidden ? ''
-        : <div className=''>
-          <div className='col-sm-12 fixed-alert-helper'>
-            <Alert className='description text-center'>
-              {(props.addCount > 8)
-                ? <span>There are {props.addCount - 8} extra strategies in your basket.</span>
-                : ''
-              }
-              {(props.addCount === 8)
-                ? <span>You now have the required number of strategies in your basket.
-                You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
-                <Link to='/thankyou'>
-                  <Button className='confirmbutton'> Confirm </Button>
-                </Link>
-                </span>
-                : ''}
-                {(props.addCount < 8)
-                ? <span>
-                    You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b>
+        : <span>
+          <div className=''>
+            <div className='col-sm-12 fixed-alert-helper'>
+              <Alert className='description text-center'>
+                {(props.addCount > 8)
+                  ? <span>There are {props.addCount - 8} extra strategies in your basket.</span>
+                  : ''
+                }
+                {(props.addCount === 8)
+                  ? <span>You now have the required number of strategies in your basket.
+                  You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
+                    <Link to='/thankyou'>
+                      <Button className='confirmbutton'> Confirm </Button>
+                    </Link>
                   </span>
-                : ''}
-            </Alert>
-          </div>
-        </div>
-      }
-      <div className='row'>
-        <div className='col-sm-6'>
-          <div className='basket removal-basket'>
-            <h3>Strategies available</h3>
-            <p>Press the add button to select a strategy into the basket</p>
-            <BatchViewContainer direction={'reduce'} />
-          </div>
-        </div>
-        <div className='col-sm-6'>
-          <div className='basket real-basket'>
-            <h3>Basket</h3>
-            <p>Press the remove button to remove a strategy from the basket</p>
-            <div><BatchViewContainer direction={'return'} />
-              {props.addCount === 0
-                ? <p style={{ padding: '4em', 'textAlign': 'center' }}>
-                  Your basket is empty
-                </p> : ''}
+                  : ''}
+                {(props.addCount < 8)
+                  ? <span>
+                      You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b>
+                  </span>
+                  : ''}
+              </Alert>
             </div>
           </div>
-        </div>
-      </div>
+          <div className='row'>
+            <div className='col-sm-6'>
+              <div className='basket removal-basket'>
+                <h3>Strategies available</h3>
+                <p>Press the add button to select a strategy into the basket</p>
+                <BatchViewContainer direction={'reduce'} />
+              </div>
+            </div>
+            <div className='col-sm-6'>
+              <div className='basket real-basket'>
+                <h3>Basket</h3>
+                <p>Press the remove button to remove a strategy from the basket</p>
+                <div><BatchViewContainer direction={'return'} />
+                  {props.addCount === 0
+                    ? <p style={{ padding: '4em', 'textAlign': 'center' }}>
+                      Your basket is empty
+                    </p> : ''}
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+    }
     </div>
   )
 }
