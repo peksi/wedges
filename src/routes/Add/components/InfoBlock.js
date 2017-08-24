@@ -26,7 +26,7 @@ export const InfoBlock = (props) => {
           props.clearHighlight()
         }}
       >
-        Add to basket
+        Include in the basket
       </Button>
       <Button
         bsStyle='primary'
@@ -37,12 +37,7 @@ export const InfoBlock = (props) => {
           props.clearHighlight()
         }}
       >
-        Remove from basket
-      </Button>
-      <Button
-        onClick={() => { props.clearHighlight() }}
-      >
-        Close
+        Do not include in the basket
       </Button>
     </div>
   )
