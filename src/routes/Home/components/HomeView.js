@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import './HomeView.scss'
-import { Button, ProgressBar } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import ppt1 from '../assets/ppt1.png'
 // import ppt2 from '../assets/ppt2.png'
 // import ppt3 from '../assets/ppt3.png'
@@ -24,11 +24,6 @@ export class HomeView extends React.Component {
 
     return (
       <div className='homeview'>
-        {this.props.page !== 0
-          ? <div>
-            <ProgressBar now={(this.props.page - 1) / 10 * 100} />
-          </div> : ''}
-
         {this.props.page === 0
       ? <div className='page1' style={{ 'display': (this.props.page === 0) ? 'hidden' : 'visible' }}>
         <h1 className='text-center'>Welcome to CarbCut</h1>
