@@ -31,7 +31,7 @@ export const AddView = (props) => {
         : <span>
           <div className=''>
             <div className='col-sm-12 fixed-alert-helper'>
-              <Alert className='description text-center'>
+              <Alert className='description text-center' bsStyle={(props.addCount === 8) ? 'success' : 'info'}>
                 {(props.addCount > 8)
                   ? <span>There are {props.addCount - 8} extra strategies in your basket.</span>
                   : ''

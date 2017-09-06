@@ -36,7 +36,7 @@ export const ReduceView = (props) => {
       : <span>
         <div className=''>
           <div className='col-sm-12 fixed-alert-helper'>
-            <Alert className='description text-center'>
+            <Alert className='description text-center' bsStyle={(props.reduceCount === 8) ? 'success' : 'info'} >
               {(!props.basketHidden && props.reduceCount > 8)
               ? <span> You have {props.reduceCount} strategies in your basket.
                   <b> Please remove {props.reduceCount - 8}. </b><br />
