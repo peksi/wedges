@@ -21,6 +21,7 @@ export class HomeView extends React.Component {
   render () {
     const dia = [dia1, dia2, dia3, dia4, dia5, dia6, dia7, dia8, dia9, dia10, dia11]
     const currentDia = dia[this.props.page - 1]
+    const linkTo = '/'
 
     return (
       <div className='homeview'>
@@ -53,7 +54,7 @@ export class HomeView extends React.Component {
         </p>
       </div>
       : ''}
-        {this.props.page > 0 && this.props.page < 11 // image slides
+        {this.props.page > 0 && this.props.page < 12 // image slides
       ? <div className='diapage'>
         <div className='row'>
           <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
@@ -68,13 +69,21 @@ export class HomeView extends React.Component {
       </div>
       : ''
     }
-        {this.props.page === 11 // lastpage
+        {this.props.page === 12 // lastpage
       ? <div className='page4'>
         <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
         <Link to='/reduce' className='next-button'>
           <Button className='btn-primary btn-lg'>Continue</Button>
         </Link>
-        <img src={currentDia} />
+        <div className='decisionTaskStartsNext'>
+          <h1 className='text-center'>Now you will start making your decisions:</h1>
+          <h1 className='text-center'>Create a basket of 8 mitigation strategies</h1>
+          <span className='large-description-text'>
+            <p>
+              How to make your decisions: Follow your preferences and take into account the perspectives you find relevant, e.g. environmental, economic, social, political
+            </p>
+          </span>
+        </div>
       </div>
       : ''
     }

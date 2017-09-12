@@ -26,7 +26,7 @@ const FormView = (props) => {
   return (
     <div>
       <p className='helpbox' style={{ 'marginBottom':'2em' }}>
-        Thank you for your participation. As a part of the survey, we would like to ask you some background information.
+        You have now completed your decision task. Please anwer the following questions.
       </p>
       <form
         className='surveyForm'
@@ -42,7 +42,7 @@ const FormView = (props) => {
         })}
       >
         <div>
-          <label>When creating a basket of strategies, which procedure you felt more confident with?</label>
+          <label>You created a basket in two ways. Which one was easier to work with?</label>
           <div className='radio'>
             <label>
               <Field name='strategy' component='input' type='radio' value='add' />
@@ -58,29 +58,48 @@ const FormView = (props) => {
           <div className='radio'>
             <label>
               <Field name='strategy' component='input' type='radio' value='no_preference' />
-              I don´t know / No answer
+              There was no difference
+            </label>
+          </div>
+          <div className='radio'>
+            <label>
+              <Field name='strategy' component='input' type='radio' value='no_answer' />
+              No answer
             </label>
           </div>
         </div>
         <hr />
 
         <div>
-          <label>Highest degree obtained</label>
+          <label>About you</label>
+          <div className='radio'>
+            <label>
+              <Field name='aboutyou' component='input' type='radio' value='professional' />
+              I´m a professional
+            </label>
+          </div>
+          <div className='radio'>
+            <label>
+              <Field name='aboutyou' component='input' type='radio' value='student' />
+              I´m a student
+            </label>
+          </div>
+          <div className='radio'>
+            <label>
+              <Field name='aboutyou' component='input' type='radio' value='no_answer' />
+              No answer
+            </label>
+          </div>
+
+        </div>
+
+        <div>
+          <label>If you are a student, select one</label>
           <div className='radio'>
             <label>
               <Field name='degree' component='input' type='radio' value='high_school' />
                 High School
               </label>
-          </div>
-          <div className='radio'>
-            <label><Field name='degree' component='input' type='radio' value='university' />
-              University Student (not graduated)
-            </label>
-          </div>
-          <div className='radio'>
-            <label><Field name='degree' component='input' type='radio' value='occupational' />
-              Occupational degree
-            </label>
           </div>
           <div className='radio'>
             <label><Field name='degree' component='input' type='radio' value='bachelor' /> Bachelor </label>
@@ -92,10 +111,10 @@ const FormView = (props) => {
             <label><Field name='degree' component='input' type='radio' value='doctoral' /> Doctoral degree </label>
           </div>
           <div className='radio'>
-            <label><Field name='degree' component='input' type='radio' value='no degree' /> No degree </label>
+            <label><Field name='degree' component='input' type='radio' value='no answer' /> Other</label>
           </div>
           <div className='radio'>
-            <label><Field name='degree' component='input' type='radio' value='no answer' /> Other / No answer </label>
+            <label><Field name='degree' component='input' type='radio' value='no answer' /> No answer </label>
           </div>
         </div>
         {
@@ -219,17 +238,6 @@ const FormView = (props) => {
           <div className='radio'>
             <label><Field name='sex' component='input' type='radio' value='other' /> Other / No answer</label>
           </div>
-        </div>
-
-        <div >
-          <label>Group id</label>
-          <Field
-            className='form-control'
-            name='groupId'
-            component='input'
-            type='text'
-          />
-          <p>Please enter group id if you are provided with one</p>
         </div>
       </form>
     </div>

@@ -15,21 +15,18 @@ export const ReduceView = (props) => {
     <div>
       <div className='row'>
         <div className={componentClasses.join(' ')}>
-          <p><b>Your decision task starts here:</b></p>
-          <ul>
-            <li>
-              Create a basket of 8 strategies based on your preferences.
-            </li>
-            <li>
-              Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
-            </li>
-          </ul>
-          <p>
-            In this task the <b>starting point</b> is that you initially have <b>all the strategies</b> in your basket.
-            You will need to remove 7.
-            <br />
-            <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Continue </Button>
-          </p>
+          <Button
+            className='confirmHelp btn-lg btn-primary'
+            onClick={() => { props.showBasket() }}
+            style={{'float': 'right'}}
+          >
+            Continue
+          </Button>
+          <br />
+          <div className='large-description-text' style={{'clear':'both'}}>
+            <h1 className='text-center'>Create the basket by removing strategies</h1>
+            <p>The starting point is that you initially have all the 15 strategies in your basket and you need to remove 7 strategies from it.</p>
+          </div>
         </div>
       </div>
       {props.basketHidden ? ''
@@ -38,8 +35,8 @@ export const ReduceView = (props) => {
           <div className='col-sm-12 fixed-alert-helper'>
             <Alert className='description text-center' bsStyle={(props.reduceCount === 8) ? 'success' : 'info'} >
               {(!props.basketHidden && props.reduceCount > 8)
-              ? <span> You have {props.reduceCount} strategies in your basket.
-                  <b> Please remove {props.reduceCount - 8}. </b><br />
+              ? <span> You have {props.reduceCount} strategies in your basket. To reach a basket of 8 strategies
+                  <b> please remove {props.reduceCount - 8}. </b><br />
                   Scroll down to see all the strategies.
               </span>
               : ''}
@@ -54,7 +51,7 @@ export const ReduceView = (props) => {
               </span>
               : ''}
               {(props.reduceCount < 8)
-              ? <span> There are {8 - props.reduceCount} strategies missing from your basket. </span>
+              ? <span> You have {props.reduceCount} strategies in your basket. To reach a basket of 8 strategies, please add {8 - props.reduceCount} strategies. <br /> Scroll down to see all the strategies. </span>
                 : ''}
             </Alert>
           </div>
@@ -62,17 +59,15 @@ export const ReduceView = (props) => {
         <div className='row'>
           <div className='col-sm-6'>
             <div className='basket removal-basket'>
-              <h3>Removed strategies</h3>
-              <p> Press the box to inspect a strategy.
-                  After inspection you can return it into the basket if you want.
-              </p>
+              <h3 className='text-center'>Strategies not included in the basket</h3>
+              <p className='text-center'> Click on strategy to add it into the basket. </p>
               <BatchViewContainer direction={'reduce'} />
             </div>
           </div>
           <div className='col-sm-6'>
             <div className='basket real-basket'>
-              <h3>Basket</h3>
-              <p>Press the box to inspect a strategy. After inspection you can remove it if you want.</p>
+              <h1 className='text-center'>Your basket of strategies</h1>
+              <p className='text-center'>Click on strategy to remove it from the basket.</p>
               <BatchViewContainer direction={'return'} />
             </div>
           </div>

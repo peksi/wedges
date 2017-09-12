@@ -12,19 +12,20 @@ export const AddView = (props) => {
     <div>
       <div className='row'>
         <div className={componentClasses.join(' ')}>
-          <p>Your decision task:</p>
-          <ul>
-            <li>
-              Create a basket of 8 strategies based on your preferences.
-            </li>
-            <li>
-              Take into account the perspectives you find relevant, e.g. environmental, economic, social, political.
-            </li>
-          </ul>
-          <p>
-            In this task the <b>starting point</b> is that you have <b>no strategies</b> in your basket.
+          <Button
+            className='confirmHelp btn-lg btn-primary'
+            onClick={() => { props.showBasket() }}
+          >
+            Continue
+          </Button>
+          <p style={{'clear':'both'}}>
+            <h1>Create the basket by adding strategies</h1>
+            <span className='large-description-text'>
+            <p>
+              The starting point is that you initially have an empty basket and you need to add 8 strategies into it.
+            </p>
+            </span>
           </p>
-          <Button className='confirmHelp' onClick={() => { props.showBasket() }}> Continue </Button>
         </div>
       </div>
       {props.basketHidden ? ''
@@ -33,7 +34,8 @@ export const AddView = (props) => {
             <div className='col-sm-12 fixed-alert-helper'>
               <Alert className='description text-center' bsStyle={(props.addCount === 8) ? 'success' : 'info'}>
                 {(props.addCount > 8)
-                  ? <span>There are {props.addCount - 8} extra strategies in your basket.</span>
+                  ? <span>You have {props.addCount} strategies in your basket. To reach a basket of 8 strategies <b> please remove {props.addCount - 8}. </b><br />
+                  Scroll down to see all the strategies.</span>
                   : ''
                 }
                 {(props.addCount === 8)
@@ -46,7 +48,7 @@ export const AddView = (props) => {
                   : ''}
                 {(props.addCount < 8)
                   ? <span>
-                      You have {props.addCount} strategies in your basket. <b>Please add {8 - props.addCount}.</b>
+                      You have {props.addCount} strategies in your basket. To reach a basket of 8 strategies, <b>please add {8 - props.addCount}.</b> <br /> Scroll down to see all the strategies.
                   </span>
                   : ''}
               </Alert>
@@ -55,15 +57,15 @@ export const AddView = (props) => {
           <div className='row'>
             <div className='col-sm-6'>
               <div className='basket removal-basket'>
-                <h3>Strategies available</h3>
-                <p>Press the add button to select a strategy into the basket</p>
+                <h3 className='text-center'>Strategies not included in the basket</h3>
+                <p className='text-center'> Click on strategy to add it into the basket. </p>
                 <BatchViewContainer direction={'reduce'} />
               </div>
             </div>
             <div className='col-sm-6'>
               <div className='basket real-basket'>
-                <h3>Basket</h3>
-                <p>Press the remove button to remove a strategy from the basket</p>
+                <h1 className='text-center'>Your basket of strategies</h1>
+                <p className='text-center'>Click on strategy to remove it from the basket.</p>
                 <div><BatchViewContainer direction={'return'} />
                   {props.addCount === 0
                     ? <p style={{ padding: '4em', 'textAlign': 'center' }}>
