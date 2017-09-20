@@ -7,6 +7,14 @@ import './AddView.scss'
 export const AddView = (props) => {
   const componentClasses = ['helpbox', 'infobox']
   if (!props.basketHidden) { componentClasses.push('hide-helpbox') }
+  let linkToNext = ''
+  if (props.firstStrategySurvey === 'reduce' && props.reduceExists) {
+    // reduce is first, continue to thankyou
+    linkToNext = '/thankyou'
+  } else {
+    // TODO: foolproof this
+    linkToNext = '/middlepage'
+  }
 
   return (
     <div>
@@ -18,12 +26,10 @@ export const AddView = (props) => {
           >
             Continue
           </Button>
-          <p style={{'clear':'both'}}>
-            <h1>Create the basket by adding strategies</h1>
+          <h1 style={{ 'clear':'both' }}>Create the basket by adding strategies</h1>
+          <p>
             <span className='large-description-text'>
-            <p>
               The starting point is that you initially have an empty basket and you need to add 8 strategies into it.
-            </p>
             </span>
           </p>
         </div>
@@ -34,21 +40,24 @@ export const AddView = (props) => {
             <div className='col-sm-12 fixed-alert-helper'>
               <Alert className='description text-center' bsStyle={(props.addCount === 8) ? 'success' : 'info'}>
                 {(props.addCount > 8)
-                  ? <span>You have {props.addCount} strategies in your basket. To reach a basket of 8 strategies <b> please remove {props.addCount - 8}. </b><br />
-                  Scroll down to see all the strategies.</span>
+                  ? <span>You have {props.addCount} strategies in your basket.
+                    To reach a basket of 8 strategies <b> please remove {props.addCount - 8}. </b><br />
+                    Scroll down to see all the strategies.</span>
                   : ''
                 }
                 {(props.addCount === 8)
                   ? <span>You now have the required number of strategies in your basket.
                   You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
-                    <Link to='/thankyou'>
+                    <Link to={linkToNext}>
                       <Button className='confirmbutton'> Confirm </Button>
                     </Link>
                   </span>
                   : ''}
                 {(props.addCount < 8)
                   ? <span>
-                      You have {props.addCount} strategies in your basket. To reach a basket of 8 strategies, <b>please add {8 - props.addCount}.</b> <br /> Scroll down to see all the strategies.
+                      You have {props.addCount} strategies in your basket.
+                      To reach a basket of 8 strategies, <b>please add {8 - props.addCount}.</b> <br />
+                      Scroll down to see all the strategies.
                   </span>
                   : ''}
               </Alert>
@@ -84,7 +93,9 @@ export const AddView = (props) => {
 AddView.propTypes = {
   addCount: React.PropTypes.number,
   basketHidden: React.PropTypes.bool,
-  showBasket: React.PropTypes.func.isRequired
+  firstStrategySurvey: React.PropTypes.string,
+  showBasket: React.PropTypes.func.isRequired,
+  reduceExists: React.PropTypes.bool
 }
 
 import { connect } from 'react-redux'
@@ -94,9 +105,16 @@ const mapDispatchToProps = {
   showBasket
 }
 
-const mapStateToProps = (state) => ({
-  addCount : state.add.addCount,
-  basketHidden: state.add.basketHidden
-})
+const mapStateToProps = (state) => {
+  const checkIfReduceExists = typeof state.reduce !== 'undefined'
+  // if reduce does not exist, we go there next
+
+  return ({
+    addCount : state.add.addCount,
+    basketHidden: state.add.basketHidden,
+    firstStrategySurvey: state.home.first,
+    reduceExists: checkIfReduceExists
+  })
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddView)

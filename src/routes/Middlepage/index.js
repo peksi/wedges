@@ -1,8 +1,13 @@
-import MiddlePage from './components/MiddlePage.js'
 
 // Sync route definition
-export default {
-  component : MiddlePage,
-  path: 'middlepage'
+export default (store) => ({
+  path: 'middlepage',
 
-}
+  getComponent (nextState, cb) {
+    require.ensure([], (require) => {
+      const MiddlePage = require('./components/MiddlePage').default
+
+      cb(null, MiddlePage)
+    }, 'middlepage')
+  }
+})

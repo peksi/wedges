@@ -72,7 +72,7 @@ export class HomeView extends React.Component {
         {this.props.page === 12 // lastpage
       ? <div className='page4'>
         <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
-        <Link to='/reduce' className='next-button'>
+        <Link to={'/' + this.props.first} className='next-button'>
           <Button className='btn-primary btn-lg'>Continue</Button>
         </Link>
         <div className='decisionTaskStartsNext'>
@@ -102,10 +102,12 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
+  first: state.home.first,
   page: state.home.page
 })
 
 HomeView.propTypes = {
+  first: React.PropTypes.string,
   goForward: React.PropTypes.func.isRequired,
   goBack: React.PropTypes.func.isRequired,
   page: React.PropTypes.number

@@ -16,7 +16,7 @@ export const createRoutes = (store) => ({
   indexRoute  : Home(store),
   childRoutes : [
     Form,
-    MiddlePage,
+    MiddlePage(store),
     Reduce(store),
     Add(store),
     ThankYou(store)

@@ -32,11 +32,12 @@ const ACTION_HANDLERS = {
   }
 }
 
-function coinFlip() {
-    return (Math.floor(Math.random() * 2) == 0) ? 'add' : 'reduce';
+function coinFlip () {
+  return (Math.floor(Math.random() * 2) === 0) ? 'add' : 'reduce'
 }
 // Reducer
 const initialState = {
+  first: coinFlip(),
   page: 0
 }
 

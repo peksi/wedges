@@ -10,6 +10,12 @@ export const ReduceView = (props) => {
   const componentClasses = ['helpbox', 'infobox']
   // adding classes is used for animation
   if (!props.basketHidden) { componentClasses.push('hide-helpbox') }
+  let linkToNext = ''
+  if (props.firstStrategySurvey === 'add' && props.addExists) {
+    linkToNext = '/thankyou'
+  } else {
+    linkToNext = '/middlepage'
+  }
 
   return (
     <div>
@@ -18,14 +24,15 @@ export const ReduceView = (props) => {
           <Button
             className='confirmHelp btn-lg btn-primary'
             onClick={() => { props.showBasket() }}
-            style={{'float': 'right'}}
+            style={{ 'float': 'right' }}
           >
             Continue
           </Button>
           <br />
-          <div className='large-description-text' style={{'clear':'both'}}>
+          <div className='large-description-text' style={{ 'clear':'both' }}>
             <h1 className='text-center'>Create the basket by removing strategies</h1>
-            <p>The starting point is that you initially have all the 15 strategies in your basket and you need to remove 7 strategies from it.</p>
+            <p>The starting point is that you initially have all the 15 strategies in
+            your basket and you need to remove 7 strategies from it.</p>
           </div>
         </div>
       </div>
@@ -45,13 +52,15 @@ export const ReduceView = (props) => {
                 You now have the required number of strategies in your basket.
                 You can still make changes. <br />
                 <b>If you are happy with your basket, press confirm.</b>
-                <Link to='/middlepage'>
+                <Link to={linkToNext}>
                   <Button className='confirmbutton' bsStyle='default'> Confirm </Button>
                 </Link>
               </span>
               : ''}
               {(props.reduceCount < 8)
-              ? <span> You have {props.reduceCount} strategies in your basket. To reach a basket of 8 strategies, please add {8 - props.reduceCount} strategies. <br /> Scroll down to see all the strategies. </span>
+              ? <span> You have {props.reduceCount} strategies in your basket. To reach a basket of 8 strategies,
+              please add {8 - props.reduceCount} strategies. <br />
+              Scroll down to see all the strategies. </span>
                 : ''}
             </Alert>
           </div>
@@ -85,14 +94,22 @@ const mapDispatchToProps = {
   showBasket
 }
 
-const mapStateToProps = (state) => ({
-  basketHidden: state.reduce.basketHidden,
-  reduceCount : state.reduce.reduceCount
-})
+const mapStateToProps = (state) => {
+  const checkIfAddExists = typeof state.add !== 'undefined'
+
+  return ({
+    basketHidden: state.reduce.basketHidden,
+    reduceCount : state.reduce.reduceCount,
+    firstStrategySurvey: state.home.first,
+    addExists: checkIfAddExists
+  })
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReduceView)
 
 ReduceView.propTypes = {
+  firstStrategySurvey: React.PropTypes.string,
+  addExists: React.PropTypes.bool,
   basketHidden: React.PropTypes.bool.isRequired,
   reduceCount: React.PropTypes.number.isRequired,
   showBasket: React.PropTypes.func.isRequired
