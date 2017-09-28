@@ -17,6 +17,7 @@ export const InfoBlock = (props) => {
       className={infoblockClass}
       >
       <img src={require('./ReduceBlock/img/action' + (props.currentwedge) + '_description.png')} />
+      {(props.direction === 'reduce') ? 'Include in the basket' : 'Do not include in the basket'}
       <Button
         hidden={props.direction !== 'reduce'}
         bsStyle='primary'
@@ -26,18 +27,24 @@ export const InfoBlock = (props) => {
           props.clearHighlight()
         }}
       >
-        Include in the basket
+        Confirm
       </Button>
       <Button
+        bsStyle='primary'
         hidden={props.direction !== 'return'}
-        bsStyle='danger'
         onClick={() => {
           props.restoreValue(props.currentwedge)
-          props.logTransfer(new Date().getTime(), 'remove', props.currentwedge)
+          props.logTransfer(new Date().getTime(), 'reduce', props.currentwedge)
           props.clearHighlight()
         }}
       >
-        Do not include in the basket
+        Confirm
+      </Button>
+      <Button
+        bsStyle='default'
+        onClick={() => { props.clearHighlight() }}
+      >
+        Cancel
       </Button>
     </div>
   )
