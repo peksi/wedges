@@ -8,11 +8,9 @@ export default (store) => ({
     require.ensure([], (require) => {
       const ThankYou = require('./components/ThankYou').default
       const reducer = require('./modules/thankyou').default
-
       injectReducer(store, { key: 'thankyou', reducer })
 
       cb(null, ThankYou)
     }, 'reduce')
   }
-
 })

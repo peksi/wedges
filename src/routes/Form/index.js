@@ -1,7 +1,15 @@
-import SubmitView from './components/SubmitView'
+import { injectReducer } from '../../store/reducers'
 
-// Sync route definition
-export default {
-  component : SubmitView,
-  path: 'form'
-}
+export default (store) => ({
+  path: 'form',
+
+  getComponent (nextState, cb) {
+    require.ensure([], (require) => {
+      const SubmitView = require('./components/SubmitView').default
+      const reducer = require('./modules/form')
+      injectReducer(store, { key: 'formview', reducer })
+
+      cb(null, SubmitView)
+    }, 'reduce')
+  }
+})

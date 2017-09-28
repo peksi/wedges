@@ -23,11 +23,9 @@ const validate = values => {
 
 const FormView = (props) => {
   const { handleSubmit } = props
+
   return (
     <div>
-      <p className='helpbox' style={{ 'marginBottom':'2em' }}>
-        You have now completed your decision task. Please anwer the following questions.
-      </p>
       <form
         className='surveyForm'
         style={{
@@ -41,34 +39,6 @@ const FormView = (props) => {
           browserHistory.push('/')
         })}
       >
-        <div>
-          <label>You created a basket in two ways. Which one was easier to work with?</label>
-          <div className='radio'>
-            <label>
-              <Field name='strategy' component='input' type='radio' value='add' />
-              Starting with an empty basket and adding strategies into it.
-            </label>
-          </div>
-          <div className='radio'>
-            <label>
-              <Field name='strategy' component='input' type='radio' value='reduce' />
-              Starting with with too many strategies in the basket and reducing strategies from it.
-            </label>
-          </div>
-          <div className='radio'>
-            <label>
-              <Field name='strategy' component='input' type='radio' value='no_preference' />
-              There was no difference
-            </label>
-          </div>
-          <div className='radio'>
-            <label>
-              <Field name='strategy' component='input' type='radio' value='no_answer' />
-              No answer
-            </label>
-          </div>
-        </div>
-        <hr />
 
         <div>
           <label>About you</label>
@@ -117,35 +87,6 @@ const FormView = (props) => {
             <label><Field name='degree' component='input' type='radio' value='no answer' /> No answer </label>
           </div>
         </div>
-        {
-    /*
-        <div>
-          <label>Age</label>
-          <div className='radio'>
-            <label><Field name='age' component='input' type='radio' value='under18' /> under 18</label>
-          </div>
-          <div className='radio'>
-            <label><Field name='age' component='input' type='radio' value='18-24' /> 18 - 24</label>
-          </div>
-          <div className='radio'>
-            <label><Field name='age' component='input' type='radio' value='25-34' /> 25 - 34</label>
-          </div>
-          <div className='radio'>
-            <label><Field name='age' component='input' type='radio' value='35-44' /> 35 - 44</label>
-          </div>
-          <div className='radio'>
-            <label><Field name='age' component='input' type='radio' value='45-54' /> 45 - 54</label>
-          </div>
-          <div className='radio'>
-            <label><Field name='age' component='input' type='radio' value='55-64' /> 55 - 64</label>
-          </div>
-          <div className='radio'>
-            <label><Field name='age' component='input' type='radio' value='over64' /> over 64</label>
-          </div>
-        </div>
-  */
-  }
-
         <div>
           <label>Field of studies / profession</label>
           <div className='radio'>
@@ -158,7 +99,6 @@ const FormView = (props) => {
                   Agricultural, Forestry
               </label>
           </div>
-
           <div className='radio'>
             <label>
               <Field
