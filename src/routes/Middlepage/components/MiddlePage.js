@@ -11,12 +11,14 @@
      linkToNext = 'add'
    }
    return (
-     <div className='middlepage'>
-       <h1>Thank you for completing the first stage.</h1>
-       <p>In the second stage we ask you to create the basket using another procedure.</p>
+     <div>
        <Link to={'/' + linkToNext} activeClassName='route--active'>
-         <Button bsSize='large' bsStyle='primary'> Continue </Button>
+         <Button bsSize='large' bsStyle='primary' style={{'float': 'right'}}> Continue </Button>
        </Link>
+       <div className='middlepage' style={{'clear':'both'}}>
+         <h1>Thank you for completing the first stage.</h1>
+         <p>In the second stage we ask you to create the basket using another procedure.</p>
+       </div>
      </div>
    )
  }

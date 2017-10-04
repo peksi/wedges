@@ -27,16 +27,9 @@ export class HomeView extends React.Component {
       <div className='homeview'>
         {this.props.page === 0
       ? <div className='page1' style={{ 'display': (this.props.page === 0) ? 'hidden' : 'visible' }}>
-        <h1 className='text-center'>Welcome to CarbCut</h1>
-        <p className='text-center'>
-          You are participating in our research in people’s decision making styles.
-          In this task you will learn and make decisions about carbon mitigation strategies.
-          Your data will remain anonymous and will be used in our academic research only.
-          Duration: about 20 minutes.
-        </p>
         <Button
           className='btn-primary btn-lg'
-          style={{ display: 'block', 'margin':'3em auto' }}
+          style={{ display: 'block', 'float':'right' }}
           onClick={() => {
             this.props.page === 0 ? this.props.addToLog(new Date().getTime(), 'start') : null
             this.props.goForward()
@@ -44,6 +37,13 @@ export class HomeView extends React.Component {
         >
             Continue
         </Button>
+        <h1 className='text-center' style={{ 'clear':'both' }}>Welcome to CarbCut</h1>
+        <p className='text-center'>
+          You are participating in our research in people’s decision making styles.
+          In this task you will learn and make decisions about carbon mitigation strategies.
+          Your data will remain anonymous and will be used in our academic research only.
+          Duration: about 20 minutes.
+        </p>
         <img src={ppt1} style={{ 'margin': 'auto', 'display':'block', 'width':'50%' }} />
         <br />
         <p className='reference'>
