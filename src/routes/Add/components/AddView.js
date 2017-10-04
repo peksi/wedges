@@ -43,8 +43,8 @@ export const AddView = (props) => {
             <div className='col-sm-12 fixed-alert-helper'>
               <Alert className='description text-center' bsStyle={(props.addCount === 8) ? 'success' : 'info'}>
                 {(props.addCount > 8)
-                  ? <span>You have {props.addCount} strategies in your basket.
-                    To reach a basket of 8 strategies <b> please remove {props.addCount - 8}. </b><br />
+                  ? <span>You have {props.addCount} {props.addCount === 1 ? 'strategy' : 'strategies'} in your basket.
+                    To reach a basket of 8 strategies <b> please remove {props.addCount - 8} {props.addCount - 8 === 1 ? 'strategy' : 'strategies' }. </b><br />
                     Scroll down to see all the strategies.</span>
                   : ''
                 }
@@ -52,13 +52,13 @@ export const AddView = (props) => {
                   ? <span>You now have the required number of strategies in your basket.
                   You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
                     <Link to={linkToNext} onClick={() => { props.addToLog(new Date().getTime(), 'addEnd') }}>
-                      <Button className='confirmbutton'> Confirm </Button>
+                      <Button className='confirmbutton' bsStyle='primary'> Confirm </Button>
                     </Link>
                   </span>
                   : ''}
                 {(props.addCount < 8)
                   ? <span>
-                      You have {props.addCount} strategies in your basket.
+                      You have {props.addCount} {props.addCount === 1 ? 'strategy' : 'strategies'} in your basket.
                       To reach a basket of 8 strategies, <b>please add {8 - props.addCount}.</b> <br />
                       Scroll down to see all the strategies.
                   </span>

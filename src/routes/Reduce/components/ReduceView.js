@@ -45,7 +45,7 @@ export const ReduceView = (props) => {
           <div className='col-sm-12 fixed-alert-helper'>
             <Alert className='description text-center' bsStyle={(props.reduceCount === 8) ? 'success' : 'info'} >
               {(!props.basketHidden && props.reduceCount > 8)
-              ? <span> You have {props.reduceCount} strategies in your basket. To reach a basket of 8 strategies
+              ? <span> You have {props.reduceCount} {props.reduceCount === 1 ? 'strategy' : 'strategies'} in your basket. To reach a basket of 8 strategies
                   <b> please remove {props.reduceCount - 8}. </b><br />
                   Scroll down to see all the strategies.
               </span>
@@ -56,13 +56,13 @@ export const ReduceView = (props) => {
                 You can still make changes. <br />
                 <b>If you are happy with your basket, press confirm.</b>
                 <Link to={linkToNext} onClick={() => { props.addToLog(new Date().getTime(), 'reduceEnd') }}>
-                  <Button className='confirmbutton' bsStyle='default'> Confirm </Button>
+                  <Button className='confirmbutton' bsStyle='primary'> Confirm </Button>
                 </Link>
               </span>
               : ''}
               {(props.reduceCount < 8)
-              ? <span> You have {props.reduceCount} strategies in your basket. To reach a basket of 8 strategies,
-              please add {8 - props.reduceCount} strategies. <br />
+              ? <span> You have {props.reduceCount} {props.reduceCount === 1 ? 'strategy' : 'strategies'} in your basket. To reach a basket of 8 strategies,
+              please add {8 - props.reduceCount} {8 - props.reduceCount === 1 ? 'strategy' : 'strategies' }. <br />
               Scroll down to see all the strategies. </span>
                 : ''}
             </Alert>
