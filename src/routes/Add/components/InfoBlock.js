@@ -42,7 +42,10 @@ export const InfoBlock = (props) => {
       </Button>
       <Button
         bsStyle='default'
-        onClick={() => { props.clearHighlight() }}
+        onClick={() => {
+          props.logTransfer(new Date().getTime(), 'cancel', props.currentwedge)
+          props.clearHighlight()
+        }}
       >
         Cancel
       </Button>
