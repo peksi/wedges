@@ -7,6 +7,7 @@ import Add from './Add'
 import MiddlePage from './MiddlePage'
 import ThankYou from './ThankYou'
 import Survey from './Survey'
+import Support from './Support'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -21,7 +22,8 @@ export const createRoutes = (store) => ({
     Reduce(store),
     Add(store),
     ThankYou(store),
-    Survey(store)
+    Survey(store),
+    Support
   ]
 })
 
