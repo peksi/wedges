@@ -37,7 +37,10 @@ export class HomeView extends React.Component {
         <Button
           className='btn-primary btn-lg'
           style={{ display: 'block', 'margin':'3em auto' }}
-          onClick={() => { this.props.goForward() }}
+          onClick={() => {
+            this.props.page === 0 ? this.props.addToLog(new Date().getTime(), 'start') : null
+            this.props.goForward()
+          }}
         >
             Continue
         </Button>
@@ -94,9 +97,10 @@ export class HomeView extends React.Component {
 }
 
 import { connect } from 'react-redux'
-import { goForward, goBack } from '../modules/home'
+import { addToLog, goForward, goBack } from '../modules/home'
 
 const mapDispatchToProps = {
+  addToLog,
   goForward,
   goBack
 }
@@ -108,6 +112,7 @@ const mapStateToProps = (state) => ({
 
 HomeView.propTypes = {
   first: React.PropTypes.string,
+  addToLog: React.PropTypes.func.isRequired,
   goForward: React.PropTypes.func.isRequired,
   goBack: React.PropTypes.func.isRequired,
   page: React.PropTypes.number

@@ -1,6 +1,7 @@
 // Constant(s)
 export const GO_FORWARD = 'wedges/home/GO_FORWARD'
 export const GO_BACK = 'wedges/home/GO_BACK'
+export const ADD_TO_LOG = 'wedges/home/ADD_TO_LOG'
 
 // Action(s)
 export function goForward () {
@@ -12,6 +13,13 @@ export function goForward () {
 export function goBack () {
   return {
     type  : GO_BACK
+  }
+}
+
+export function addToLog (timestamp, step) {
+  return {
+    type  : ADD_TO_LOG,
+    event : [timestamp, step]
   }
 }
 
@@ -29,6 +37,12 @@ const ACTION_HANDLERS = {
       ...state,
       page: state.page - 1
     }
+  },
+  [ADD_TO_LOG]  : (state, action) => {
+    return {
+      ...state,
+      log: [...state.log, action.event]
+    }
   }
 }
 
@@ -38,7 +52,8 @@ function coinFlip () {
 // Reducer
 const initialState = {
   first: coinFlip(),
-  page: 0
+  page: 0,
+  log: []
 }
 
 export default function homeReducer (state = initialState, action) {

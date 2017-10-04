@@ -26,6 +26,7 @@ const ThankYou = (props) => {
               className='btn-lg btn-primary'
               onClick={() => {
                 props.equal()
+                props.addToLog(new Date().getTime(), 'submitBasketPreference')
                 browserHistory.push('/form')
               }}>
             Both are equally good
@@ -39,6 +40,7 @@ const ThankYou = (props) => {
               className='btn-lg btn-primary basketbutton'
               onClick={() => {
                 props.reduceBetter()
+                props.addToLog(new Date().getTime(), 'submitBasketPreference')
                 browserHistory.push('/form')
               }}>
               I prefer this basket
@@ -62,6 +64,7 @@ const ThankYou = (props) => {
               onClick={
               () => {
                 props.addBetter()
+                props.addToLog(new Date().getTime(), 'submitBasketPreference')
                 browserHistory.push('/form')
               }
             }>
@@ -101,9 +104,11 @@ const ThankYou = (props) => {
 }
 
 import { addBetter, reduceBetter, equal } from '../modules/thankyou'
+import { addToLog } from '../../Home/modules/home'
 
 ThankYou.propTypes = {
   add: React.PropTypes.array,
+  addToLog: React.PropTypes.func,
   reduce: React.PropTypes.array,
   addBetter: React.PropTypes.func,
   reduceBetter: React.PropTypes.func,
@@ -112,7 +117,7 @@ ThankYou.propTypes = {
 }
 
 const mapDispatchToProps = {
-  addBetter, reduceBetter, equal
+  addBetter, reduceBetter, equal, addToLog
 }
 
 const mapStateToProps = (state) => ({

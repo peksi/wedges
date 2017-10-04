@@ -23,7 +23,10 @@ export const ReduceView = (props) => {
         <div className={componentClasses.join(' ')}>
           <Button
             className='confirmHelp btn-lg btn-primary'
-            onClick={() => { props.showBasket() }}
+            onClick={() => {
+              props.addToLog(new Date().getTime(), 'reduce')
+              props.showBasket()
+            }}
             style={{ 'float': 'right' }}
           >
             Continue
@@ -52,7 +55,7 @@ export const ReduceView = (props) => {
                 You now have the required number of strategies in your basket.
                 You can still make changes. <br />
                 <b>If you are happy with your basket, press confirm.</b>
-                <Link to={linkToNext}>
+                <Link to={linkToNext} onClick={() => { props.addToLog(new Date().getTime(), 'reduceEnd') }}>
                   <Button className='confirmbutton' bsStyle='default'> Confirm </Button>
                 </Link>
               </span>
@@ -82,16 +85,17 @@ export const ReduceView = (props) => {
           </div>
         </div>
       </span>
-}
+    }
     </div>
   )
 }
 
 import { connect } from 'react-redux'
 import { showBasket } from '../modules/reduce'
+import { addToLog } from '../../Home/modules/home'
 
 const mapDispatchToProps = {
-  showBasket
+  showBasket, addToLog
 }
 
 const mapStateToProps = (state) => {
@@ -108,6 +112,7 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, mapDispatchToProps)(ReduceView)
 
 ReduceView.propTypes = {
+  addToLog: React.PropTypes.func,
   firstStrategySurvey: React.PropTypes.string,
   addExists: React.PropTypes.bool,
   basketHidden: React.PropTypes.bool.isRequired,

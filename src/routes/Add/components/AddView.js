@@ -22,7 +22,10 @@ export const AddView = (props) => {
         <div className={componentClasses.join(' ')}>
           <Button
             className='confirmHelp btn-lg btn-primary'
-            onClick={() => { props.showBasket() }}
+            onClick={() => {
+              props.addToLog(new Date().getTime(), 'add')
+              props.showBasket()
+            }}
           >
             Continue
           </Button>
@@ -48,7 +51,7 @@ export const AddView = (props) => {
                 {(props.addCount === 8)
                   ? <span>You now have the required number of strategies in your basket.
                   You can still make changes. <br />If you are happy with your basket, <b> press confirm.</b>
-                    <Link to={linkToNext}>
+                    <Link to={linkToNext} onClick={() => { props.addToLog(new Date().getTime(), 'addEnd') }}>
                       <Button className='confirmbutton'> Confirm </Button>
                     </Link>
                   </span>
@@ -92,6 +95,7 @@ export const AddView = (props) => {
 
 AddView.propTypes = {
   addCount: React.PropTypes.number,
+  addToLog: React.PropTypes.func,
   basketHidden: React.PropTypes.bool,
   firstStrategySurvey: React.PropTypes.string,
   showBasket: React.PropTypes.func.isRequired,
@@ -100,9 +104,10 @@ AddView.propTypes = {
 
 import { connect } from 'react-redux'
 import { showBasket } from '../modules/add'
+import { addToLog } from '../../Home/modules/home'
 
 const mapDispatchToProps = {
-  showBasket
+  showBasket, addToLog
 }
 
 const mapStateToProps = (state) => {
