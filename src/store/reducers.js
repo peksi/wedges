@@ -5,7 +5,7 @@ import locationReducer from './location'
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     location: locationReducer,
-    // form: formReducer,
+    form: formReducer,
     ...asyncReducers
   })
 }

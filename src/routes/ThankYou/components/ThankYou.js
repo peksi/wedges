@@ -27,7 +27,7 @@ const ThankYou = (props) => {
               onClick={() => {
                 props.equal()
                 props.addToLog(new Date().getTime(), 'submitBasketPreference')
-                browserHistory.push('/form')
+                browserHistory.push('/survey')
               }}>
             Both are equally good
           </Button>
@@ -41,7 +41,7 @@ const ThankYou = (props) => {
               onClick={() => {
                 props.reduceBetter()
                 props.addToLog(new Date().getTime(), 'submitBasketPreference')
-                browserHistory.push('/form')
+                browserHistory.push('/survey')
               }}>
               I prefer this basket
             </Button>
@@ -65,7 +65,7 @@ const ThankYou = (props) => {
               () => {
                 props.addBetter()
                 props.addToLog(new Date().getTime(), 'submitBasketPreference')
-                browserHistory.push('/form')
+                browserHistory.push('/survey')
               }
             }>
               I prefer this basket
