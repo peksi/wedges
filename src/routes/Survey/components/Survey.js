@@ -8,6 +8,21 @@ import { browserHistory } from 'react-router'
 
 class Survey extends React.Component {
   render () {
+    this.submitInfo = {
+      reducedValues: this.props.reduce.reducedValues,
+      reducedBasketLog: this.props.reduce.log,
+      addedValues: this.props.add.addedValues,
+      addedBasketLog: this.props.add.log,
+      thankyou: {
+        left: this.props.thankyou.first,
+        better: this.props.thankyou.better
+      },
+      values: this.props.state.form.lol ? this.props.state.form.lol.values : null
+    }
+
+    this.asd = () => {
+      console.log(this.submitInfo)
+    }
     return (
       <div className='formview text-center'>
 
@@ -24,7 +39,7 @@ class Survey extends React.Component {
           onSubmit={((values) => {
             console.log(values)
             // TODO alter which site the user goes
-            browserHistory.push('/')
+            // browserHistory.push('/')
           })}
         >
           <div className='page1' style={this.props.page === 1 ? { display: 'block' } : { display:'none' }}>
@@ -201,6 +216,7 @@ class Survey extends React.Component {
             <Button
               style={{ 'float':'right' }}
               bsStyle='success'
+              onClick={() => this.asd()}
             >
               Send survey (currently does nothing)
             </Button>
@@ -224,7 +240,11 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  page: state.survey.page
+  page: state.survey.page,
+  reduce : state.reduce,
+  add: state.add,
+  thankyou: state.thankyou,
+  state: state
 })
 
 Survey = connect(mapStateToProps, mapDispatchToProps)(Survey) //eslint-disable-line
