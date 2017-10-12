@@ -18,6 +18,7 @@
   height: 0px;
   padding: 0;
   transition: height 500ms 0ms, padding 500ms 0ms, opacity 500ms 0ms;
+  display: none;
 
   p, li, button { // tweak for clickable buttons in next helpbox
     display: none;
