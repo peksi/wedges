@@ -63,11 +63,6 @@ export class HomeView extends React.Component {
           <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
           <Button className='next-button btn-primary btn-lg' onClick={() => { this.props.goForward() }}>Continue</Button>
         </div>
-        {this.props.page === 4
-          ? <p className='helpbox'> Please have a look at the descriptions.
-              You do not need to remember the details.
-              They will also be seen later when you will make your choices.
-          </p> : ''}
         <img src={currentDia} />
       </div>
       : ''
@@ -83,7 +78,7 @@ export class HomeView extends React.Component {
           <h1 className='text-center'>Create a basket of 8 mitigation strategies</h1>
           <span className='large-description-text'>
             <p>
-              How to make your decisions: Follow your preferences and take into account the perspectives you find relevant, e.g. environmental, economic, social, political
+              How to make your decisions: Consider the impacts of the basket as a whole, follow your preferences and take into account the perspectives you find relevant, e.g. sustainability, economics, feasibility, social, political
             </p>
           </span>
         </div>
