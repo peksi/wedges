@@ -70,7 +70,7 @@ export class HomeView extends React.Component {
         {this.props.page === 12 // lastpage
       ? <div className='page4'>
         <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
-        <Link to={'/' + this.props.first} className='next-button'>
+        <Link to={'/groupcode'} className='next-button'>
           <Button className='btn-primary btn-lg'>Continue</Button>
         </Link>
         <div className='decisionTaskStartsNext'>
