@@ -3,11 +3,13 @@ import CoreLayout from '../layouts/CoreLayout'
 import Home from './Home'
 import Form from './Form'
 import Reduce from './Reduce'
+import Results from './Results'
 import Add from './Add'
 import MiddlePage from './MiddlePage'
 import ThankYou from './ThankYou'
 import Survey from './Survey'
 import Support from './Support'
+import GroupCode from './GroupCode'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -17,12 +19,14 @@ export const createRoutes = (store) => ({
   component   : CoreLayout,
   indexRoute  : Home(store),
   childRoutes : [
+    Add(store),
     Form(store),
+    GroupCode(store),
     MiddlePage(store),
     Reduce(store),
-    Add(store),
-    ThankYou(store),
+    Results(store),
     Survey(store),
+    ThankYou(store),
     Support
   ]
 })
