@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
 import './ThankYou.scss'
 import { browserHistory } from 'react-router'
+import { Field, reduxForm } from 'redux-form'
 
-const ThankYou = (props) => {
+let ThankYou = (props) => {
   let addClasses = 'col-sm-6 text-center'
   let removeClasses = 'col-sm-6 text-center'
 
@@ -17,34 +18,44 @@ const ThankYou = (props) => {
   return (
     <div className='formview text-center'>
       {props.add.length === 8 && props.reduce.length === 8
-      ? <span><h2>Please compare the two baskets you have created.</h2>
-        <h2>Which one do you prefer?</h2>
-        <div className='row'>
-          <div className='col-sm-4 text-center' />
-          <div className='col-sm-4 text-center'>
-            <Button
-              className='btn-lg btn-primary'
-              onClick={() => {
-                props.equal()
-                props.addToLog(new Date().getTime(), 'submitBasketPreference')
-                browserHistory.push('/survey')
-              }}>
-            Both are equally good
-          </Button>
-          </div>
-          <div className='col-sm-4 text-center' />
-        </div>
+      ? <span>
+        <form>
+          <div><label>You have now created two baskets shown below in a randomized order.<br /> Please compare the two baskets.</label></div>
+          <span className='fieldWrapper'>
+            <Field name='basketPreference' component='input' type='radio' value='a+' /> A is much better
+          </span>
+          <span className='fieldWrapper'>
+            <Field name='basketPreference' component='input' type='radio' value='a' /> A is somewhat better
+          </span>
+          <span className='fieldWrapper'>
+            <Field name='basketPreference' component='input' type='radio' value='equal' /> A and B are equally good
+          </span>
+          <span className='fieldWrapper'>
+            <Field name='basketPreference' component='input' type='radio' value='b' /> B is somewhat better
+          </span>
+          <span className='fieldWrapper'>
+            <Field name='basketPreference' component='input' type='radio' value='b+' /> B is much better
+          </span>
+          <span className='fieldWrapper'>
+            <Field name='basketPreference' component='input' type='radio' value='no_answer' /> I don´t know
+          </span>
+        </form>
+        <Button
+          bsStyle='primary'
+          className='btn-lg'
+          onClick={() => {
+            props.addToLog(new Date().getTime(), 'submitBasketPreference')
+            browserHistory.push('/survey')
+          }
+        }>
+          Continue
+        </Button>
+
         <div className='row'>
           <div className={removeClasses}>
-            <Button
-              className='btn-lg btn-primary basketbutton'
-              onClick={() => {
-                props.reduceBetter()
-                props.addToLog(new Date().getTime(), 'submitBasketPreference')
-                browserHistory.push('/survey')
-              }}>
-              I prefer this basket
-            </Button>
+            <h2>
+              Basket A
+            </h2>
             <div className='thankyou-batch'>
               {props.reduce
                 .sort((a, b) => a - b)
@@ -59,17 +70,9 @@ const ThankYou = (props) => {
             </div>
           </div>
           <div className={addClasses}>
-            <Button
-              className='btn-lg btn-primary basketbutton'
-              onClick={
-              () => {
-                props.addBetter()
-                props.addToLog(new Date().getTime(), 'submitBasketPreference')
-                browserHistory.push('/survey')
-              }
-            }>
-              I prefer this basket
-            </Button>
+            <h2>
+              Basket B
+            </h2>
             <div className='thankyou-batch'>
               {props.add
                 .sort((a, b) => a - b)
@@ -127,4 +130,9 @@ const mapStateToProps = (state) => ({
   first: state.thankyou.first
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ThankYou)
+ThankYou = connect(mapStateToProps, mapDispatchToProps)(ThankYou) //eslint-disable-line
+
+export default reduxForm({
+  form: 'lol',
+  destroyOnUnmount: false
+})(ThankYou)
