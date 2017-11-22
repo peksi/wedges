@@ -3,6 +3,10 @@ img {
   padding-bottom: 0.5em;
 }
 
+h2 {
+  text-align: left;
+}
+
 .basketbutton {
   margin-bottom: 2em;
 }
@@ -10,4 +14,14 @@ img {
 .thankyou-batch{
   max-width: 736px;
   margin: auto;
+}
+
+.fieldWrapper {
+  margin: 0.5em;
+}
+
+.page1 {
+  label {
+    margin-top: 1em;
+  }  
 }
