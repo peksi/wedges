@@ -19,7 +19,7 @@ class Survey extends React.Component {
           orderOfProcedures: this.props.state.home.first,
           // locations of initial procedures
           initialAddOrder: this.props.add.initialOrder,
-          initialReduceOrder: this.props.initialOrder,
+          initialReduceOrder: this.props.reduce.initialOrder,
           // evaluation of baskets
           evaluationOrder: this.props.thankyou.first,
           // NB: evaluation grade comes from the survey!
