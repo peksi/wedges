@@ -333,17 +333,16 @@ class Survey extends React.Component {
               onClick={() => {
                 this.props.addToLog(new Date().getTime(), 'finalSubmit')
                 this.asd()
+                window.location.href = '/'
               }}
             >
-              Send survey (currently does nothing)
+              Send survey
             </Button>
           </div>
         </form>
-
       </div>
     )
   }
-
 }
 
 import { goForward } from '../modules/survey'
