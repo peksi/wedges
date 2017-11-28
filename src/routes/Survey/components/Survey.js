@@ -330,7 +330,10 @@ class Survey extends React.Component {
             <Button
               style={{ 'float':'right' }}
               bsStyle='success'
-              onClick={() => this.asd()}
+              onClick={() => {
+                this.props.addToLog(new Date().getTime(), 'finalSubmit')
+                this.asd()
+              }}
             >
               Send survey (currently does nothing)
             </Button>
@@ -344,13 +347,15 @@ class Survey extends React.Component {
 }
 
 import { goForward } from '../modules/survey'
+import { addToLog } from '../../Home/modules/home'
 
 Survey.propTypes = {
-  page: React.PropTypes.number
+  page: React.PropTypes.number,
+  addToLog: React.PropTypes.func
 }
 
 const mapDispatchToProps = {
-  goForward
+  goForward, addToLog
 }
 
 const mapStateToProps = (state) => ({
