@@ -49,6 +49,7 @@ class Survey extends React.Component {
       request.open('POST', '/api', true)
       request.setRequestHeader('Content-Type', 'application/json')
       request.send(JSON.stringify(this.submitInfo))
+      window.location.href = '/'
     }
     return (
       <div className='formview text-center'>
@@ -333,7 +334,6 @@ class Survey extends React.Component {
               onClick={() => {
                 this.props.addToLog(new Date().getTime(), 'finalSubmit')
                 this.asd()
-                window.location.href = '/'
               }}
             >
               Send survey
