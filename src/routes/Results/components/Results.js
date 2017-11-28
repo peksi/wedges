@@ -8,20 +8,36 @@ export class Results extends React.Component {
   constructor (...args) {
     super(...args)
     this.mockupResults = this.mockupResults.bind(this)
-    this.pollResults = this.pollResults.bind(this)
+    this.getContent = this.getContent.bind(this)
     this.populateResults = this.populateResults.bind(this)
   }
   mockupResults = () => {
     return (
-      [
-        {"id":1,"resultBlob":{"log":[[1511433781603,"start"],[1511433788237,"add"],[1511433801509,"addEnd"],[1511433803152,"reduce"],[1511433815766,"reduceEnd"],[1511433819297,"submitBasketPreference"]],"survey":{"age":"11","sex":"male","costs":"3","other":"gg","degree":"high_school","balance":"3","aboutyou":"retired","comments":"agds","occupation":"culture&arts","feasibility":"3","nationality":"AF","sustainability":"3","global_fairness":"2","basketPreference":"b","adding_strategies":"3","removing_strategies":"3"},"groupcode":"asdf","addedValues":[1,2,3,7,9,11,13,14],"reducedValues":[1,3,6,7,8,12,13,14],"addedBasketLog":[[1511433790346,"add",13],[1511433791794,"add",7],[1511433792988,"add",3],[1511433794342,"add",11],[1511433796006,"add",2],[1511433797401,"add",14],[1511433798940,"add",9],[1511433800298,"add",1]],"evaluationOrder":"reduce","initialAddOrder":[13,7,3,11,2,14,9,1,10,5,12,4,8,15,6],"reducedBasketLog":[[1511433805288,"reduce",11],[1511433806932,"reduce",2],[1511433808394,"reduce",10],[1511433809894,"reduce",5],[1511433811336,"reduce",15],[1511433812832,"reduce",9],[1511433814137,"reduce",4]],"orderOfProcedures":"add","initialReduceOrder":[11,10,2,5,15,9,4,8,12,1,7,14,6,3,13]},"createdAt":"2017-11-23T10:44:08.955Z","updatedAt":"2017-11-23T10:44:08.955Z"},
-        {"id":2,"resultBlob":{"log":[[1511433781603,"start"],[1511433788237,"add"],[1511433801509,"addEnd"],[1511433803152,"reduce"],[1511433815766,"reduceEnd"],[1511433819297,"submitBasketPreference"]],"survey":{"age":"11","sex":"male","costs":"3","other":"gg","degree":"high_school","balance":"3","aboutyou":"retired","comments":"agds","occupation":"culture&arts","feasibility":"3","nationality":"AF","sustainability":"3","global_fairness":"2","basketPreference":"b","adding_strategies":"3","removing_strategies":"3"},"groupcode":"asdf","addedValues":[1,2,3,7,9,11,13,14],"reducedValues":[1,3,6,7,8,12,13,14],"addedBasketLog":[[1511433790346,"add",13],[1511433791794,"add",7],[1511433792988,"add",3],[1511433794342,"add",11],[1511433796006,"add",2],[1511433797401,"add",14],[1511433798940,"add",9],[1511433800298,"add",1]],"evaluationOrder":"reduce","initialAddOrder":[13,7,3,11,2,14,9,1,10,5,12,4,8,15,6],"reducedBasketLog":[[1511433805288,"reduce",11],[1511433806932,"reduce",2],[1511433808394,"reduce",10],[1511433809894,"reduce",5],[1511433811336,"reduce",15],[1511433812832,"reduce",9],[1511433814137,"reduce",4]],"orderOfProcedures":"add","initialReduceOrder":[11,10,2,5,15,9,4,8,12,1,7,14,6,3,13]},"createdAt":"2017-11-23T10:44:19.270Z","updatedAt":"2017-11-23T10:44:19.270Z"}]
+      [{"id":1,"resultBlob":{"log":[[1511874228304,"start"],[1511874238339,"reduce"],[1511874249860,"reduceEnd"],[1511874251872,"add"],[1511874263370,"addEnd"],[1511874266509,"submitBasketPreference"],[1511874284554,"finalSubmit"],[1511874299707,"finalSubmit"]],"survey":{"age":"11","sex":"male","costs":"2","degree":"bachelor","balance":"2","aboutyou":"studying","occupation":"healthcare","feasibility":"2","nationality":"AX","sustainability":"2","global_fairness":"2","basketPreference":"a","adding_strategies":"1","removing_strategies":"1"},"groupcode":"asegdsafgdsg","addedValues":[1,6,7,9,11,12,14,15],"reducedValues":[2,6,7,8,10,11,12,15],"addedBasketLog":[[1511874253515,"add",6],[1511874254732,"add",11],[1511874255821,"add",9],[1511874257250,"add",14],[1511874258623,"add",7],[1511874259579,"add",15],[1511874260760,"add",12],[1511874262358,"add",1]],"evaluationOrder":"reduce","initialAddOrder":[6,4,11,9,7,14,15,1,10,12,2,5,13,8,3],"reducedBasketLog":[[1511874240354,"reduce",9],[1511874241455,"reduce",3],[1511874242670,"reduce",1],[1511874244886,"reduce",5],[1511874246337,"reduce",4],[1511874247699,"reduce",13],[1511874248869,"reduce",14]],"orderOfProcedures":"reduce","initialReduceOrder":[9,3,1,5,13,4,14,7,10,15,8,2,12,6,11]},"createdAt":"2017-11-28T13:06:22.941Z","updatedAt":"2017-11-28T13:06:22.941Z"}]
     )
   }
 
-  pollResults = () => {
-
-  }
+  getContent = (url) => {
+    // return new pending promise
+    return new Promise((resolve, reject) => {
+      // select http or https module, depending on reqested url
+      const lib = url.startsWith('https') ? require('https') : require('http');
+      const request = lib.get(url, (response) => {
+        // handle http errors
+        if (response.statusCode < 200 || response.statusCode > 299) {
+           reject(new Error('Failed to load page, status code: ' + response.statusCode));
+         }
+        // temporary data holder
+        const body = [];
+        // on every content chunk, push it to the data array
+        response.on('data', (chunk) => body.push(chunk));
+        // we are done, resolve promise with those joined chunks
+        response.on('end', () => resolve(body.join('')));
+      });
+      // handle connection errors of the request
+      request.on('error', (err) => reject(err))
+      })
+  };
 
   populateResults = (data) => {
     let tempRow = ""
@@ -29,6 +45,8 @@ export class Results extends React.Component {
     function toTempRow (colEntry) {
       tempRow += '<td>' + colEntry + '</td>'
     }
+
+    console.log(data)
 
     _.forEach(data, (item) => {
       tempRow += '<tr>'
@@ -74,12 +92,12 @@ export class Results extends React.Component {
       toTempRow(item.resultBlob.survey.nationality)
       toTempRow(item.resultBlob.survey.age)
       toTempRow(item.resultBlob.survey.sex)
+      // TODO: better logging
       toTempRow((item.resultBlob.log[1][0] - item.resultBlob.log[0][0]) / 1000)
       toTempRow((item.resultBlob.log[2][0] - item.resultBlob.log[1][0]) / 1000)
       toTempRow((item.resultBlob.log[4][0] - item.resultBlob.log[3][0]) / 1000)
-      //TODO: better logging
-      toTempRow((item.resultBlob.log[5][0] - item.resultBlob.log[4][0]) / 1000)
-      toTempRow((item.resultBlob.log[5][0] - item.resultBlob.log[4][0]) / 1000)
+      toTempRow((item.resultBlob.log[6][0] - item.resultBlob.log[4][0]) / 1000)
+      toTempRow((item.resultBlob.log[6][0] - item.resultBlob.log[0][0]) / 1000)
 
       // log / time spent
       // toTempRow((item.resultBlob.log[1][0] - item.log[0][0]) / 1000)
@@ -91,7 +109,9 @@ export class Results extends React.Component {
 
   componentDidMount () {
     let tbody = document.getElementById('tbody')
-    tbody.innerHTML += this.populateResults(this.mockupResults())
+    this.getContent('http://carbcut.aalto.fi/api').then((html) => {
+      tbody.innerHTML += this.populateResults(JSON.parse(html))
+    })
   }
 
   render () {
@@ -112,7 +132,7 @@ export class Results extends React.Component {
               <th colSpan='15'>Locations of strategies, ADD procedure</th>
               <th colSpan='15'>Locations of strategies, REM procedure</th>
               <th colSpan='2'> Evaluation of baskets</th>
-              <th colSpan='9'> Evaluation of procedures</th>
+              <th colSpan='9'> Evaluation of procedures - Scale: 1, very easy/not at all - 5, very difficult/very much </th>
               <th colSpan='6'> Personal data</th>
               <th>Log</th>
 
@@ -152,8 +172,20 @@ export class Results extends React.Component {
               <th>Strategy 14</th>
               <th>Strategy 15</th>
               <th>Number of common actions</th>
-              <th>Order of Procedures</th>
-              <th colSpan='41'>lol</th>
+              <th>First procedure</th>
+              <th colSpan='30'></th>
+              <th>Basket a is</th>
+              <th>Preferred basket</th>
+              <th>adding strategies</th>
+              <th>removing strategies</th>
+              <th>costs</th>
+              <th>feasibility</th>
+              <th>sustainability</th>
+              <th>balance</th>
+              <th>global_fairness</th>
+              <th>other</th>
+              <th>comments</th>
+
               <th>I am</th>
               <th>Highest degree</th>
               <th>Field of studies / Profession</th>
