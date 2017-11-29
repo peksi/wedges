@@ -17,10 +17,10 @@ export function goBack () {
 }
 
 export function addToLog (timestamp, step) {
-  return {
+  return Promise.resolve({
     type  : ADD_TO_LOG,
     event : [timestamp, step]
-  }
+  })
 }
 
 // Action handler(s)
