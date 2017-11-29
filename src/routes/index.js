@@ -10,6 +10,7 @@ import ThankYou from './ThankYou'
 import Survey from './Survey'
 import Support from './Support'
 import GroupCode from './GroupCode'
+import AfterSubmit from './AfterSubmit'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -27,6 +28,7 @@ export const createRoutes = (store) => ({
     Results(store),
     Survey(store),
     ThankYou(store),
+    AfterSubmit,
     Support
   ]
 })
