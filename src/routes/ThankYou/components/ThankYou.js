@@ -50,12 +50,16 @@ let ThankYou = (props) => {
         }>
           Continue
         </Button>
-
+        <div className="row">
+          <div className='col-sm-6'>
+            <h2>Basket A</h2>
+          </div>
+          <div className='col-sm-6'>
+            <h2>Basket B</h2>
+          </div>
+        </div>
         <div className='row'>
           <div className={removeClasses}>
-            <h2>
-              Basket A
-            </h2>
             <div className='thankyou-batch'>
               {props.reduce
                 .sort((a, b) => a - b)
@@ -70,9 +74,6 @@ let ThankYou = (props) => {
             </div>
           </div>
           <div className={addClasses}>
-            <h2>
-              Basket B
-            </h2>
             <div className='thankyou-batch'>
               {props.add
                 .sort((a, b) => a - b)
