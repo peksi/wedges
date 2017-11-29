@@ -36,7 +36,6 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = {
-  groupcode: ''
 }
 
 export default function groupcodeReducer (state = initialState, action) {
