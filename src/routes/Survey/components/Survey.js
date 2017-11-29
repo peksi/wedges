@@ -7,50 +7,46 @@ import NationalityDropdown from './NationalityDropdown.js'
 import { browserHistory } from 'react-router'
 
 class Survey extends React.Component {
-  render () {
-    const gatherSubmitInfo = () => {
-      try {
-        return {
-          groupcode: this.props.state.groupcode.groupcode,
-          // result values
-          addedValues: this.props.add.addedValues,
-          reducedValues: this.props.reduce.reducedValues,
-          // which one was first
-          orderOfProcedures: this.props.state.home.first,
-          // locations of initial procedures
-          initialAddOrder: this.props.add.initialOrder,
-          initialReduceOrder: this.props.reduce.initialOrder,
-          // evaluation of baskets
-          evaluationOrder: this.props.thankyou.first,
-          // NB: evaluation grade comes from the survey!
-          // survey, if filled
-          // includes evaluation and personal data
-          survey: this.props.state.form.lol ? this.props.state.form.lol.values : null,
-          // log of phases
-          log: this.props.state.home.log,
+  constructor (...args) {
+    super(...args)
+    this.gatherSubmitInfo = this.gatherSubmitInfo.bind(this)
+  }
 
-          // irrelevant for now
-          reducedBasketLog: this.props.reduce.log,
-          addedBasketLog: this.props.add.log,
-        }
-      } catch (e) {
-        console.log(e)
-        return {
-          'result': 'no data'
-        }
+  gatherSubmitInfo () {
+    try {
+      console.log(this.props.state.home.log)
+      return {
+        groupcode: this.props.state.groupcode.groupcode,
+        // result values
+        addedValues: this.props.add.addedValues,
+        reducedValues: this.props.reduce.reducedValues,
+        // which one was first
+        orderOfProcedures: this.props.state.home.first,
+        // locations of initial procedures
+        initialAddOrder: this.props.add.initialOrder,
+        initialReduceOrder: this.props.reduce.initialOrder,
+        // evaluation of baskets
+        evaluationOrder: this.props.thankyou.first,
+        // NB: evaluation grade comes from the survey!
+        // survey, if filled
+        // includes evaluation and personal data
+        survey: this.props.state.form.lol ? this.props.state.form.lol.values : null,
+        // log of phases
+        log: this.props.state.home.log,
+
+        // irrelevant for now
+        reducedBasketLog: this.props.reduce.log,
+        addedBasketLog: this.props.add.log,
+      }
+    } catch (e) {
+      console.log(e)
+      return {
+        'result': 'no data'
       }
     }
+  }
 
-    this.submitInfo = gatherSubmitInfo()
-
-    this.asd = () => {
-      console.log(this.submitInfo)
-      var request = new XMLHttpRequest()
-      request.open('POST', '/api', true)
-      request.setRequestHeader('Content-Type', 'application/json')
-      request.send(JSON.stringify(this.submitInfo))
-      window.location.href = '/'
-    }
+  render () {
     return (
       <div className='formview text-center'>
 
@@ -332,8 +328,14 @@ class Survey extends React.Component {
               style={{ 'float':'right' }}
               bsStyle='success'
               onClick={() => {
-                this.props.addToLog(new Date().getTime(), 'finalSubmit')
-                this.asd()
+                this.props.addToLog(new Date().getTime(), 'finalSubmit').then(() => {
+                  console.log(this.gatherSubmitInfo())
+                  var request = new XMLHttpRequest()
+                  request.open('POST', '/api', true)
+                  request.setRequestHeader('Content-Type', 'application/json')
+                  request.send(JSON.stringify(this.gatherSubmitInfo()))
+                  browserHistory.push('/aftersubmit')
+                })
               }}
             >
               Send survey
