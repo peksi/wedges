@@ -16,10 +16,11 @@ import dia8 from '../assets/carbcut/Dia08.jpg'
 import dia9 from '../assets/carbcut/Dia09.jpg'
 import dia10 from '../assets/carbcut/Dia10.jpg'
 import dia11 from '../assets/carbcut/Dia11.jpg'
+import dia12 from '../assets/carbcut/Dia12.jpg'
 
 export class HomeView extends React.Component {
   render () {
-    const dia = [dia1, dia2, dia3, dia4, dia5, dia6, dia7, dia8, dia9, dia10, dia11]
+    const dia = [dia1, dia2, dia3, dia4, dia5, dia6, dia7, dia8, dia9, dia10, dia11, dia12]
     const currentDia = dia[this.props.page - 1]
     const linkTo = '/'
 
@@ -57,7 +58,7 @@ export class HomeView extends React.Component {
         </p>
       </div>
       : ''}
-        {this.props.page > 0 && this.props.page < 12 // image slides
+        {this.props.page > 0 && this.props.page < 13 // image slides
       ? <div className='diapage'>
         <div className='row'>
           <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
@@ -67,7 +68,7 @@ export class HomeView extends React.Component {
       </div>
       : ''
     }
-        {this.props.page === 12 // lastpage
+        {this.props.page === 13 // lastpage
       ? <div className='page4'>
         <Button className='prev-button btn-primary btn-lg' onClick={() => { this.props.goBack() }}>Previous</Button>
         <Link to={'/groupcode'} className='next-button'>
