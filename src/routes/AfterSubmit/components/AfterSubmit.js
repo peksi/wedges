@@ -3,7 +3,7 @@ import React from 'react'
 export class AfterSubmit extends React.Component {
   render () {
     return (
-      <div>This is a mockup of thankyou page</div>
+      <div>Thank you for participating.</div>
     )
   }
 }

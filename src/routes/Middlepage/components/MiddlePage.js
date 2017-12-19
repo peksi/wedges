@@ -16,8 +16,13 @@
          <Button bsSize='large' bsStyle='primary' style={{'float': 'right'}}> Continue </Button>
        </Link>
        <div className='middlepage' style={{'clear':'both'}}>
+
          <h1>Thank you for completing the first stage.</h1>
+         <p>Now, to relax and refresh your mind take a 2 min break. </p>
+         <p>Please feel free to think of, e.g. other activities you have this week.</p>
+         <br />
          <p>In the second stage we ask you to create the basket using another procedure.</p>
+
        </div>
      </div>
    )
