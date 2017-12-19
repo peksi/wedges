@@ -75,23 +75,26 @@ export class Results extends React.Component {
         toTempRow(item.resultBlob.initialReduceOrder[k])
       }
       toTempRow(item.resultBlob.evaluationOrder)
-      toTempRow(item.resultBlob.survey.basketPreference)
-      toTempRow(item.resultBlob.survey.adding_strategies)
-      toTempRow(item.resultBlob.survey.removing_strategies)
-      toTempRow(item.resultBlob.survey.costs)
-      toTempRow(item.resultBlob.survey.feasibility)
-      toTempRow(item.resultBlob.survey.sustainability)
-      toTempRow(item.resultBlob.survey.balance)
-      toTempRow(item.resultBlob.survey.global_fairness)
-      toTempRow(item.resultBlob.survey.other)
-      toTempRow(item.resultBlob.survey.comments)
-      // personal data
-      toTempRow(item.resultBlob.survey.aboutyou)
-      toTempRow(item.resultBlob.survey.degree)
-      toTempRow(item.resultBlob.survey.occupation)
-      toTempRow(item.resultBlob.survey.nationality)
-      toTempRow(item.resultBlob.survey.age)
-      toTempRow(item.resultBlob.survey.sex)
+      if( item.resultBlob.survey ) {
+        toTempRow(item.resultBlob.survey.basketPreference)
+        toTempRow(item.resultBlob.survey.adding_strategies)
+        toTempRow(item.resultBlob.survey.removing_strategies)
+        toTempRow(item.resultBlob.survey.costs)
+        toTempRow(item.resultBlob.survey.feasibility)
+        toTempRow(item.resultBlob.survey.sustainability)
+        toTempRow(item.resultBlob.survey.balance)
+        toTempRow(item.resultBlob.survey.global_fairness)
+        toTempRow(item.resultBlob.survey.other)
+        toTempRow(item.resultBlob.survey.comments)
+        // personal data
+        toTempRow(item.resultBlob.survey.aboutyou)
+        toTempRow(item.resultBlob.survey.degree)
+        toTempRow(item.resultBlob.survey.occupation)
+        toTempRow(item.resultBlob.survey.nationality)
+        toTempRow(item.resultBlob.survey.age)
+        toTempRow(item.resultBlob.survey.sex)
+      }
+
       // TODO: better logging
       toTempRow((item.resultBlob.log[1][0] - item.resultBlob.log[0][0]) / 1000)
       toTempRow((item.resultBlob.log[2][0] - item.resultBlob.log[1][0]) / 1000)
