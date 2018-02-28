@@ -79,13 +79,14 @@ export class Results extends React.Component {
         toTempRow(item.resultBlob.survey.basketPreference)
         toTempRow(item.resultBlob.survey.adding_strategies)
         toTempRow(item.resultBlob.survey.removing_strategies)
-        toTempRow(item.resultBlob.survey.costs)
-        toTempRow(item.resultBlob.survey.feasibility)
-        toTempRow(item.resultBlob.survey.sustainability)
-        toTempRow(item.resultBlob.survey.balance)
-        toTempRow(item.resultBlob.survey.global_fairness)
-        toTempRow(item.resultBlob.survey.other)
-        toTempRow(item.resultBlob.survey.comments)
+        toTempRow(item.resultBlob.survey.synergies_add)
+        toTempRow(item.resultBlob.survey.costs_add)
+        toTempRow(item.resultBlob.survey.feasibility_add)
+        toTempRow(item.resultBlob.survey.synergies_remove)
+        toTempRow(item.resultBlob.survey.costs_remove)
+        toTempRow(item.resultBlob.survey.feasibility_remove)
+        toTempRow(item.resultBlob.survey.process_and_feelings_add)
+        toTempRow(item.resultBlob.survey.process_and_feelings_remove)
         // personal data
         toTempRow(item.resultBlob.survey.aboutyou)
         toTempRow(item.resultBlob.survey.degree)
@@ -135,7 +136,7 @@ export class Results extends React.Component {
               <th colSpan='15'>Locations of strategies, ADD procedure</th>
               <th colSpan='15'>Locations of strategies, REM procedure</th>
               <th colSpan='2'> Evaluation of baskets</th>
-              <th colSpan='9'> Evaluation of procedures - Scale: 1, very easy/not at all - 5, very difficult/very much </th>
+              <th colSpan='10'> Evaluation of procedures - Scale: 1, very easy/not at all - 5, very difficult/very much </th>
               <th colSpan='6'> Personal data</th>
               <th>Log</th>
 
@@ -181,13 +182,14 @@ export class Results extends React.Component {
               <th>Preferred basket</th>
               <th>adding strategies</th>
               <th>removing strategies</th>
-              <th>costs</th>
-              <th>feasibility</th>
-              <th>sustainability</th>
-              <th>balance</th>
-              <th>global_fairness</th>
-              <th>other</th>
-              <th>comments</th>
+              <th>synergies_add</th>
+              <th>costs_add</th>
+              <th>feasibility_add</th>
+              <th>synergies_remove</th>
+              <th>costs_remove</th>
+              <th>feasibility_remove</th>
+              <th>process_and_feelings_add</th>
+              <th>process_and_feelings_remove</th>
 
               <th>I am</th>
               <th>Highest degree</th>

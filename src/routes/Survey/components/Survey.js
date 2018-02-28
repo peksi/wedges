@@ -89,70 +89,81 @@ class Survey extends React.Component {
                 </div>
               </div>
               <hr />
-
-              <h2>Which perspectives did you consider when creating the baskets?</h2>
+              <h2>In the adding procedure, which of these perspectives did you consider when creating the basket?</h2>
+              <div>
+                <label>The positive and negative interactions or synergies between the strategies</label>
+                <div>
+                  <span className='fieldWrapper'><Field name='synergies_add' component='input' type='radio' value='1' /> not at all </span>
+                  <span className='fieldWrapper'><Field name='synergies_add' component='input' type='radio' value='2' /> somewhat </span>
+                  <span className='fieldWrapper'><Field name='synergies_add' component='input' type='radio' value='3' /> moderately </span>
+                  <span className='fieldWrapper'><Field name='synergies_add' component='input' type='radio' value='4' /> much </span>
+                  <span className='fieldWrapper'><Field name='synergies_add' component='input' type='radio' value='5' /> very much </span>
+                </div>
+              </div>
               <div>
                 <label>Costs</label>
                 <div>
-                  <span className='fieldWrapper'><Field name='costs' component='input' type='radio' value='1' /> not at all </span>
-                  <span className='fieldWrapper'><Field name='costs' component='input' type='radio' value='2' /> somewhat </span>
-                  <span className='fieldWrapper'><Field name='costs' component='input' type='radio' value='3' /> moderately </span>
-                  <span className='fieldWrapper'><Field name='costs' component='input' type='radio' value='4' /> much </span>
-                  <span className='fieldWrapper'><Field name='costs' component='input' type='radio' value='5' /> very much </span>
+                  <span className='fieldWrapper'><Field name='costs_add' component='input' type='radio' value='1' /> not at all </span>
+                  <span className='fieldWrapper'><Field name='costs_add' component='input' type='radio' value='2' /> somewhat </span>
+                  <span className='fieldWrapper'><Field name='costs_add' component='input' type='radio' value='3' /> moderately </span>
+                  <span className='fieldWrapper'><Field name='costs_add' component='input' type='radio' value='4' /> much </span>
+                  <span className='fieldWrapper'><Field name='costs_add' component='input' type='radio' value='5' /> very much </span>
                 </div>
               </div>
               <div>
                 <label>Feasibility</label>
                 <div>
-                  <span className='fieldWrapper'><Field name='feasibility' component='input' type='radio' value='1' /> not at all </span>
-                  <span className='fieldWrapper'><Field name='feasibility' component='input' type='radio' value='2' /> somewhat </span>
-                  <span className='fieldWrapper'><Field name='feasibility' component='input' type='radio' value='3' /> moderately </span>
-                  <span className='fieldWrapper'><Field name='feasibility' component='input' type='radio' value='4' /> much </span>
-                  <span className='fieldWrapper'><Field name='feasibility' component='input' type='radio' value='5' /> very much </span>
+                  <span className='fieldWrapper'><Field name='feasibility_add' component='input' type='radio' value='1' /> not at all </span>
+                  <span className='fieldWrapper'><Field name='feasibility_add' component='input' type='radio' value='2' /> somewhat </span>
+                  <span className='fieldWrapper'><Field name='feasibility_add' component='input' type='radio' value='3' /> moderately </span>
+                  <span className='fieldWrapper'><Field name='feasibility_add' component='input' type='radio' value='4' /> much </span>
+                  <span className='fieldWrapper'><Field name='feasibility_add' component='input' type='radio' value='5' /> very much </span>
+                </div>
+              </div>
+              <h2>In the removing procedure, which of these perspectives did you consider when creating the basket?</h2>
+              <div>
+                <label>The positive and negative interactions or synergies between the strategies</label>
+                <div>
+                  <span className='fieldWrapper'><Field name='synergies_remove' component='input' type='radio' value='1' /> not at all </span>
+                  <span className='fieldWrapper'><Field name='synergies_remove' component='input' type='radio' value='2' /> somewhat </span>
+                  <span className='fieldWrapper'><Field name='synergies_remove' component='input' type='radio' value='3' /> moderately </span>
+                  <span className='fieldWrapper'><Field name='synergies_remove' component='input' type='radio' value='4' /> much </span>
+                  <span className='fieldWrapper'><Field name='synergies_remove' component='input' type='radio' value='5' /> very much </span>
                 </div>
               </div>
               <div>
-                <label>Sustainability</label>
+                <label>Costs</label>
                 <div>
-                  <span className='fieldWrapper'><Field name='sustainability' component='input' type='radio' value='1' /> not at all </span>
-                  <span className='fieldWrapper'><Field name='sustainability' component='input' type='radio' value='2' /> somewhat </span>
-                  <span className='fieldWrapper'><Field name='sustainability' component='input' type='radio' value='3' /> moderately </span>
-                  <span className='fieldWrapper'><Field name='sustainability' component='input' type='radio' value='4' /> much </span>
-                  <span className='fieldWrapper'><Field name='sustainability' component='input' type='radio' value='5' /> very much </span>
+                  <span className='fieldWrapper'><Field name='costs_remove' component='input' type='radio' value='1' /> not at all </span>
+                  <span className='fieldWrapper'><Field name='costs_remove' component='input' type='radio' value='2' /> somewhat </span>
+                  <span className='fieldWrapper'><Field name='costs_remove' component='input' type='radio' value='3' /> moderately </span>
+                  <span className='fieldWrapper'><Field name='costs_remove' component='input' type='radio' value='4' /> much </span>
+                  <span className='fieldWrapper'><Field name='costs_remove' component='input' type='radio' value='5' /> very much </span>
                 </div>
               </div>
               <div>
-                <label>Balance across categories</label>
+                <label>Feasibility</label>
                 <div>
-                  <span className='fieldWrapper'><Field name='balance' component='input' type='radio' value='1' /> not at all </span>
-                  <span className='fieldWrapper'><Field name='balance' component='input' type='radio' value='2' /> somewhat </span>
-                  <span className='fieldWrapper'><Field name='balance' component='input' type='radio' value='3' /> moderately </span>
-                  <span className='fieldWrapper'><Field name='balance' component='input' type='radio' value='4' /> much </span>
-                  <span className='fieldWrapper'><Field name='balance' component='input' type='radio' value='5' /> very much </span>
+                  <span className='fieldWrapper'><Field name='feasibility_remove' component='input' type='radio' value='1' /> not at all </span>
+                  <span className='fieldWrapper'><Field name='feasibility_remove' component='input' type='radio' value='2' /> somewhat </span>
+                  <span className='fieldWrapper'><Field name='feasibility_remove' component='input' type='radio' value='3' /> moderately </span>
+                  <span className='fieldWrapper'><Field name='feasibility_remove' component='input' type='radio' value='4' /> much </span>
+                  <span className='fieldWrapper'><Field name='feasibility_remove' component='input' type='radio' value='5' /> very much </span>
                 </div>
               </div>
+              <hr />
               <div>
-                <label>Global fairness</label>
+                <label>Please try to explain your thought process and feelings when adding strategies into the basket.</label>
                 <div>
-                  <span className='fieldWrapper'><Field name='global_fairness' component='input' type='radio' value='1' /> not at all </span>
-                  <span className='fieldWrapper'><Field name='global_fairness' component='input' type='radio' value='2' /> somewhat </span>
-                  <span className='fieldWrapper'><Field name='global_fairness' component='input' type='radio' value='3' /> moderately </span>
-                  <span className='fieldWrapper'><Field name='global_fairness' component='input' type='radio' value='4' /> much </span>
-                  <span className='fieldWrapper'><Field name='global_fairness' component='input' type='radio' value='5' /> very much </span>
-                </div>
-              </div>
-              <div>
-                <label>Did you have another perspectives? Please list</label>
-                <div>
-                  <Field name='other' component='input' type='text' />
+                  <Field name='process_and_feelings_add' component='input' type='text' size='60' />
                 </div>
               </div>
             </div>
             <hr />
             <div>
-              <label>General comments about the procedures</label>
+              <label>Please try to explain your thought process and feelings when removing strategies from the basket.</label>
               <div>
-                <Field name='comments' component='input' type='text' />
+                <Field name='process_and_feelings_remove' component='input' type='text' size='60' />
               </div>
             </div>
 
