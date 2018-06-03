@@ -97,11 +97,55 @@ export class Results extends React.Component {
       }
 
       // TODO: better logging
-      toTempRow((item.resultBlob.log[1][0] - item.resultBlob.log[0][0]) / 1000)
-      toTempRow((item.resultBlob.log[2][0] - item.resultBlob.log[1][0]) / 1000)
-      toTempRow((item.resultBlob.log[4][0] - item.resultBlob.log[3][0]) / 1000)
-      toTempRow((item.resultBlob.log[6][0] - item.resultBlob.log[4][0]) / 1000)
-      toTempRow((item.resultBlob.log[6][0] - item.resultBlob.log[0][0]) / 1000)
+
+      function findTime (logBlob, item){
+        for (var i = 0; i < logBlob.length; i++) {
+          if (logBlob[i][1] === item){
+            return logBlob[i][0]
+          }
+        }
+      }
+
+      function findFirstNotStart(logBlob){
+        for (var i = 0; i < logBlob.length; i++) {
+          if (logBlob[i][1] !== "start"){
+            return logBlob[i][0]
+          }
+        }
+      }
+
+      function beforeSubmitBasketPreference(logBlob){
+        for (var i = 0; i < logBlob.length; i++) {
+          if (logBlob[i][1] == "submitBasketPreference"){
+            return logBlob[i-1][0]
+          }
+        }
+      }
+
+      const logB = item.resultBlob.log
+
+      toTempRow((findFirstNotStart(logB) - findTime(logB, 'start')) / 1000) // desc
+      toTempRow((findTime(logB, 'addEnd') - findTime(logB, 'add')) / 1000) // add
+      toTempRow((findTime(logB, 'reduceEnd') - findTime(logB, 'reduce')) / 1000) // reduce
+      toTempRow((findTime(logB, 'finalSubmit') - beforeSubmitBasketPreference(logB)) / 1000) //survey
+      toTempRow((findTime(logB, 'finalSubmit') - findTime(logB, 'start')) / 1000) // total
+
+      // toTempRow((item.resultBlob.log[1][0] - item.resultBlob.log[0][0]) / 1000) // desc time
+      // toTempRow((item.resultBlob.log[2][0] - item.resultBlob.log[1][0]) / 1000) // add
+      // toTempRow((item.resultBlob.log[4][0] - item.resultBlob.log[3][0]) / 1000) // reduce
+      // toTempRow((item.resultBlob.log[6][0] - item.resultBlob.log[4][0]) / 1000) // survey
+      // toTempRow((item.resultBlob.log[6][0] - item.resultBlob.log[0][0]) / 1000) // total
+
+      const addedBasketLogObj = item.resultBlob.addedBasketLog
+      const reducedBasketLogObj = item.resultBlob.reducedBasketLog
+
+      function ret2ndValOfArr (arr) {
+        return arr[1]
+      }
+
+      toTempRow((_.groupBy(_.map(addedBasketLogObj, ret2ndValOfArr))).add.length)
+
+      toTempRow((_.groupBy(_.map(reducedBasketLogObj, ret2ndValOfArr))).reduce.length)
 
       // log / time spent
       // toTempRow((item.resultBlob.log[1][0] - item.log[0][0]) / 1000)
@@ -202,6 +246,8 @@ export class Results extends React.Component {
               <th>REM procedure</th>
               <th>Survey</th>
               <th>Total time spent</th>
+              <th>Add basket movements</th>
+              <th>Reduce basket movements</th>
             </tr>
           </thead>
           <tbody id='tbody'>
