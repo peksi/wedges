@@ -273,6 +273,9 @@ export class Results extends React.Component {
 
       // log / time spent
       // toTempRow((item.resultBlob.log[1][0] - item.log[0][0]) / 1000)
+
+      toTempRow(_.map(addedBasketLogObj, i => [" " + i[2] + "_" + i[1]]));
+      toTempRow(_.map(reducedBasketLogObj, i => [" " + i[2] + "_" + i[1]]));
       tempRow += "</tr>";
     });
 
@@ -373,6 +376,8 @@ export class Results extends React.Component {
               <th>Total time spent</th>
               <th>Add basket movements</th>
               <th>Reduce basket movements</th>
+              <th>Add basket movement log</th>
+              <th>Reduce basket movement log</th>
             </tr>
           </thead>
           <tbody id="tbody"></tbody>
