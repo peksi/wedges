@@ -6,6 +6,8 @@ A project for SAL lab in Aalto. Currently available at https://carbcut.aalto.fi/
 
 The project has been done 2017 in node version 6 that is not maintained and React v.15 ( hookless, class based approach). Motivation for sharing this repository is mainly to review and replicate the current setup. 
 
+Carbcut experiment data is available as a .xlsx file in the repository. [Carbcut_experiment_data_110423.xlsx](./Carbcut_experiment_data_110423.xlsx)
+
 ## Setup
 
 * `git clone`
